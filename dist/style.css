@@ -20,3 +20,5 @@ h1 .big-name{letter-spacing:-.035em}.hero-copy{display:flex;flex-direction:colum
 .schedule-row>span:last-child .icon{width:12px;height:12px;vertical-align:-.15em;margin:0 3px}
 nav a{white-space:nowrap}
 @media(max-width:700px){.small-cta{display:none}.header-actions{flex-shrink:0}.brand{flex-shrink:0}.text-link{font-size:10px;letter-spacing:.4px}.copy-address{font-size:10px;gap:10px}.schedule-row{grid-template-columns:minmax(0,1fr) auto;column-gap:16px}.schedule-row>span:last-child{font-size:10px;letter-spacing:0;line-height:1.8}.schedule-row strong{font-size:32px}}
+/* Restore the original light, tilted Google rating card. */
+.rating{background:var(--ink);color:var(--bg);transform:rotate(5deg);border:0;box-shadow:4px 4px 0 #000}
