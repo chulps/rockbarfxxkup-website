@@ -55,7 +55,24 @@ const translations={
     "About a 4-minute walk from Susukino Station": "스스키노역에서 도보 약 4분",
     "MON / WED": "월 / 수",
     "FRI / SAT": "금 / 토",
-    "VIEW MENU ↗": "메뉴 보기 ↗"
+    "VIEW MENU ↗": "메뉴 보기 ↗",
+    "ON GOOGLE MAPS ↗": "GOOGLE 지도에서 ↗",
+    "¥500 cover charge · One drink minimum": "커버 차지 ¥500 · 1인 1잔 주문",
+    "Japanese whisky. Scotch with character.<br>Cocktails with a personal touch.<br>Ask us what’s pouring tonight.": "일본 위스키. 개성 있는 스카치.<br>취향을 담은 칵테일.<br>오늘의 추천을 물어보세요.",
+    "THE JAPANESE SHELF": "일본 위스키 셀렉션",
+    "A LITTLE SMOKE": "은은한 스모키 향",
+    "MIX IT UP": "취향대로 한 잔",
+    "Tell us your mood. We’ll take it from there.": "기분과 취향을 알려주세요. 나머지는 저희에게 맡기세요.",
+    "A COLD ONE": "시원한 한 잔",
+    "CHECK TONIGHT’S UPDATES ↗": "오늘 밤 소식 확인 ↗",
+    "6F, No. 3 Asahi Kanko Building<br>5-chome 21-3, Minami 5 Jonishi<br>Chuo-ku, Sapporo, Hokkaido 064-0805": "제3아사히관광빌딩 6층<br>미나미5조니시 5초메 21-3<br>홋카이도 삿포로시 주오구 064-0805",
+    "Mon & Wed   21:00–03:00<br>Tue / Thu / Fri / Sat / Sun   21:00–04:00": "월 / 수 21:00–03:00<br>화 / 목 / 금 / 토 / 일 21:00–04:00",
+    "Look for FxxK Up on the 6th floor.<br>Questions before you visit? Say hi on <a class=\"inline-instagram\" href=\"https://www.instagram.com/rockbar_fxxkup/\" target=\"_blank\" rel=\"noopener\">@rockbar_fxxkup ↗</a>.": "6층의 FxxK Up을 찾아주세요.<br>방문 전 궁금한 점은 Instagram <a class=\"inline-instagram\" href=\"https://www.instagram.com/rockbar_fxxkup/\" target=\"_blank\" rel=\"noopener\">@rockbar_fxxkup ↗</a>으로 편하게 문의해 주세요.",
+    "SEE YOU<br>AT THE BAR<span class='accent'>.</span>": "바에서<br>만나요<span class='accent'>.</span>",
+    "THE BAR / NEWS & UPDATES": "바 / 소식과 안내",
+    "CHUCK / BEHIND THE BAR": "CHUCK / 바 뒤편",
+    "BACK TO TOP ↑": "맨 위로 ↑",
+    "GET DIRECTIONS ↗": "길찾기 ↗"
   },
   "th": {
     "The bar": "เกี่ยวกับบาร์",
@@ -103,7 +120,24 @@ const translations={
     "About a 4-minute walk from Susukino Station": "เดินจากสถานีซูซูกิโนะประมาณ 4 นาที",
     "MON / WED": "จ. / พ.",
     "FRI / SAT": "ศ. / ส.",
-    "VIEW MENU ↗": "ดูเมนู ↗"
+    "VIEW MENU ↗": "ดูเมนู ↗",
+    "ON GOOGLE MAPS ↗": "บน GOOGLE MAPS ↗",
+    "¥500 cover charge · One drink minimum": "ค่าบริการ ¥500 · สั่งเครื่องดื่มอย่างน้อย 1 แก้ว",
+    "Japanese whisky. Scotch with character.<br>Cocktails with a personal touch.<br>Ask us what’s pouring tonight.": "วิสกี้ญี่ปุ่น สก๊อตช์ที่มีเอกลักษณ์<br>ค็อกเทลที่ใส่ใจทุกรายละเอียด<br>ถามเราได้เลยว่าคืนนี้มีอะไรแนะนำ",
+    "THE JAPANESE SHELF": "ชั้นวิสกี้ญี่ปุ่น",
+    "A LITTLE SMOKE": "กลิ่นควันสักนิด",
+    "MIX IT UP": "ผสมตามใจ",
+    "Tell us your mood. We’ll take it from there.": "บอกอารมณ์และรสชาติที่ชอบ แล้วให้เราจัดให้",
+    "A COLD ONE": "เย็นชื่นใจสักแก้ว",
+    "CHECK TONIGHT’S UPDATES ↗": "ดูข่าวสารคืนนี้ ↗",
+    "6F, No. 3 Asahi Kanko Building<br>5-chome 21-3, Minami 5 Jonishi<br>Chuo-ku, Sapporo, Hokkaido 064-0805": "ชั้น 6 อาคารอาซาฮิคังโค หมายเลข 3<br>มินามิ 5 โจนิชิ 5 โจเมะ 21-3<br>เขตชูโอ ซัปโปโร ฮอกไกโด 064-0805",
+    "Mon & Wed   21:00–03:00<br>Tue / Thu / Fri / Sat / Sun   21:00–04:00": "จ. / พ. 21:00–03:00<br>อ. / พฤ. / ศ. / ส. / อา. 21:00–04:00",
+    "Look for FxxK Up on the 6th floor.<br>Questions before you visit? Say hi on <a class=\"inline-instagram\" href=\"https://www.instagram.com/rockbar_fxxkup/\" target=\"_blank\" rel=\"noopener\">@rockbar_fxxkup ↗</a>.": "มองหา FxxK Up ที่ชั้น 6<br>มีคำถามก่อนมาไหม? ทัก Instagram <a class=\"inline-instagram\" href=\"https://www.instagram.com/rockbar_fxxkup/\" target=\"_blank\" rel=\"noopener\">@rockbar_fxxkup ↗</a> ได้เลย",
+    "SEE YOU<br>AT THE BAR<span class='accent'>.</span>": "แล้วพบกัน<br>ที่บาร์<span class='accent'>.</span>",
+    "THE BAR / NEWS & UPDATES": "บาร์ / ข่าวสารและอัปเดต",
+    "CHUCK / BEHIND THE BAR": "CHUCK / หลังบาร์",
+    "BACK TO TOP ↑": "กลับด้านบน ↑",
+    "GET DIRECTIONS ↗": "ดูเส้นทาง ↗"
   },
   "zh-Hans": {
     "The bar": "酒吧介绍",
@@ -151,14 +185,31 @@ const translations={
     "About a 4-minute walk from Susukino Station": "从薄野站步行约4分钟",
     "MON / WED": "周一 / 周三",
     "FRI / SAT": "周五 / 周六",
-    "VIEW MENU ↗": "查看菜单 ↗"
+    "VIEW MENU ↗": "查看菜单 ↗",
+    "ON GOOGLE MAPS ↗": "在 GOOGLE 地图上 ↗",
+    "¥500 cover charge · One drink minimum": "入场费 ¥500 · 每人至少点一杯",
+    "Japanese whisky. Scotch with character.<br>Cocktails with a personal touch.<br>Ask us what’s pouring tonight.": "日本威士忌，个性鲜明的苏格兰威士忌。<br>用心调制的鸡尾酒。<br>问问我们今晚有什么推荐。",
+    "THE JAPANESE SHELF": "日本威士忌酒藏",
+    "A LITTLE SMOKE": "一缕烟熏",
+    "MIX IT UP": "来杯特调",
+    "Tell us your mood. We’ll take it from there.": "告诉我们你的心情和口味，剩下的交给我们。",
+    "A COLD ONE": "冰爽一杯",
+    "CHECK TONIGHT’S UPDATES ↗": "查看今晚动态 ↗",
+    "6F, No. 3 Asahi Kanko Building<br>5-chome 21-3, Minami 5 Jonishi<br>Chuo-ku, Sapporo, Hokkaido 064-0805": "第3旭观光大楼6楼<br>南5条西5丁目21-3<br>北海道札幌市中央区 064-0805",
+    "Mon & Wed   21:00–03:00<br>Tue / Thu / Fri / Sat / Sun   21:00–04:00": "周一 / 周三 21:00–03:00<br>周二 / 周四 / 周五 / 周六 / 周日 21:00–04:00",
+    "Look for FxxK Up on the 6th floor.<br>Questions before you visit? Say hi on <a class=\"inline-instagram\" href=\"https://www.instagram.com/rockbar_fxxkup/\" target=\"_blank\" rel=\"noopener\">@rockbar_fxxkup ↗</a>.": "请到6楼寻找 FxxK Up。<br>来之前有问题？欢迎通过 Instagram <a class=\"inline-instagram\" href=\"https://www.instagram.com/rockbar_fxxkup/\" target=\"_blank\" rel=\"noopener\">@rockbar_fxxkup ↗</a> 联系我们。",
+    "SEE YOU<br>AT THE BAR<span class='accent'>.</span>": "今晚<br>吧台见<span class='accent'>。</span>",
+    "THE BAR / NEWS & UPDATES": "酒吧 / 新闻与动态",
+    "CHUCK / BEHIND THE BAR": "CHUCK / 吧台日常",
+    "BACK TO TOP ↑": "返回顶部 ↑",
+    "GET DIRECTIONS ↗": "查看路线 ↗"
   }
 };
 const languageNames={en:'EN',ja:'JP',ko:'한국어',th:'ไทย','zh-Hans':'中文'};
 const languageOrder=['en','ja','ko','th','zh-Hans'];
 function languageFromNavigator(){const locale=(navigator.language||'en').toLowerCase();if(locale.startsWith('ja'))return 'ja';if(locale.startsWith('ko'))return 'ko';if(locale.startsWith('th'))return 'th';if(locale.startsWith('zh'))return 'zh-Hans';return 'en';}
-function setLanguage(next,save=true){if(save&&(next==='en'||next==='ja')){const route=next==='ja'?'/ja/':'/';if(location.pathname!==route){location.assign(route+location.hash);return;}}language=next;document.documentElement.lang=next==='zh-Hans'?'zh-Hans':next;document.querySelectorAll('[data-en][data-ja]').forEach(el=>{const source=el.dataset.en;el.innerHTML=next==='en'?source:(translations[next]?.[source]??(next==='ja'?el.dataset.ja:source));});toggle.innerHTML=`${languageNames[next]} <span>↔</span>`;toggle.setAttribute('aria-label',next==='en'?'Change language':'Change language');copyStatus.textContent='';if(save){try{localStorage.setItem('fxxkup-language',next)}catch{}}if(carouselReady)updatePhotoLabels();refineIcons();}
-const pageLanguage=location.pathname.startsWith('/ja/')?'ja':'en';
+function setLanguage(next,save=true){if(save){const route=next==='en'?'/':next==='zh-Hans'?'/zh-hans/':'/'+next+'/';if(location.pathname!==route){location.assign(route+location.hash);return;}}language=next;document.documentElement.lang=next==='zh-Hans'?'zh-Hans':next;document.querySelectorAll('[data-en][data-ja]').forEach(el=>{const source=el.dataset.en;el.innerHTML=next==='en'?source:(translations[next]?.[source]??(next==='ja'?el.dataset.ja:source));});toggle.innerHTML=`${languageNames[next]} <span>↔</span>`;toggle.setAttribute('aria-label',next==='en'?'Change language':'Change language');copyStatus.textContent='';if(save){try{localStorage.setItem('fxxkup-language',next)}catch{}}if(carouselReady)updatePhotoLabels();refineIcons();}
+const pageLanguage=({'ja':'ja','ko':'ko','th':'th','zh-hans':'zh-Hans'})[location.pathname.split('/')[1]]||'en';
 let initialLanguage=pageLanguage;
 setLanguage(initialLanguage,false);
 toggle.addEventListener('click',()=>setLanguage(languageOrder[(languageOrder.indexOf(language)+1)%languageOrder.length]));
