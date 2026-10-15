@@ -2,6 +2,7 @@ from pathlib import Path
 from lxml import html, etree
 from PIL import Image,ImageOps
 import json,copy
+from io import BytesIO
 ROOT=Path(__file__).resolve().parents[1];D=ROOT/'dist';ORIGIN='https://www.rockbarfxxkup.com'
 meta={
 'en':('Rock Bar FxxK Up | Rock & Whisky in Susukino, Sapporo','Rock, whisky and a warm welcome in Susukino, Sapporo. Open from 21:00, about 4 minutes from Susukino Station. View our menu and find us on the 6th floor.'),
@@ -16,8 +17,32 @@ locales={'en':'en_US','ja':'ja_JP','ko':'ko_KR','th':'th_TH','zh-Hans':'zh_CN'}
 base=html.document_fromstring((ROOT/'source/index.html').read_text())
 # Use one real photograph for link previews, sized for social cards.
 im=ImageOps.exif_transpose(Image.open(D/'assets/neon-sign.jpg')).convert('RGB');ImageOps.fit(im,(1200,630)).save(D/'assets/neon-social-preview.jpg',quality=88,optimize=True)
+# Responsive WebP derivatives preserve originals for metadata and future edits.
+image_variants={}
+for image_path in (D/'assets').glob('*.jpg'):
+ if image_path.stem in ['social-preview','neon-social-preview','logo']:continue
+ image=ImageOps.exif_transpose(Image.open(image_path)).convert('RGB')
+ widths=sorted(set([min(w,image.width) for w in [400,720,1108,image.width]]))
+ variants=[]
+ for width in widths:
+  target=D/'assets'/f'{image_path.stem}-{width}.webp'
+  resized=image.resize((width,round(image.height*width/image.width)),Image.Resampling.LANCZOS)
+  buffer=BytesIO();resized.save(buffer,'WEBP',quality=82,method=6);target.write_bytes(buffer.getvalue())
+  variants.append((width,'/assets/'+target.name))
+ image_variants[image_path.name]=variants
 for code in meta:
  doc=copy.deepcopy(base);doc.set('lang',code);head=doc.find('head')
+ # Inline the small site stylesheet; font CSS is nonblocking and locale-specific.
+ for link in head.xpath('link[@rel="stylesheet"]'):
+  if link.get('href') in ['style.css','/style.css']:head.remove(link)
+  elif 'fonts.googleapis.com' in link.get('href',''):
+   families='family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600;700'
+   if code=='ja':families+='&family=Noto+Sans+JP:wght@400;600;800'
+   href='https://fonts.googleapis.com/css2?'+families+'&display=swap'
+   link.set('href',href);link.set('rel','preload');link.set('as','style');link.set('onload',"this.onload=null;this.rel='stylesheet'")
+   fallback=etree.SubElement(head,'noscript');etree.SubElement(fallback,'link',rel='stylesheet',href=href)
+ style=etree.SubElement(head,'style');style.text=(D/'style.css').read_text()
+
  labels={
  'en':['Language','Website language','Inside FxxK Up','Previous photo','Next photo','Skip to content','Main navigation','Choose a photo','Filter drinks'],
  'ja':['言語','表示言語','FxxK Upの店内','前の写真','次の写真','本文へ移動','メインナビゲーション','写真を選ぶ','ドリンクの絞り込み'],
@@ -67,6 +92,12 @@ for code in meta:
   src=el.get('src','');path=D/src.lstrip('/')
   if path.suffix.lower() in ['.jpg','.jpeg','.png'] and path.exists():
    w,h=Image.open(path).size;el.set('width',str(w));el.set('height',str(h));el.set('decoding','async')
+   if path.name in image_variants:
+    variants=image_variants[path.name]
+    el.set('src',variants[-1][1]);el.set('srcset',', '.join(f'{url} {width}w' for width,url in variants))
+    is_hero='hero-photo' in el.getparent().get('class','')
+    el.set('sizes','(max-width: 700px) 100vw, 44vw' if is_hero else '(max-width: 374px) 88vw, (max-width: 700px) 42vw, (max-width: 1100px) 44vw, 21vw')
+
  # Actual links expose the two fully translated pages to crawlers and visitors.
  nav=etree.SubElement(doc.find('body'),'nav',{'class':'language-links','aria-label':'Website languages'})
  for lang,label in [('en','English'),('ja','日本語'),('ko','한국어'),('th','ไทย'),('zh-Hans','简体中文')]:etree.SubElement(nav,'a',href=urls[lang],hreflang=lang,lang=lang).text=label
