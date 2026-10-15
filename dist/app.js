@@ -52,7 +52,9 @@ const translations={
     "Questions before you visit? Say hi on <a class=\"inline-instagram\" href=\"https://www.instagram.com/rockbar_fxxkup/\" target=\"_blank\" rel=\"noopener\">@rockbar_fxxkup ↗</a>.": "방문 전에 궁금한 점이 있으면 Instagram <a class=\"inline-instagram\" href=\"https://www.instagram.com/rockbar_fxxkup/\" target=\"_blank\" rel=\"noopener\">@rockbar_fxxkup ↗</a>으로 문의해 주세요.",
     "Local regulars, first-time visitors, solo explorers. Wherever you’re from, whatever language you speak, you’re welcome here.": "단골도, 처음 오신 분도, 혼자 오신 분도. 어디에서 오셨든, 어떤 언어를 쓰시든 편하게 들러 주세요.",
     "PRINTED MENUS: ENGLISH / 日本語 / 한국어 / ไทย": "인쇄 메뉴: 영어 / 일본어 / 한국어 / 태국어",
-    "About a 4-minute walk from Susukino Station": "스스키노역에서 도보 약 4분"
+    "About a 4-minute walk from Susukino Station": "스스키노역에서 도보 약 4분",
+    "MON / WED": "월 / 수",
+    "FRI / SAT": "금 / 토"
   },
   "th": {
     "The bar": "เกี่ยวกับบาร์",
@@ -97,7 +99,9 @@ const translations={
     "Questions before you visit? Say hi on <a class=\"inline-instagram\" href=\"https://www.instagram.com/rockbar_fxxkup/\" target=\"_blank\" rel=\"noopener\">@rockbar_fxxkup ↗</a>.": "มีข้อสงสัยก่อนมาไหม? ทัก Instagram <a class=\"inline-instagram\" href=\"https://www.instagram.com/rockbar_fxxkup/\" target=\"_blank\" rel=\"noopener\">@rockbar_fxxkup ↗</a> ได้เลย",
     "Local regulars, first-time visitors, solo explorers. Wherever you’re from, whatever language you speak, you’re welcome here.": "ไม่ว่าจะเป็นลูกค้าประจำ มาเป็นครั้งแรก หรือมาคนเดียว ไม่ว่าคุณจะมาจากที่ไหนหรือพูดภาษาอะไร ที่นี่ก็ยินดีต้อนรับเสมอ",
     "PRINTED MENUS: ENGLISH / 日本語 / 한국어 / ไทย": "เมนูเล่ม: อังกฤษ / ญี่ปุ่น / เกาหลี / ไทย",
-    "About a 4-minute walk from Susukino Station": "เดินจากสถานีซูซูกิโนะประมาณ 4 นาที"
+    "About a 4-minute walk from Susukino Station": "เดินจากสถานีซูซูกิโนะประมาณ 4 นาที",
+    "MON / WED": "จ. / พ.",
+    "FRI / SAT": "ศ. / ส."
   },
   "zh-Hans": {
     "The bar": "酒吧介绍",
@@ -142,7 +146,9 @@ const translations={
     "Questions before you visit? Say hi on <a class=\"inline-instagram\" href=\"https://www.instagram.com/rockbar_fxxkup/\" target=\"_blank\" rel=\"noopener\">@rockbar_fxxkup ↗</a>.": "来之前有问题？欢迎在 Instagram 上联系 <a class=\"inline-instagram\" href=\"https://www.instagram.com/rockbar_fxxkup/\" target=\"_blank\" rel=\"noopener\">@rockbar_fxxkup ↗</a>。",
     "Local regulars, first-time visitors, solo explorers. Wherever you’re from, whatever language you speak, you’re welcome here.": "无论是本地常客、初次到访，还是独自旅行，不管你来自哪里、说什么语言，这里都欢迎你。",
     "PRINTED MENUS: ENGLISH / 日本語 / 한국어 / ไทย": "纸质菜单：英语 / 日语 / 韩语 / 泰语",
-    "About a 4-minute walk from Susukino Station": "从薄野站步行约4分钟"
+    "About a 4-minute walk from Susukino Station": "从薄野站步行约4分钟",
+    "MON / WED": "周一 / 周三",
+    "FRI / SAT": "周五 / 周六"
   }
 };
 const languageNames={en:'EN',ja:'JP',ko:'한국어',th:'ไทย','zh-Hans':'中文'};
