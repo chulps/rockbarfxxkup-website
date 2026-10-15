@@ -15,9 +15,25 @@ translations=json.loads((ROOT/'source/translations.json').read_text())
 locales={'en':'en_US','ja':'ja_JP','ko':'ko_KR','th':'th_TH','zh-Hans':'zh_CN'}
 base=html.document_fromstring((ROOT/'source/index.html').read_text())
 # Use one real photograph for link previews, sized for social cards.
-im=ImageOps.exif_transpose(Image.open(D/'assets/bottle-wall.jpg')).convert('RGB');ImageOps.fit(im,(1200,630)).save(D/'assets/social-preview.jpg',quality=88,optimize=True)
+im=ImageOps.exif_transpose(Image.open(D/'assets/neon-sign.jpg')).convert('RGB');ImageOps.fit(im,(1200,630)).save(D/'assets/neon-social-preview.jpg',quality=88,optimize=True)
 for code in meta:
  doc=copy.deepcopy(base);doc.set('lang',code);head=doc.find('head')
+ labels={
+ 'en':['Language','Website language','Inside FxxK Up','Previous photo','Next photo','Skip to content','Main navigation','Choose a photo','Filter drinks'],
+ 'ja':['言語','表示言語','FxxK Upの店内','前の写真','次の写真','本文へ移動','メインナビゲーション','写真を選ぶ','ドリンクの絞り込み'],
+ 'ko':['언어','웹사이트 언어','FxxK Up 내부','이전 사진','다음 사진','본문으로 이동','주 메뉴','사진 선택','음료 필터'],
+ 'th':['ภาษา','ภาษาของเว็บไซต์','ภายใน FxxK Up','ภาพก่อนหน้า','ภาพถัดไป','ข้ามไปยังเนื้อหา','เมนูหลัก','เลือกภาพ','กรองเครื่องดื่ม'],
+ 'zh-Hans':['语言','网站语言','FxxK Up 店内','上一张','下一张','跳至正文','主导航','选择照片','筛选饮品']}[code]
+ doc.get_element_by_id('language').text=labels[0]
+ doc.xpath('//*[@class="language-options"]')[0].set('aria-label',labels[1])
+ for a in doc.xpath('//*[@data-language]'):
+  if a.get('data-language')==code:a.set('aria-current','page')
+ for el in doc.xpath('//*[@aria-label]'):
+  original=el.get('aria-label')
+  mapping=dict(zip(['Inside FxxK Up','Previous photo','Next photo','Main navigation','Choose a photo','Filter drinks'],[labels[2],labels[3],labels[4],labels[6],labels[7],labels[8]]))
+  if original in mapping:el.set('aria-label',mapping[original])
+ doc.xpath('//*[@class="skip"]')[0].text=labels[5]
+
  for el in head.xpath('title|meta[@name="description"]|meta[starts-with(@property,"og:")]|meta[starts-with(@name,"twitter:")]|link[@rel="canonical"]|link[@rel="alternate"]'):head.remove(el)
  def tag(tag_name,**attrs):el=etree.SubElement(head,tag_name);el.attrib.update(attrs);return el
  title,desc=meta[code];tag('title').text=title
@@ -26,10 +42,10 @@ for code in meta:
  tag('link',rel='canonical',href=urls[code])
  for lang,url in urls.items():tag('link',rel='alternate',hreflang=lang,href=url)
  tag('link',rel='alternate',hreflang='x-default',href=urls['en'])
- for key,val in {'type':'website','site_name':'Rock Bar FxxK Up','title':title,'description':desc,'url':urls[code],'locale':locales[code],'image':ORIGIN+'/assets/social-preview.jpg','image:secure_url':ORIGIN+'/assets/social-preview.jpg','image:width':'1200','image:height':'630','image:type':'image/jpeg','image:alt':'Whisky bottles behind the counter at Rock Bar FxxK Up, Sapporo'}.items():tag('meta',property='og:'+key,content=val)
+ for key,val in {'type':'website','site_name':'Rock Bar FxxK Up','title':title,'description':desc,'url':urls[code],'locale':locales[code],'image':ORIGIN+'/assets/neon-social-preview.jpg','image:secure_url':ORIGIN+'/assets/neon-social-preview.jpg','image:width':'1200','image:height':'630','image:type':'image/jpeg','image:alt':'Red FxxK Up neon sign at the bar in Sapporo'}.items():tag('meta',property='og:'+key,content=val)
  for other in meta:
   if other!=code:tag('meta',property='og:locale:alternate',content=locales[other])
- for key,val in {'card':'summary_large_image','title':title,'description':desc,'image':ORIGIN+'/assets/social-preview.jpg','image:alt':'Whisky bottles at Rock Bar FxxK Up in Susukino, Sapporo'}.items():tag('meta',name='twitter:'+key,content=val)
+ for key,val in {'card':'summary_large_image','title':title,'description':desc,'image':ORIGIN+'/assets/neon-social-preview.jpg','image:alt':'Red FxxK Up neon sign in Susukino, Sapporo'}.items():tag('meta',name='twitter:'+key,content=val)
  tag('link',rel='manifest',href='/site.webmanifest');tag('link',rel='apple-touch-icon',href='/assets/apple-touch-icon.png')
  if code!='en':
   for el in doc.xpath('//*[@data-ja]'):
