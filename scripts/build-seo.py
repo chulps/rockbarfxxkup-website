@@ -22,7 +22,7 @@ image_variants={}
 for image_path in (D/'assets').glob('*.jpg'):
  if image_path.stem in ['social-preview','neon-social-preview','logo']:continue
  image=ImageOps.exif_transpose(Image.open(image_path)).convert('RGB')
- widths=sorted(set([min(w,image.width) for w in [400,720,1108,image.width]]))
+ widths=sorted(set([min(w,image.width) for w in [400,720,768,960,1108,image.width]]))
  variants=[]
  for width in widths:
   target=D/'assets'/f'{image_path.stem}-{width}.webp'

@@ -220,9 +220,9 @@ document.getElementById('copy-address').addEventListener('click',async()=>{const
 document.getElementById('year').textContent=new Intl.DateTimeFormat('en',{year:'numeric',timeZone:'Asia/Tokyo'}).format(new Date());
 
 const heroPhotos=[
- {src:'/assets/neon-sign.jpg',widths:[400, 720, 1108],alt:'The red FxxK Up neon sign glowing inside the bar',en:'IN THE RED',ja:'赤いネオン',ko:'붉은 네온',th:'แสงนีออนสีแดง','zh-Hans':'红色霓虹'},
+ {src:'/assets/neon-sign.jpg',widths:[400, 720, 768, 960, 1108],alt:'The red FxxK Up neon sign glowing inside the bar',en:'IN THE RED',ja:'赤いネオン',ko:'붉은 네온',th:'แสงนีออนสีแดง','zh-Hans':'红色霓虹'},
  {src:'/assets/bar.jpg',widths:[361],alt:'Chuck behind the counter, surrounded by whisky bottles under red lights',en:'BEHIND THE BAR',ja:'カウンターの向こう側',ko:'바 뒤편',th:'หลังบาร์','zh-Hans':'吧台一景'},
- {src:'/assets/bottle-wall.jpg',widths:[400, 720, 1108, 1651],alt:'The whisky and spirits collection behind the bar under red and blue lights',en:'THE BACK BAR',ja:'カウンターの酒棚',ko:'바의 주류 컬렉션',th:'ชั้นขวดหลังบาร์','zh-Hans':'吧台酒藏'},
+ {src:'/assets/bottle-wall.jpg',widths:[400, 720, 768, 960, 1108, 1651],alt:'The whisky and spirits collection behind the bar under red and blue lights',en:'THE BACK BAR',ja:'カウンターの酒棚',ko:'바의 주류 컬렉션',th:'ชั้นขวดหลังบาร์','zh-Hans':'吧台酒藏'},
  {src:'/assets/japanese-whisky.jpg',widths:[400, 480],alt:'Yamazaki, Hibiki and Hakushu bottles in the glowing bar',en:'THE JAPANESE SHELF',ja:'ジャパニーズウイスキー',ko:'일본 위스키',th:'วิสกี้ญี่ปุ่น','zh-Hans':'日本威士忌'},
  {src:'/assets/bruichladdich.jpg',widths:[400, 640],alt:'Bruichladdich Old Skool single malt photographed at FxxK Up',en:'A CLOSER LOOK',ja:'こだわりの一本',ko:'한 잔의 디테일',th:'อีกมุมของบาร์','zh-Hans':'细品一杯'}
 ];
