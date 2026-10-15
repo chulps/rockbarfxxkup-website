@@ -49,10 +49,10 @@ a:focus-visible,button:focus-visible{outline-color:var(--acid)}
 @media(max-width:1000px){.staff-schedule{grid-template-columns:80px minmax(0,1fr);gap:16px}.staff-hours>div{display:grid;gap:2px}.staff-schedule>strong{font-size:30px}}
 @media(max-width:700px){.staff-schedule{grid-template-columns:85px minmax(0,1fr);gap:20px;padding:22px 0}.staff-hours>div{display:flex;gap:4px 12px}.staff-hours .day{font-size:9px}.staff-hours .hours{font-size:11px}}
 @media(max-width:374px){.staff-schedule{grid-template-columns:70px minmax(0,1fr);gap:16px}.staff-hours>div{display:grid}}
-/* Monochrome photography throughout the hero carousel. */
-.hero-photo>img{filter:grayscale(1) brightness(.85)}
+/* Full-color photography throughout the hero carousel. */
+.hero-photo>img{filter:brightness(.85)}
 /* Tilt the floor number and vector arrow together. */
 .floor{transform:rotate(-7deg);transform-origin:center}
 
-/* Match the drinks photography to the monochrome carousel. */
-.drink-image img{filter:grayscale(1)}
+/* Full-color drinks photography. */
+.drink-image img{filter:none}
