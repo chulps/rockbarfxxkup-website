@@ -38,3 +38,16 @@ nav a{white-space:nowrap}
 a:focus-visible,button:focus-visible{outline-color:var(--acid)}
 .visit a:focus-visible,.visit button:focus-visible{outline-color:var(--ink)}
 @media(max-width:700px){.mobile-bar a:first-child{background:var(--red-surface);color:var(--ink)}}
+
+/* One compact schedule block per bartender. */
+.staff-schedule{display:grid;grid-template-columns:100px minmax(0,1fr);gap:24px;align-items:start;padding:24px 0;border-bottom:1px solid var(--line)}
+.staff-schedule>strong{font-family:var(--display);font-weight:700;font-size:34px;line-height:1}
+.staff-hours{display:grid;gap:14px}
+.staff-hours>div{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px}
+.staff-hours .day{color:var(--acid);font-size:10px;letter-spacing:.8px;line-height:1.7}
+.staff-hours .hours{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap;line-height:1.7}
+@media(max-width:1000px){.staff-schedule{grid-template-columns:80px minmax(0,1fr);gap:16px}.staff-hours>div{display:grid;gap:2px}.staff-schedule>strong{font-size:30px}}
+@media(max-width:700px){.staff-schedule{grid-template-columns:85px minmax(0,1fr);gap:20px;padding:22px 0}.staff-hours>div{display:flex;gap:4px 12px}.staff-hours .day{font-size:9px}.staff-hours .hours{font-size:11px}}
+@media(max-width:374px){.staff-schedule{grid-template-columns:70px minmax(0,1fr);gap:16px}.staff-hours>div{display:grid}}
+/* Monochrome photography throughout the hero carousel. */
+.hero-photo>img{filter:grayscale(1) brightness(.85)}
