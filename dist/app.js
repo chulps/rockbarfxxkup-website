@@ -157,8 +157,9 @@ const translations={
 const languageNames={en:'EN',ja:'JP',ko:'한국어',th:'ไทย','zh-Hans':'中文'};
 const languageOrder=['en','ja','ko','th','zh-Hans'];
 function languageFromNavigator(){const locale=(navigator.language||'en').toLowerCase();if(locale.startsWith('ja'))return 'ja';if(locale.startsWith('ko'))return 'ko';if(locale.startsWith('th'))return 'th';if(locale.startsWith('zh'))return 'zh-Hans';return 'en';}
-function setLanguage(next,save=true){language=next;document.documentElement.lang=next==='zh-Hans'?'zh-Hans':next;document.querySelectorAll('[data-en][data-ja]').forEach(el=>{const source=el.dataset.en;el.innerHTML=next==='en'?source:(translations[next]?.[source]??(next==='ja'?el.dataset.ja:source));});toggle.innerHTML=`${languageNames[next]} <span>↔</span>`;toggle.setAttribute('aria-label',next==='en'?'Change language':'Change language');copyStatus.textContent='';if(save){try{localStorage.setItem('fxxkup-language',next)}catch{}}if(carouselReady)updatePhotoLabels();refineIcons();}
-let initialLanguage=languageFromNavigator();try{initialLanguage=localStorage.getItem('fxxkup-language')||initialLanguage}catch{}
+function setLanguage(next,save=true){if(save&&(next==='en'||next==='ja')){const route=next==='ja'?'/ja/':'/';if(location.pathname!==route){location.assign(route+location.hash);return;}}language=next;document.documentElement.lang=next==='zh-Hans'?'zh-Hans':next;document.querySelectorAll('[data-en][data-ja]').forEach(el=>{const source=el.dataset.en;el.innerHTML=next==='en'?source:(translations[next]?.[source]??(next==='ja'?el.dataset.ja:source));});toggle.innerHTML=`${languageNames[next]} <span>↔</span>`;toggle.setAttribute('aria-label',next==='en'?'Change language':'Change language');copyStatus.textContent='';if(save){try{localStorage.setItem('fxxkup-language',next)}catch{}}if(carouselReady)updatePhotoLabels();refineIcons();}
+const pageLanguage=location.pathname.startsWith('/ja/')?'ja':'en';
+let initialLanguage=pageLanguage;
 setLanguage(initialLanguage,false);
 toggle.addEventListener('click',()=>setLanguage(languageOrder[(languageOrder.indexOf(language)+1)%languageOrder.length]));
 document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',b===button?'true':'false')});document.querySelectorAll('[data-category]').forEach(card=>card.hidden=button.dataset.filter!=='all'&&card.dataset.category!==button.dataset.filter)}));
@@ -166,11 +167,11 @@ document.getElementById('copy-address').addEventListener('click',async()=>{const
 document.getElementById('year').textContent=new Intl.DateTimeFormat('en',{year:'numeric',timeZone:'Asia/Tokyo'}).format(new Date());
 
 const heroPhotos=[
- {src:'assets/bar.jpg',alt:'Chuck behind the counter, surrounded by whisky bottles under red lights',en:'BEHIND THE BAR',ja:'カウンターの向こう側',ko:'바 뒤편',th:'หลังบาร์','zh-Hans':'吧台一景'},
- {src:'assets/neon-sign.jpg',alt:'The red FxxK Up neon sign glowing inside the bar',en:'IN THE RED',ja:'赤いネオン',ko:'붉은 네온',th:'แสงนีออนสีแดง','zh-Hans':'红色霓虹'},
- {src:'assets/bottle-wall.jpg',alt:'The whisky and spirits collection behind the bar under red and blue lights',en:'THE BACK BAR',ja:'カウンターの酒棚',ko:'바의 주류 컬렉션',th:'ชั้นขวดหลังบาร์','zh-Hans':'吧台酒藏'},
- {src:'assets/japanese-whisky.jpg',alt:'Yamazaki, Hibiki and Hakushu bottles in the glowing bar',en:'THE JAPANESE SHELF',ja:'ジャパニーズウイスキー',ko:'일본 위스키',th:'วิสกี้ญี่ปุ่น','zh-Hans':'日本威士忌'},
- {src:'assets/bruichladdich.jpg',alt:'Bruichladdich Old Skool single malt photographed at FxxK Up',en:'A CLOSER LOOK',ja:'こだわりの一本',ko:'한 잔의 디테일',th:'อีกมุมของบาร์','zh-Hans':'细品一杯'}
+ {src:'/assets/bar.jpg',alt:'Chuck behind the counter, surrounded by whisky bottles under red lights',en:'BEHIND THE BAR',ja:'カウンターの向こう側',ko:'바 뒤편',th:'หลังบาร์','zh-Hans':'吧台一景'},
+ {src:'/assets/neon-sign.jpg',alt:'The red FxxK Up neon sign glowing inside the bar',en:'IN THE RED',ja:'赤いネオン',ko:'붉은 네온',th:'แสงนีออนสีแดง','zh-Hans':'红色霓虹'},
+ {src:'/assets/bottle-wall.jpg',alt:'The whisky and spirits collection behind the bar under red and blue lights',en:'THE BACK BAR',ja:'カウンターの酒棚',ko:'바의 주류 컬렉션',th:'ชั้นขวดหลังบาร์','zh-Hans':'吧台酒藏'},
+ {src:'/assets/japanese-whisky.jpg',alt:'Yamazaki, Hibiki and Hakushu bottles in the glowing bar',en:'THE JAPANESE SHELF',ja:'ジャパニーズウイスキー',ko:'일본 위스키',th:'วิสกี้ญี่ปุ่น','zh-Hans':'日本威士忌'},
+ {src:'/assets/bruichladdich.jpg',alt:'Bruichladdich Old Skool single malt photographed at FxxK Up',en:'A CLOSER LOOK',ja:'こだわりの一本',ko:'한 잔의 디테일',th:'อีกมุมของบาร์','zh-Hans':'细品一杯'}
 ];
 const carousel=document.querySelector('.hero-photo'),heroImage=carousel.querySelector('img'),dots=carousel.querySelector('.carousel-dots');let photoIndex=0,autoPlayTimer=null;carouselReady=true;
 heroPhotos.forEach((photo,i)=>{const dot=document.createElement('button');dot.type='button';dot.setAttribute('aria-label',`Show photo ${i+1}: ${photo.en.toLowerCase()}`);dot.setAttribute('aria-pressed',String(i===0));dot.addEventListener('click',()=>showPhoto(i));dots.append(dot);if(i>0){const preload=new Image();preload.src=photo.src;}});
