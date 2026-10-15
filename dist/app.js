@@ -54,7 +54,8 @@ const translations={
     "PRINTED MENUS: ENGLISH / 日本語 / 한국어 / ไทย": "인쇄 메뉴: 영어 / 일본어 / 한국어 / 태국어",
     "About a 4-minute walk from Susukino Station": "스스키노역에서 도보 약 4분",
     "MON / WED": "월 / 수",
-    "FRI / SAT": "금 / 토"
+    "FRI / SAT": "금 / 토",
+    "VIEW MENU ↗": "메뉴 보기 ↗"
   },
   "th": {
     "The bar": "เกี่ยวกับบาร์",
@@ -101,7 +102,8 @@ const translations={
     "PRINTED MENUS: ENGLISH / 日本語 / 한국어 / ไทย": "เมนูเล่ม: อังกฤษ / ญี่ปุ่น / เกาหลี / ไทย",
     "About a 4-minute walk from Susukino Station": "เดินจากสถานีซูซูกิโนะประมาณ 4 นาที",
     "MON / WED": "จ. / พ.",
-    "FRI / SAT": "ศ. / ส."
+    "FRI / SAT": "ศ. / ส.",
+    "VIEW MENU ↗": "ดูเมนู ↗"
   },
   "zh-Hans": {
     "The bar": "酒吧介绍",
@@ -148,7 +150,8 @@ const translations={
     "PRINTED MENUS: ENGLISH / 日本語 / 한국어 / ไทย": "纸质菜单：英语 / 日语 / 韩语 / 泰语",
     "About a 4-minute walk from Susukino Station": "从薄野站步行约4分钟",
     "MON / WED": "周一 / 周三",
-    "FRI / SAT": "周五 / 周六"
+    "FRI / SAT": "周五 / 周六",
+    "VIEW MENU ↗": "查看菜单 ↗"
   }
 };
 const languageNames={en:'EN',ja:'JP',ko:'한국어',th:'ไทย','zh-Hans':'中文'};
