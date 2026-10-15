@@ -1,3 +1,10 @@
+// Inline SVG geometry keeps symbols identical across browsers and language changes.
+const iconPaths = {"↗": "M5 19 19 5M5 5h14v14", "→": "M4 12h16m-7-7 7 7-7 7", "←": "M20 12H4m7-7-7 7 7 7", "↓": "M12 4v16m-7-7 7 7 7-7", "↑": "M12 20V4m-7 7 7-7 7 7", "↔": "M3 8h18m-4-4 4 4-4 4M21 16H3m4-4-4 4 4 4", "⧉": "M9 9h11v12H9zM5 16H3V3h12v2", "★": "m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9Z"};
+function refineIcons(){
+ const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+ const nodes=[];while(walker.nextNode()){const n=walker.currentNode;if(!n.parentElement.closest('script,style,svg')&&[...n.nodeValue].some(c=>iconPaths[c]))nodes.push(n);}
+ nodes.forEach(n=>{const fragment=document.createDocumentFragment();for(const c of n.nodeValue){if(!iconPaths[c]){fragment.append(document.createTextNode(c));continue;}const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('class','icon'+(c==='★'?' icon-star':''));svg.setAttribute('aria-hidden','true');const path=document.createElementNS(svg.namespaceURI,'path');path.setAttribute('d',iconPaths[c]);svg.append(path);fragment.append(svg);}n.replaceWith(fragment);});
+}
 let language='en',carouselReady=false;
 const toggle=document.getElementById('language');
 const copyStatus=document.getElementById('copy-status');
@@ -9,7 +16,7 @@ const translations={
 const languageNames={en:'EN',ja:'JP',ko:'한국어',th:'ไทย','zh-Hans':'中文'};
 const languageOrder=['en','ja','ko','th','zh-Hans'];
 function languageFromNavigator(){const locale=(navigator.language||'en').toLowerCase();if(locale.startsWith('ja'))return 'ja';if(locale.startsWith('ko'))return 'ko';if(locale.startsWith('th'))return 'th';if(locale.startsWith('zh'))return 'zh-Hans';return 'en';}
-function setLanguage(next,save=true){language=next;document.documentElement.lang=next==='zh-Hans'?'zh-Hans':next;document.querySelectorAll('[data-en][data-ja]').forEach(el=>{const source=el.dataset.en;el.innerHTML=next==='en'?source:(translations[next]?.[source]??(next==='ja'?el.dataset.ja:source));});toggle.innerHTML=`${languageNames[next]} <span>↔</span>`;toggle.setAttribute('aria-label',next==='en'?'Change language':'Change language');copyStatus.textContent='';if(save){try{localStorage.setItem('fxxkup-language',next)}catch{}}if(carouselReady)updatePhotoLabels();}
+function setLanguage(next,save=true){language=next;document.documentElement.lang=next==='zh-Hans'?'zh-Hans':next;document.querySelectorAll('[data-en][data-ja]').forEach(el=>{const source=el.dataset.en;el.innerHTML=next==='en'?source:(translations[next]?.[source]??(next==='ja'?el.dataset.ja:source));});toggle.innerHTML=`${languageNames[next]} <span>↔</span>`;toggle.setAttribute('aria-label',next==='en'?'Change language':'Change language');copyStatus.textContent='';if(save){try{localStorage.setItem('fxxkup-language',next)}catch{}}if(carouselReady)updatePhotoLabels();refineIcons();}
 let initialLanguage=languageFromNavigator();try{initialLanguage=localStorage.getItem('fxxkup-language')||initialLanguage}catch{}
 setLanguage(initialLanguage,false);
 toggle.addEventListener('click',()=>setLanguage(languageOrder[(languageOrder.indexOf(language)+1)%languageOrder.length]));
