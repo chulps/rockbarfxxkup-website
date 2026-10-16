@@ -20,6 +20,17 @@ h1 .big-name{letter-spacing:-.035em}.hero-copy{display:flex;flex-direction:colum
 .schedule-row>span:last-child .icon{width:12px;height:12px;vertical-align:-.15em;margin:0 3px}
 nav a{white-space:nowrap}
 @media(max-width:700px){.small-cta{display:none}.header-actions{flex-shrink:0}.brand{flex-shrink:0}.text-link{font-size:10px;letter-spacing:.4px}.copy-address{font-size:10px;gap:10px}.schedule-row{grid-template-columns:minmax(0,1fr) auto;column-gap:16px}.schedule-row>span:last-child{font-size:10px;letter-spacing:0;line-height:1.8}.schedule-row strong{font-size:32px}}
+
+/* Directions button experiment: same shape and destination, with a restrained supporting line in B. */
+.experiment-cta{min-width:240px;min-height:58px;gap:24px}
+.experiment-copy{min-width:0}
+.experiment-copy-b{display:none;flex-direction:column;align-items:flex-start;gap:2px;line-height:1.2}
+.experiment-copy-b .experiment-label{font-size:10px;font-weight:800;letter-spacing:.8px}
+.experiment-note{font-size:9px;font-weight:500;letter-spacing:0;line-height:1.35;opacity:.78}
+.experiment-arrow{display:flex;align-items:center;flex-shrink:0}
+html[data-experiment-variant="B"] .experiment-copy-a{display:none}
+html[data-experiment-variant="B"] .experiment-copy-b{display:flex}
+@media(max-width:700px){.hero-buttons .experiment-cta{max-width:100%;width:max-content}}
 /* Restore the original light, tilted Google rating card. */
 .rating{background:var(--ink);color:var(--bg);transform:rotate(5deg);border:0;box-shadow:4px 4px 0 #000}
 

@@ -64,6 +64,8 @@ for code in meta:
  title,desc=meta[code];tag('title').text=title
  # One GA4 installation per page; disable advertising personalization features.
  tag('script').text="window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JPYT9JRWBT',{allow_google_signals:false,allow_ad_personalization_signals:false});"
+ # Assign a persistent 50/50 variant before the browser paints the CTA.
+ tag('script').text="""(()=>{const id='directions_button_test_2026_10',key='fxxkup_'+id;let variant;try{variant=localStorage.getItem(key)}catch{}if(variant!=='A'&&variant!=='B'){variant=Math.random()<.5?'A':'B';try{localStorage.setItem(key,variant)}catch{}}document.documentElement.dataset.experimentVariant=variant;window.siteExperiment={id,variant}})();"""
  ga=tag('script',src='https://www.googletagmanager.com/gtag/js?id=G-JPYT9JRWBT');ga.set('async','')
  events=tag('script',src='/analytics.js');events.set('defer','')
 
@@ -119,12 +121,14 @@ for code in meta:
   elif href=='#visit':event='find_us_click'
   if event:
    link.set('data-track-event',event)
-   placement='content'
-   for ancestor in link.iterancestors():
-    if 'mobile-bar' in ancestor.get('class','').split():placement='mobile_bar';break
-    if ancestor.tag in ['header','footer']:placement=ancestor.tag;break
-    if ancestor.tag=='section':placement=ancestor.get('id') or 'social';break
-    if 'language-links' in ancestor.get('class','').split():placement='language_links';break
+   placement=link.get('data-track-placement')
+   if not placement:
+    placement='content'
+    for ancestor in link.iterancestors():
+     if 'mobile-bar' in ancestor.get('class','').split():placement='mobile_bar';break
+     if ancestor.tag in ['header','footer']:placement=ancestor.tag;break
+     if ancestor.tag=='section':placement=ancestor.get('id') or 'social';break
+     if 'language-links' in ancestor.get('class','').split():placement='language_links';break
    link.set('data-track-placement',placement)
  schema={'@context':'https://schema.org','@graph':[
  {'@type':'BarOrPub','@id':ORIGIN+'/#bar','name':'Rock Bar FxxK Up','alternateName':['Rock Bar Fxxkup','ロックバー FxxK Up'],'url':ORIGIN+'/','image':[ORIGIN+'/assets/bottle-wall.jpg',ORIGIN+'/assets/neon-sign.jpg'],'logo':ORIGIN+'/assets/logo.svg','telephone':'+81-11-200-9666','address':{'@type':'PostalAddress','streetAddress':'第3旭観光ビル6F, 南5条西5丁目21-3','addressLocality':'札幌市中央区','addressRegion':'北海道','postalCode':'064-0805','addressCountry':'JP'},'hasMenu':'https://chulps.github.io/barticket-frontend/menu','hasMap':'https://maps.app.goo.gl/95hYVdZMdPot4WQy5','sameAs':['https://www.instagram.com/rockbar_fxxkup/'],'openingHoursSpecification':[{'@type':'OpeningHoursSpecification','dayOfWeek':['Monday','Wednesday'],'opens':'21:00','closes':'03:00'},{'@type':'OpeningHoursSpecification','dayOfWeek':['Tuesday','Thursday','Friday','Saturday','Sunday'],'opens':'21:00','closes':'04:00'}]},

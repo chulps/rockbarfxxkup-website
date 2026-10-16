@@ -62,7 +62,8 @@
     "THE BAR / NEWS & UPDATES": "바 / 소식과 안내",
     "CHUCK / BEHIND THE BAR": "CHUCK / 바 뒤편",
     "BACK TO TOP ↑": "맨 위로 ↑",
-    "GET DIRECTIONS ↗": "길찾기 ↗"
+    "GET DIRECTIONS ↗": "길찾기 ↗",
+    "GET DIRECTIONS": "길찾기"
   },
   "th": {
     "The bar": "เกี่ยวกับบาร์",
@@ -127,7 +128,8 @@
     "THE BAR / NEWS & UPDATES": "บาร์ / ข่าวสารและอัปเดต",
     "CHUCK / BEHIND THE BAR": "CHUCK / หลังบาร์",
     "BACK TO TOP ↑": "กลับด้านบน ↑",
-    "GET DIRECTIONS ↗": "ดูเส้นทาง ↗"
+    "GET DIRECTIONS ↗": "ดูเส้นทาง ↗",
+    "GET DIRECTIONS": "นำทาง"
   },
   "zh-Hans": {
     "The bar": "酒吧介绍",
@@ -192,6 +194,7 @@
     "THE BAR / NEWS & UPDATES": "酒吧 / 新闻与动态",
     "CHUCK / BEHIND THE BAR": "CHUCK / 吧台日常",
     "BACK TO TOP ↑": "返回顶部 ↑",
-    "GET DIRECTIONS ↗": "查看路线 ↗"
+    "GET DIRECTIONS ↗": "查看路线 ↗",
+    "GET DIRECTIONS": "开始导航"
   }
 }
