@@ -221,10 +221,11 @@ document.getElementById('year').textContent=new Intl.DateTimeFormat('en',{year:'
 
 const heroPhotos=[
  {src:'/assets/neon-sign.jpg',widths:[400, 720, 768, 960, 1108],alt:'The red FxxK Up neon sign glowing inside the bar',en:'IN THE RED',ja:'赤いネオン',ko:'붉은 네온',th:'แสงนีออนสีแดง','zh-Hans':'红色霓虹'},
- {src:'/assets/bar.jpg',widths:[361],alt:'Chuck behind the counter, surrounded by whisky bottles under red lights',en:'BEHIND THE BAR',ja:'カウンターの向こう側',ko:'바 뒤편',th:'หลังบาร์','zh-Hans':'吧台一景'},
  {src:'/assets/bottle-wall.jpg',widths:[400, 720, 768, 960, 1108, 1651],alt:'The whisky and spirits collection behind the bar under red and blue lights',en:'THE BACK BAR',ja:'カウンターの酒棚',ko:'바의 주류 컬렉션',th:'ชั้นขวดหลังบาร์','zh-Hans':'吧台酒藏'},
  {src:'/assets/japanese-whisky.jpg',widths:[400, 480],alt:'Yamazaki, Hibiki and Hakushu bottles in the glowing bar',en:'THE JAPANESE SHELF',ja:'ジャパニーズウイスキー',ko:'일본 위스키',th:'วิสกี้ญี่ปุ่น','zh-Hans':'日本威士忌'},
- {src:'/assets/bruichladdich.jpg',widths:[400, 640],alt:'Bruichladdich Old Skool single malt photographed at FxxK Up',en:'A CLOSER LOOK',ja:'こだわりの一本',ko:'한 잔의 디테일',th:'อีกมุมของบาร์','zh-Hans':'细品一杯'}
+ {src:'/assets/bruichladdich.jpg',widths:[400, 640],alt:'Bruichladdich Old Skool single malt photographed at FxxK Up',en:'A CLOSER LOOK',ja:'こだわりの一本',ko:'한 잔의 디테일',th:'อีกมุมของบาร์','zh-Hans':'细品一杯'},
+ {src:'/assets/bar-interior.jpg',widths:[400,720,768,960,1108,1200],alt:'The illuminated FxxK Up bar counter with red stools and shelves of whisky',en:'TAKE A SEAT',ja:'カウンターへどうぞ',ko:'편하게 앉으세요',th:'เชิญนั่งที่บาร์','zh-Hans':'吧台入座'},
+ {src:'/assets/whisky-collection.jpg',widths:[400,720,768,960,1108,1706],alt:'Whisky bottles lining the FxxK Up back bar under red and green lights',en:'WHISKY & LOUD GUITARS',ja:'ウイスキーとギター',ko:'위스키와 기타',th:'วิสกี้กับเสียงกีตาร์','zh-Hans':'威士忌与吉他'}
 ];
 const carousel=document.querySelector('.hero-photo'),heroImage=carousel.querySelector('img'),dots=carousel.querySelector('.carousel-dots');let photoIndex=0,autoPlayTimer=null,carouselVisible=false;heroImage.dataset.photo=heroPhotos[0].src;carouselReady=true;
 heroPhotos.forEach((photo,i)=>{const dot=document.createElement('button');dot.type='button';dot.setAttribute('aria-label',`Show photo ${i+1}: ${photo.en.toLowerCase()}`);dot.setAttribute('aria-pressed',String(i===0));dot.addEventListener('click',()=>showPhoto(i));dots.append(dot);});
