@@ -63,7 +63,11 @@
     "CHUCK / BEHIND THE BAR": "CHUCK / 바 뒤편",
     "BACK TO TOP ↑": "맨 위로 ↑",
     "GET DIRECTIONS ↗": "길찾기 ↗",
-    "GET DIRECTIONS": "길찾기"
+    "GET DIRECTIONS": "길찾기",
+    "LET’S<br>TALK<span class='accent'>.</span>": "이야기<br>나눠요",
+    "Planning a visit? Questions or bookings? Message us on Instagram.": "방문 계획, 질문 또는 예약이 있나요? Instagram으로 메시지를 보내 주세요.",
+    "THE BAR / OFFICIAL INSTAGRAM": "바 / 공식 INSTAGRAM",
+    "CHUCK / MANAGER": "CHUCK / 매니저"
   },
   "th": {
     "The bar": "เกี่ยวกับบาร์",
@@ -129,7 +133,11 @@
     "CHUCK / BEHIND THE BAR": "CHUCK / หลังบาร์",
     "BACK TO TOP ↑": "กลับด้านบน ↑",
     "GET DIRECTIONS ↗": "ดูเส้นทาง ↗",
-    "GET DIRECTIONS": "นำทาง"
+    "GET DIRECTIONS": "นำทาง",
+    "LET’S<br>TALK<span class='accent'>.</span>": "มาคุย<br>กัน",
+    "Planning a visit? Questions or bookings? Message us on Instagram.": "วางแผนมาเที่ยว มีคำถาม หรือต้องการจอง? ส่งข้อความหาเราทาง Instagram",
+    "THE BAR / OFFICIAL INSTAGRAM": "บาร์ / INSTAGRAM ทางการ",
+    "CHUCK / MANAGER": "CHUCK / ผู้จัดการ"
   },
   "zh-Hans": {
     "The bar": "酒吧介绍",
@@ -195,6 +203,10 @@
     "CHUCK / BEHIND THE BAR": "CHUCK / 吧台日常",
     "BACK TO TOP ↑": "返回顶部 ↑",
     "GET DIRECTIONS ↗": "查看路线 ↗",
-    "GET DIRECTIONS": "开始导航"
+    "GET DIRECTIONS": "开始导航",
+    "LET’S<br>TALK<span class='accent'>.</span>": "联系<br>我们",
+    "Planning a visit? Questions or bookings? Message us on Instagram.": "准备来玩？有问题或想预约？欢迎通过 Instagram 联系我们。",
+    "THE BAR / OFFICIAL INSTAGRAM": "酒吧 / 官方 INSTAGRAM",
+    "CHUCK / MANAGER": "CHUCK / 店长"
   }
 }

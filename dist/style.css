@@ -97,3 +97,9 @@ html:not([lang=en]) .chips .song-request-callout{font-family:var(--body);font-si
 @keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(max-width:700px){.ticker-group{gap:28px;padding-right:28px}}
 @media(prefers-reduced-motion:reduce){.ticker>.ticker-track{animation:none}}
+
+/* Independent footer contact test; A remains the default without JavaScript. */
+.footer-copy-b{display:none}
+html[data-footer-variant="B"] .footer-copy-a{display:none}
+html[data-footer-variant="B"] .footer-copy-b{display:block}
+.footer-contact-prompt{max-width:34ch;margin-top:20px;color:var(--muted);font-size:15px;line-height:1.6}

@@ -66,6 +66,8 @@ for code in meta:
  tag('script').text="window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JPYT9JRWBT',{allow_google_signals:false,allow_ad_personalization_signals:false});"
  # Assign a persistent 50/50 variant before the browser paints the CTA.
  tag('script').text="""(()=>{const id='directions_button_test_2026_10',key='fxxkup_'+id;let variant;try{variant=localStorage.getItem(key)}catch{}if(variant!=='A'&&variant!=='B'){variant=Math.random()<.5?'A':'B';try{localStorage.setItem(key,variant)}catch{}}document.documentElement.dataset.experimentVariant=variant;window.siteExperiment={id,variant}})();"""
+ # Independent assignment; never change the existing directions experiment key.
+ tag('script').text="""(()=>{const id='footer_contact_test_2026_10',key='fxxkup_'+id;let variant;try{variant=localStorage.getItem(key)}catch{}if(variant!=='A'&&variant!=='B'){variant=Math.random()<.5?'A':'B';try{localStorage.setItem(key,variant)}catch{}}document.documentElement.dataset.footerVariant=variant;window.footerExperiment={id,variant}})();"""
  ga=tag('script',src='https://www.googletagmanager.com/gtag/js?id=G-JPYT9JRWBT');ga.set('async','')
  events=tag('script',src='/analytics.js');events.set('defer','')
 
@@ -117,7 +119,9 @@ for code in meta:
   elif href=='https://chulps.github.io/barticket-frontend/menu':event='menu_open'
   elif href.startswith('tel:'):event='phone_click'
   elif 'maps.app.goo.gl/' in href:event='google_reviews_click' if 'rating' in classes else 'directions_click'
-  elif 'instagram.com/' in href:event='instagram_click'
+  elif 'instagram.com/' in href:
+   event='instagram_click'
+   link.set('data-track-destination','chuck' if '/chakkufxxkupu/' in href else 'bar')
   elif href=='#visit':event='find_us_click'
   if event:
    link.set('data-track-event',event)
