@@ -28,8 +28,8 @@ nav a{white-space:nowrap}
 .experiment-copy-b .experiment-label{font-size:10px;font-weight:800;letter-spacing:.8px}
 .experiment-note{font-size:9px;font-weight:500;letter-spacing:0;line-height:1.35;opacity:.78}
 .experiment-arrow{display:flex;align-items:center;flex-shrink:0}
-html[data-experiment-variant="B"] .experiment-copy-a{display:none}
-html[data-experiment-variant="B"] .experiment-copy-b{display:flex}
+html[data-directions-version="B"] .experiment-copy-a{display:none}
+html[data-directions-version="B"] .experiment-copy-b{display:flex}
 @media(max-width:700px){.hero-buttons .experiment-cta{max-width:100%;width:max-content}}
 /* Restore the original light, tilted Google rating card. */
 .rating{background:var(--ink);color:var(--bg);transform:rotate(5deg);border:0;box-shadow:4px 4px 0 #000}
@@ -100,6 +100,6 @@ html:not([lang=en]) .chips .song-request-callout{font-family:var(--body);font-si
 
 /* Independent footer contact test; A remains the default without JavaScript. */
 .footer-copy-b{display:none}
-html[data-footer-variant="B"] .footer-copy-a{display:none}
-html[data-footer-variant="B"] .footer-copy-b{display:block}
+html[data-footer-version="B"] .footer-copy-a{display:none}
+html[data-footer-version="B"] .footer-copy-b{display:block}
 .footer-contact-prompt{max-width:34ch;margin-top:20px;color:var(--muted);font-size:15px;line-height:1.6}

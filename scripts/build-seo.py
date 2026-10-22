@@ -13,6 +13,7 @@ meta.update({
 'zh-Hans':('Rock Bar FxxK Up｜札幌薄野摇滚与威士忌酒吧','札幌薄野的摇滚与威士忌酒吧，距薄野站步行约4分钟。每晚21:00营业，位于第3旭观光大楼6楼。查看菜单、营业时间和路线。')})
 urls={code:ORIGIN+('/' if code=='en' else '/'+code.lower()+'/') for code in meta}
 translations=json.loads((ROOT/'source/translations.json').read_text())
+experiments=json.loads((ROOT/'source/experiments.json').read_text())
 locales={'en':'en_US','ja':'ja_JP','ko':'ko_KR','th':'th_TH','zh-Hans':'zh_CN'}
 base=html.document_fromstring((ROOT/'source/index.html').read_text())
 # Use one real photograph for link previews, sized for social cards.
@@ -64,10 +65,13 @@ for code in meta:
  title,desc=meta[code];tag('title').text=title
  # One GA4 installation per page; disable advertising personalization features.
  tag('script').text="window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JPYT9JRWBT',{allow_google_signals:false,allow_ad_personalization_signals:false});"
- # Assign a persistent 50/50 variant before the browser paints the CTA.
- tag('script').text="""(()=>{const id='directions_button_test_2026_10',key='fxxkup_'+id;let variant;try{variant=localStorage.getItem(key)}catch{}if(variant!=='A'&&variant!=='B'){variant=Math.random()<.5?'A':'B';try{localStorage.setItem(key,variant)}catch{}}document.documentElement.dataset.experimentVariant=variant;window.siteExperiment={id,variant}})();"""
- # Independent assignment; never change the existing directions experiment key.
- tag('script').text="""(()=>{const id='footer_contact_test_2026_10',key='fxxkup_'+id;let variant;try{variant=localStorage.getItem(key)}catch{}if(variant!=='A'&&variant!=='B'){variant=Math.random()<.5?'A':'B';try{localStorage.setItem(key,variant)}catch{}}document.documentElement.dataset.footerVariant=variant;window.footerExperiment={id,variant}})();"""
+ # Previous winners are static HTML. Preserve old browser keys and GA4 history,
+ # but do not assign or emit new exposure events for either retired test.
+ # The independent next test stays disabled until a separately approved launch.
+ tag('script').text='window.FXXKUP_EXPERIMENT_CONFIG='+json.dumps(experiments,ensure_ascii=False).replace('</','<\\/')+';'
+ # Inline this tiny gate so a disabled future test adds no blocking request.
+ module=tag('script');module.set('data-site-module','experiments')
+ module.text=(D/'experiments.js').read_text().replace('</','<\\/')
  ga=tag('script',src='https://www.googletagmanager.com/gtag/js?id=G-JPYT9JRWBT');ga.set('async','')
  events=tag('script',src='/analytics.js');events.set('defer','')
 
