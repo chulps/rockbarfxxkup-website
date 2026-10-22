@@ -10,15 +10,15 @@ Recovered published v26, commit `cb5c17e6758df33097b4795c8a4a2159457481d5`, on 2
 - GA4 history and definitions are not deleted or changed. Retired test IDs no longer receive `experiment_view` or `experiment_id` traffic, preserving a clean historical experiment period.
 - Action names remain `directions_click`, `instagram_click`, `phone_click`, `menu_open`, `find_us_click`, `google_reviews_click`, and `language_select`. Existing placement/language fields remain. Clicks retain destination and URL; rolled-out actions additionally carry `rollout_id` and `rollout_variant: B` rather than masquerading as randomized experiment observations.
 
-## Prepared, NOT LAUNCHED
+## Confidence test — launch authorized 22 October 2026
 
-Config: `source/experiments.json`, `firstVisit.enabled: false`.
+Config: `source/experiments.json`, `firstVisit.enabled: true`.
 
 ID: `first_visit_confidence_2026_10_v1`.
 
 Key: `fxxkup_first_visit_confidence_2026_10_v1`.
 
-The disabled setting prevents assignment, storage writes, hero changes, exposure events and new experiment attribution. URL parameters cannot override it. Do not set it to true or publish an enabled build without separate launch authorization.
+The owner authorized launching this test on 22 October 2026. This release enables assignment, localized challenger copy, exposure events and click attribution. URL parameters cannot force an arm or change the launch setting. Setting enabled back to false pauses enrollment and attribution without deleting assignments or historical events.
 
 ### Hypothesis and arms
 
@@ -32,7 +32,7 @@ The hypothesis is that a clearer promise about music, whisky and a friendly welc
 
 ### Enrollment and exposure when launched
 
-This is a test of first-visit confidence, not a restriction to first-time GA4 users. All eligible human visitors can enroll once the launch is approved.
+This is a test of first-visit confidence, not a restriction to first-time GA4 users. All eligible human visitors can enroll in the enabled release.
 
 - 50/50 random assignment stored in localStorage. The same assignment follows language-route navigation on the same origin and subsequent visits in that browser.
 - As with the existing site's browser storage, www and apex origins have separate storage, and different browsers/devices are separate assignments. Use the site's canonical origin consistently.
@@ -58,13 +58,13 @@ In Explore, establish exposed-user segments or a closed funnel from `experiment_
 
 Before launch, agree on the minimum detectable effect and required sample size from the new baseline. Run across complete weekly cycles, inspect assignment imbalance and exclude identified QA/internal activity. Do not choose a winner from a handful of clicks or repeated early peeks. Directions clicks measure intent, not confirmed arrivals or revenue.
 
-### Launch procedure, for a later approved task
+### Release and reporting checklist
 
-1. Review localized challenger renderings and confirm GA4 custom dimensions/report definitions.
-2. Choose the analysis window, sample target and QA-exclusion method.
-3. Set only `firstVisit.enabled` to true; rebuild all locale pages.
+1. Review localized challenger renderings. GA4 report configuration must be verified separately if its UI is unavailable.
+2. Compare complete weekly cycles; inspect assignment balance and QA/internal activity before interpreting results. Agree on a sample target before declaring a winner.
+3. The approved release sets only `firstVisit.enabled` to true and rebuilds all locale pages.
 4. Run regression checks and isolated browser checks for both arms. Do not add a public query-string force-variant switch.
-5. Publish the enabled release, record its version/time and verify real GA4 delivery with marked test traffic.
+5. Publish the enabled release and record its version/time. Distinguish local payload verification from confirmation in GA4 Realtime/DebugView. On this launch attempt the GA4 property UI returned request errors and remained loading, so a saved Explore report and GA4 ingestion confirmation remain pending; website enrollment does not depend on that UI.
 
 Emergency pause: set `enabled` back to false, rebuild and publish. Leave assignment keys and historical GA4 events intact. Changing the challenger meaningfully should use a new ID and key.
 

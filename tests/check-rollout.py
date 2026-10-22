@@ -6,7 +6,7 @@ BASE='cb5c17e6758df33097b4795c8a4a2159457481d5'
 def byclass(doc,name): return doc.xpath('//*[contains(concat(" ",normalize-space(@class)," ")," '+name+' ")]')
 def text(el): return ' '.join(el.text_content().split())
 config=json.loads((ROOT/'source/experiments.json').read_text())
-assert config['firstVisit']['enabled'] is False
+assert config['firstVisit']['enabled'] is True
 assert not (ROOT/'dist/__qa__').exists(), 'Temporary QA fixtures must never be packaged'
 for lang,path in [('en','index.html'),('ja','ja/index.html'),('ko','ko/index.html'),('th','th/index.html'),('zh-Hans','zh-hans/index.html')]:
  old=html.fromstring(subprocess.check_output(['git','show',f'{BASE}:dist/{path}'],cwd=ROOT).decode())
@@ -26,5 +26,5 @@ for lang,path in [('en','index.html'),('ja','ja/index.html'),('ko','ko/index.htm
  assert gate.index('config.enabled !== true') < gate.index('localStorage')
  assert new.xpath('//script[@data-site-module="experiments"]')
  assert new.xpath('//script[@src="/analytics.js"]')
- assert 'first_visit_confidence_2026_10_v1' in raw and '"enabled": false' in raw
-print('PASS: all 5 static B pages match v26 B copy, original hero control, information, destinations and action tracking; new test disabled.')
+ assert 'first_visit_confidence_2026_10_v1' in raw and '"enabled": true' in raw
+print('PASS: all 5 static B pages match v26 B copy, original hero control, information, destinations and action tracking; confidence test enabled.')

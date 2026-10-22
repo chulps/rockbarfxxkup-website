@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const runtime = readFileSync('dist/experiments.js', 'utf8');
 const analytics = readFileSync('dist/analytics.js', 'utf8');
 const shippedConfig = JSON.parse(readFileSync('source/experiments.json', 'utf8'));
-assert.equal(shippedConfig.firstVisit.enabled, false, 'the new test must not launch');
+assert.equal(shippedConfig.firstVisit.enabled, true, 'the approved confidence test must be enabled');
 assert.equal(shippedConfig.firstVisit.allocation, .5);
 assert.equal(shippedConfig.firstVisit.copy.en.headline, 'Your music. Your whisky. Your night.');
 assert.equal(shippedConfig.firstVisit.copy.en.supporting, 'Song requests welcome. Great whisky, rock music, and a friendly place to spend your night in Susukino.');

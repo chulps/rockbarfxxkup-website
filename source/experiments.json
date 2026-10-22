@@ -1,7 +1,7 @@
 {
   "firstVisit": {
     "id": "first_visit_confidence_2026_10_v1",
-    "enabled": false,
+    "enabled": true,
     "allocation": 0.5,
     "storageKey": "fxxkup_first_visit_confidence_2026_10_v1",
     "copy": {
