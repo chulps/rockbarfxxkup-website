@@ -4,8 +4,12 @@ import subprocess
 ROOT=Path(__file__).resolve().parents[1]
 BASE='1a1c106b8eba6fc99d6b2c642123dfdbcd036224'
 D=ROOT/'dist'
-for path in ['dist/analytics.js','dist/experiments.js','dist/app.js','source/experiments.json']:
+for path in ['dist/analytics.js','dist/experiments.js','source/experiments.json']:
  assert (ROOT/path).read_bytes()==subprocess.check_output(['git','show',f'{BASE}:{path}'],cwd=ROOT),path
+# Only approved localized tax-inclusive wording may change in the app translation table.
+old_app=subprocess.check_output(['git','show',f'{BASE}:dist/app.js'],cwd=ROOT).decode()
+for before,after in {'¥500 cover charge': '¥500 cover charge (tax included)', 'チャージ ¥500': 'チャージ ¥500（税込）', '커버 차지 ¥500': '커버 차지 ¥500 (세금 포함)', 'ค่าบริการ ¥500': 'ค่าบริการ ¥500 (รวมภาษี)', '入场费 ¥500': '入场费 ¥500（含税）'}.items():old_app=old_app.replace(before,after)
+assert (D/'app.js').read_text()==old_app
 notices=[('ja','お酒は20歳になってから。飲酒運転は法律で禁止されています。'),('en','Alcohol is for ages 20 and over. Never drink and drive.')]
 paths=['index.html','ja/index.html','ko/index.html','th/index.html','zh-hans/index.html','privacy/index.html']
 for path in paths:
@@ -29,4 +33,4 @@ assert len(policy.xpath('//h1'))==1
 assert policy.xpath('//title/text()') and policy.xpath('//meta[@name="description"]/@content')
 locs=etree.parse(str(D/'sitemap.xml')).xpath('//*[local-name()="loc"]/text()')
 assert len(locs)==6 and len(set(locs))==6 and 'https://www.rockbarfxxkup.com/privacy/' in locs
-print('PASS: 6 pages have bilingual notices, linked policy, one GA4 install; policy metadata and sitemap valid; tracking/runtime/config unchanged byte-for-byte from v28.')
+print('PASS: 6 pages have bilingual notices, linked policy, one GA4 install; policy metadata and sitemap valid; tracking/config unchanged; app changes limited to approved tax-inclusive copy.')

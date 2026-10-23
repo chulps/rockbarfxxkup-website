@@ -22,7 +22,7 @@ Scope: production v28 source 1a1c106b8eba6fc99d6b2c642123dfdbcd036224. Informati
 
 ## Owner checks still needed
 
-1. Confirm ¥500 is the total tax-inclusive cover charge and that the one-drink minimum has no unmentioned exceptions. Do not add 税込 or change prices until confirmed.
+1. **Resolved 24 October 2026:** owner confirmed ¥500 is the final tax-inclusive cover charge, with no additional fee added to that charge. Both published mentions now explicitly say tax included in all five languages. The one-drink minimum remains unchanged. This confirmation applies to the cover charge; external menu tax treatment remains unconfirmed.
 2. Public external menu has a Japanese Nikka Extra Marriage entry at **¥0**, while a separate English item lists 15 ml ¥1,200 / 30 ml ¥2,300. Also has **Custom cocktail (adjust price)** at ¥1,000 with an adjustment note. Confirm actual price/conditions and tax-inclusive totals in that app. Main website publishes no drink-package, extension or exclusion terms to verify. If such offers are advertised later, state final totals, duration, extension rules and exclusions clearly.
 3. Confirm the legal proprietor/entity and representative (if a company), and the operational handling/retention/safeguards for phone/Instagram inquiries. The policy uses the verified trading name, existing store address and public contact channels; no corporate registration or private contact details invented. APPI retained-personal-data operator details must be available as applicable, including on request where allowed.
 4. GA4 contractual/data-sharing/overseas safeguard arrangements and provider log retention cannot be established from front-end code alone. Verify actual arrangements where personal data provision rules apply. The policy does not assert all data are anonymous or that a notice itself supplies consent.
@@ -51,3 +51,7 @@ This audit implements verifiable website improvements; unresolved business facts
 - No site JavaScript console errors observed; Chrome extension metadata errors are outside the site. No physical iPhone/Safari session was available; responsive checks used cloud Chrome.
 - GA4 files and experiment configuration are unchanged byte-for-byte from v28; no GA4 administration settings, conversion names or historical data changed.
 - Temporary QA fixtures removed before packaging.
+
+## Follow-up — 24 October 2026
+
+Owner confirmed the cover charge includes tax with no additional fee added after ¥500. Added explicit localized tax-inclusive wording to both cover-charge mentions in EN/JA/KO/TH/zh-Hans, including the app translation dictionary. Price, drink minimum, destinations, analytics and experiments unchanged.

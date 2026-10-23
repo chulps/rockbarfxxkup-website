@@ -9,7 +9,10 @@ config=json.loads((ROOT/'source/experiments.json').read_text())
 assert config['firstVisit']['enabled'] is True
 assert not (ROOT/'dist/__qa__').exists(), 'Temporary QA fixtures must never be packaged'
 for lang,path in [('en','index.html'),('ja','ja/index.html'),('ko','ko/index.html'),('th','th/index.html'),('zh-Hans','zh-hans/index.html')]:
- old=html.fromstring(subprocess.check_output(['git','show',f'{BASE}:dist/{path}'],cwd=ROOT).decode())
+ old_raw=subprocess.check_output(['git','show',f'{BASE}:dist/{path}'],cwd=ROOT).decode()
+ # Owner-confirmed tax-inclusive charge is the only approved copy difference.
+ for before,after in {'¥500 cover charge': '¥500 cover charge (tax included)', 'チャージ ¥500': 'チャージ ¥500（税込）', '커버 차지 ¥500': '커버 차지 ¥500 (세금 포함)', 'ค่าบริการ ¥500': 'ค่าบริการ ¥500 (รวมภาษี)', '入场费 ¥500': '入场费 ¥500（含税）'}.items():old_raw=old_raw.replace(before,after)
+ old=html.fromstring(old_raw)
  new=html.fromstring((ROOT/'dist'/path).read_text())
  assert new.get('data-directions-version')=='B' and new.get('data-footer-version')=='B'
  assert not byclass(new,'experiment-copy-a') and not byclass(new,'footer-copy-a')
