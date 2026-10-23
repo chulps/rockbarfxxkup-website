@@ -50,6 +50,7 @@ for code in meta:
  'ko':['언어','웹사이트 언어','FxxK Up 내부','이전 사진','다음 사진','본문으로 이동','주 메뉴','사진 선택','음료 필터'],
  'th':['ภาษา','ภาษาของเว็บไซต์','ภายใน FxxK Up','ภาพก่อนหน้า','ภาพถัดไป','ข้ามไปยังเนื้อหา','เมนูหลัก','เลือกภาพ','กรองเครื่องดื่ม'],
  'zh-Hans':['语言','网站语言','FxxK Up 店内','上一张','下一张','跳至正文','主导航','选择照片','筛选饮品']}[code]
+ for link in doc.xpath('//a[contains(concat(" ",normalize-space(@class)," ")," privacy-link ")]'):link.set('href','/privacy/#'+('ja' if code=='ja' else 'en'))
  doc.get_element_by_id('language').text=labels[0]
  doc.xpath('//*[@class="language-options"]')[0].set('aria-label',labels[1])
  for a in doc.xpath('//*[@data-language]'):
@@ -144,11 +145,34 @@ for code in meta:
  {'@type':'WebPage','@id':urls[code]+'#webpage','url':urls[code],'name':title,'description':desc,'inLanguage':code,'isPartOf':{'@id':ORIGIN+'/#website'},'about':{'@id':ORIGIN+'/#bar'}}]}
  tag('script',type='application/ld+json').text=json.dumps(schema,ensure_ascii=False).replace('</','<\\/')
  out=D/(code.lower()+'/index.html') if code!='en' else D/'index.html';out.parent.mkdir(exist_ok=True);out.write_text('<!doctype html>\n'+html.tostring(doc,encoding='unicode',method='html'))
+# One bilingual policy document, with no experiment assignment or exposure.
+policy=html.document_fromstring('<!doctype html><html lang="ja"><head></head><body class="privacy-page"></body></html>')
+policy_head=policy.find('head')
+home=html.document_fromstring((D/'ja/index.html').read_text())
+for el in home.find('head'):
+ if el.tag=='script':
+  if el.get('src') and ('googletagmanager.com/gtag/js' in el.get('src') or el.get('src')=='/analytics.js'):policy_head.append(copy.deepcopy(el))
+  elif not el.get('src') and "gtag('config'" in (el.text or ''):policy_head.append(copy.deepcopy(el))
+ elif el.tag in ['meta','link','title','style','noscript']:
+  if el.tag=='title' or el.get('name') in ['description','robots'] or (el.get('property') or '').startswith('og:') or (el.get('name') or '').startswith('twitter:') or el.get('rel') in ['canonical','alternate']:continue
+  policy_head.append(copy.deepcopy(el))
+policy_title='プライバシーポリシー / Privacy policy | Rock Bar FxxK Up'
+policy_desc='Rock Bar FxxK Upのプライバシーポリシー。Privacy information about analytics, cookies, your choices and contacting the bar in Sapporo.'
+etree.SubElement(policy_head,'title').text=policy_title
+etree.SubElement(policy_head,'meta',name='description',content=policy_desc)
+etree.SubElement(policy_head,'meta',name='robots',content='index,follow,max-image-preview:large')
+etree.SubElement(policy_head,'link',rel='canonical',href=ORIGIN+'/privacy/')
+for key,value in {'type':'website','site_name':'Rock Bar FxxK Up','title':policy_title,'description':policy_desc,'url':ORIGIN+'/privacy/','image':ORIGIN+'/assets/neon-social-preview.jpg'}.items():etree.SubElement(policy_head,'meta',property='og:'+key,content=value)
+for key,value in {'card':'summary_large_image','title':policy_title,'description':policy_desc,'image':ORIGIN+'/assets/neon-social-preview.jpg'}.items():etree.SubElement(policy_head,'meta',name='twitter:'+key,content=value)
+etree.SubElement(policy_head,'script',type='application/ld+json').text=json.dumps({'@context':'https://schema.org','@type':'WebPage','@id':ORIGIN+'/privacy/#webpage','url':ORIGIN+'/privacy/','name':policy_title,'description':policy_desc,'inLanguage':['ja','en'],'isPartOf':{'@id':ORIGIN+'/#website'}},ensure_ascii=False)
+for fragment in html.fragments_fromstring((ROOT/'source/privacy.html').read_text()):policy.find('body').append(fragment)
+(D/'privacy').mkdir(exist_ok=True)
+(D/'privacy/index.html').write_text('<!doctype html>\n'+html.tostring(policy,encoding='unicode',method='html'))
 (D/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: '+ORIGIN+'/sitemap.xml\n')
 ns='http://www.sitemaps.org/schemas/sitemap/0.9';root=etree.Element('{'+ns+'}urlset',nsmap={None:ns})
-for url in urls.values():el=etree.SubElement(root,'{'+ns+'}url');etree.SubElement(el,'{'+ns+'}loc').text=url
+for url in [*urls.values(),ORIGIN+'/privacy/']:el=etree.SubElement(root,'{'+ns+'}url');etree.SubElement(el,'{'+ns+'}loc').text=url
 (D/'sitemap.xml').write_bytes(etree.tostring(root,xml_declaration=True,encoding='UTF-8',pretty_print=True))
 (D/'site.webmanifest').write_text(json.dumps({'name':'Rock Bar FxxK Up — Sapporo','short_name':'FxxK Up','start_url':'/','display':'browser','background_color':'#161414','theme_color':'#161414','icons':[{'src':'/assets/apple-touch-icon.png','sizes':'180x180','type':'image/png'}]}))
 # Use the existing logo, preserving the established brand.
 logo=Image.open(D/'assets/logo.jpg').convert('RGB');ImageOps.pad(logo,(180,180),color='#161414').save(D/'assets/apple-touch-icon.png')
-print('Built all five language pages, metadata, structured data, robots, sitemap, social image and icon.')
+print('Built all five language pages, metadata, structured data, bilingual privacy policy, robots, sitemap, social image and icon.')

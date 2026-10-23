@@ -15,7 +15,7 @@ for lang,path in [('en','index.html'),('ja','ja/index.html'),('ko','ko/index.htm
  assert not byclass(new,'experiment-copy-a') and not byclass(new,'footer-copy-a')
  assert text(byclass(old,'experiment-copy-b')[0])==text(byclass(new,'experiment-copy-b')[0])
  assert [text(e) for e in byclass(old,'footer-copy-b')]==[text(e) for e in byclass(new,'footer-copy-b')]
- assert sorted(old.xpath('//a/@href'))==sorted(new.xpath('//a/@href'))
+ assert sorted(old.xpath('//a/@href'))==sorted(href for href in new.xpath('//a/@href') if not href.startswith('/privacy/'))
  for section in ['hero-line','hero-desc','about','drinks','nights','visit','social-links']:
   assert [text(e) for e in byclass(old,section)]==[text(e) for e in byclass(new,section)],(lang,section)
  for a in new.xpath('//a[contains(@href,"maps.app.goo.gl") or contains(@href,"instagram.com") or starts-with(@href,"tel:")]'):
