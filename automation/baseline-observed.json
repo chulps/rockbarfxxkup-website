@@ -1,0 +1,44 @@
+{
+  "observed_at_japan": "2026-10-27",
+  "method": "Read authenticated Chrome report DOM; manually transcribed, not an API export. Partial visible rows only. Future scheduled runs must not treat this as current.",
+  "gsc": {
+    "source": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Arockbarfxxkup.com",
+    "selected_range": "3 months",
+    "chart_dates": ["2026-10-14", "2026-10-24"],
+    "clicks": 14,
+    "impressions": 473,
+    "ctr_display": "3%",
+    "position_display": 5.3,
+    "visible_rows": [
+      {"keys":["札幌 レコードバー"],"clicks":1,"impressions":8,"position":6.9},
+      {"keys":["rock bar"],"clicks":1,"impressions":4,"position":6.5},
+      {"keys":["rock bar fxxk up sapporo"],"clicks":1,"impressions":3,"position":13.3},
+      {"keys":["札幌ミュージックバー"],"clicks":1,"impressions":3,"position":16.7},
+      {"keys":["rockbar"],"clicks":1,"impressions":1,"position":2.0},
+      {"keys":["邦ロックバー"],"clicks":0,"impressions":12,"position":2.1},
+      {"keys":["ロックバー"],"clicks":0,"impressions":12,"position":2.3},
+      {"keys":["札幌 ロックバー"],"clicks":0,"impressions":11,"position":1.0},
+      {"keys":["rock bar fxxk up"],"clicks":0,"impressions":10,"position":5.4},
+      {"keys":["すすきの ロックバー"],"clicks":0,"impressions":9,"position":1.0}
+    ],
+    "query_table_rows": 62
+  },
+  "ga4": {
+    "property_id": "559070143",
+    "measurement_id": "G-JPYT9JRWBT",
+    "period": ["2026-10-11", "2026-10-27"],
+    "partial_current_day": true,
+    "all_channels": {"active_users":193,"sessions":226,"engaged_sessions":83,"key_events":5},
+    "channels": {
+      "Direct":{"sessions":162,"engaged_sessions":40,"key_events":2},
+      "Organic Social":{"sessions":43,"engaged_sessions":28,"key_events":1},
+      "Organic Search":{"sessions":21,"engaged_sessions":15,"key_events":2,"session_key_event_rate_display":"9.52%"}
+    },
+    "browser_language_active_users":{"en":156,"ja":31,"ko":2},
+    "thai": "No Thai row in seven displayed browser-language rows. Does not establish no Thai visitors or no demand.",
+    "event_scoped_dimensions":["experiment_id","experiment_variant","link_destination"],
+    "received_recent_events":["experiment_view","directions_click","instagram_click","find_us_click","menu_open","language_select"],
+    "directions_is_key_event":true,
+    "caveats":"Browser language is not page language or nationality; key events are not physical visits. No visitor-level experiment counts extracted. No causal language comparisons."
+  }
+}

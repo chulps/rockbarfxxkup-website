@@ -1,0 +1,5 @@
+[
+  {"id":"directions_button_test_2026_10","status":"owner_selected_rollout","variant":"B","statistical_winner":"unverified","lesson":"Preserve decision; do not re-randomize retired test."},
+  {"id":"footer_contact_test_2026_10","status":"owner_selected_rollout","variant":"B","statistical_winner":"unverified","lesson":"Preserve decision; distinguish bar Instagram from personal Instagram."},
+  {"id":"first_visit_confidence_2026_10_v1","status":"active_before_pilot","variant":null,"result":"insufficient_evidence","lesson":"Persistent assignment and visibility-based exposure exist; export visitor cohorts before evaluating results."}
+]

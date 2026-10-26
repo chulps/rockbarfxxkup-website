@@ -1,0 +1,13 @@
+{
+  "id": "first_visit_confidence_2026_10_v1",
+  "primary_event": "directions_click",
+  "conversion_hours": 24,
+  "sample_per_arm": 2400,
+  "minimum_absolute_lift": 0.01,
+  "min_days": 14,
+  "elapsed_days": 0,
+  "preregistered": false,
+  "guardrails_reviewed": false,
+  "window_mature": false,
+  "note": "Existing active test; no historical winner inference. Example future sample: ~2400/arm for 5% to 7% at 80% power, two-sided alpha .05. Replace with prospective baseline-based power plan before a new version. Review mature unique-visitor cohorts only at fixed horizon; weekly reports are descriptive."
+}

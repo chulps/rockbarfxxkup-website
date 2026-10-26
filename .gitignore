@@ -1,0 +1,6 @@
+reports/
+.env
+*.jsonl
+__pycache__/
+.venv/
+*credentials*.json

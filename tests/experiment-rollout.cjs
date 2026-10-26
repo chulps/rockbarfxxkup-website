@@ -92,3 +92,6 @@ assert.deepEqual(immediate.events.map(e=>e[1]),['experiment_view','directions_cl
 immediate.click(link('directions_click','hero',{hero:true}));assert.equal(immediate.events.filter(e=>e[1]==='experiment_view').length,1);
 const blocked=page({enabled:true,blocked:true});assert.equal(blocked.window.firstVisitExperiment,undefined);assert.equal(blocked.headline.textContent,'CONTROL HEADLINE');
 console.log('PASS: rollout clicks and destinations in 5 locales; no retired or disabled exposures; persistent 50/50 A/B, localization, visibility/click exposure deduplication, and blocked-storage fallback.');
+
+// Allow offline integration tests to feed actual runtime events to the Python analyzer.
+module.exports = {page, link};
