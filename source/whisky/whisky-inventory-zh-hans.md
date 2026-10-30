@@ -6,247 +6,247 @@
 
 页面简介建议：店内供应日本威士忌、苏格兰威士忌、波本威士忌、爱尔兰威士忌等多种酒款。欢迎向店员询问口味和选酒建议。酒款与库存可能会变化。
 
-## 日本威士忌 — Nikka
+## 日本威士忌 — 日果
 
-- Nikka Frontier — ¥800
-- Nikka Session — ¥900
-- Nikka Days — ¥1,000
-- Nikka From The Barrel — ¥1,100
-- Nikka Coffey Grain — ¥1,100
-- Nikka Coffey Malt — ¥1,200
-- Nikka Pure Malt Black Distillery Limited — ¥1,200
-- Nikka Pure Malt Red Distillery Limited — ¥1,200
-- The Nikka Tailored — ¥1,300
-- Miyagikyo — ¥1,200
-- Taketsturu — ¥1,300
-- Taketsuru Old Edition — ¥1,800
-- Taketsuru Grande — 15ml ¥1,400 / 30ml ¥2,800
-- Taketsuru Essentials 2026 — 15ml ¥2,000 / 30ml ¥4,000
-- Taketsuru 17 Year — 15ml ¥2,500 / 30ml ¥5,000
-- Yoichi — ¥1,300
-- Yoichi Distillery Limited Blended Whiskey — ¥1,200
-- Yoichi Peaty & Salty — 15ml ¥1,200 / 30ml ¥2,300
-- Yoichi Sherry & Sweet — 15ml ¥1,200 / 30ml ¥2,300
-- Yoichi Woody & Vanillic — 15ml ¥1,200 / 30ml ¥2,300
-- Yoichi 10 Year — 15ml ¥1,300 / 30ml ¥2,500
-- Yoichi Grande — 15ml ¥1,400 / 30ml ¥2,800
-- Yoichi 12 Year — 15ml ¥3,000 / 30ml ¥6,000
-- Tsuru — 15ml ¥1,900 / 30ml ¥3,800
-- Nikka From The Barrel Extra Marriage — 15ml ¥1,200 / 30ml ¥2,300
+- 日果 前沿 — ¥800
+- 日果 会话 — ¥900
+- 日果 日子 — ¥1,000
+- 日果 桶中原酒 — ¥1,100
+- 日果 咖啡谷物 — ¥1,100
+- 日果 咖啡麦芽 — ¥1,200
+- 日果 纯麦芽黑牌 蒸馏厂限定 — ¥1,200
+- 日果 纯麦芽红牌 蒸馏厂限定 — ¥1,200
+- 日果 定制款 — ¥1,300
+- 宫城峡 — ¥1,200
+- 竹鹤 — ¥1,300
+- 竹鹤 旧版 — ¥1,800
+- 竹鹤 格兰德 — 15ml ¥1,400 / 30ml ¥2,800
+- 竹鹤 精选款 2026 — 15ml ¥2,000 / 30ml ¥4,000
+- 竹鹤 17年 — 15ml ¥2,500 / 30ml ¥5,000
+- 余市 — ¥1,300
+- 余市 蒸馏厂限定调和威士忌 — ¥1,200
+- 余市 泥煤与咸香 — 15ml ¥1,200 / 30ml ¥2,300
+- 余市 雪莉与甜香 — 15ml ¥1,200 / 30ml ¥2,300
+- 余市 木质与香草风味 — 15ml ¥1,200 / 30ml ¥2,300
+- 余市 10年 — 15ml ¥1,300 / 30ml ¥2,500
+- 余市 格兰德 — 15ml ¥1,400 / 30ml ¥2,800
+- 余市 12年 — 15ml ¥3,000 / 30ml ¥6,000
+- 鹤 — 15ml ¥1,900 / 30ml ¥3,800
+- 日果 桶中原酒 额外融合 — 15ml ¥1,200 / 30ml ¥2,300
 
-## 日本威士忌 — Suntory
+## 日本威士忌 — 三得利
 
-- Suntory Special Reserve — ¥800
-- Suntory Kakubin Revival Edition — ¥800
-- Toki — ¥1,000
-- Chita — ¥1,100
-- Hibiki Japanese Harmony — ¥1,600
-- Hibiki Blender’s Choice — 15ml ¥1,300 / 30ml ¥2,500
-- Hibiki Master’s Select — 15ml ¥1,400 / 30ml ¥2,800
-- Hibiki Blossom Harmony 2025 (Limited Edition) — 15ml ¥1,400 / 30ml ¥2,800
-- Hibiki 12 Year — 15ml ¥2,500 / 30ml ¥5,000
-- Hibiki 17 Year — 15ml ¥3,000 / 30ml ¥6,000
-- Hibiki 21 Year — 15ml ¥4,000 / 30ml ¥8,000
-- Hakushu — ¥1,500
-- Hakushu SOD 2024 (Limited Edition) — 15ml ¥1,400 / 30ml ¥2,800
-- Hakushu SOD 2025 (Limited Edition) — 15ml ¥1,400 / 30ml ¥2,800
-- Hakushu Japanese Forest Bittersweet (Limited Edition) — 15ml ¥1,800 / 30ml ¥3,500
-- Hakushu 12 Year — 15ml ¥1,400 / 30ml ¥2,800
-- Hakushu 18 Year — 15ml ¥4,000 / 30ml ¥8,000
-- Yamazaki — ¥1,500
-- Yamazaki SOD 2024 (Limited Edition) — 15ml ¥1,400 / 30ml ¥2,800
-- Yamazaki SOD 2025 (Limited Edition) — 15ml ¥1,400 / 30ml ¥2,800
-- Yamazaki 12 Year — 15ml ¥1,400 / 30ml ¥2,800
-- Yamazaki Smoky Batch (Limited Edition) — 15ml ¥1,800 / 30ml ¥3,500
-- Yamazaki 18 Year — 15ml ¥5,000 / 30ml ¥10,000
+- 三得利 特别珍藏 — ¥800
+- 三得利 角瓶 复刻版 — ¥800
+- 季 — ¥1,000
+- 知多 — ¥1,100
+- 响 日本和谐 — ¥1,600
+- 响 调酒师之选 — 15ml ¥1,300 / 30ml ¥2,500
+- 响 大师精选 — 15ml ¥1,400 / 30ml ¥2,800
+- 响 花开和谐 2025（限量版） — 15ml ¥1,400 / 30ml ¥2,800
+- 响 12年 — 15ml ¥2,500 / 30ml ¥5,000
+- 响 17年 — 15ml ¥3,000 / 30ml ¥6,000
+- 响 21年 — 15ml ¥4,000 / 30ml ¥8,000
+- 白州 — ¥1,500
+- 白州 埃斯欧迪 2024（限量版） — 15ml ¥1,400 / 30ml ¥2,800
+- 白州 埃斯欧迪 2025（限量版） — 15ml ¥1,400 / 30ml ¥2,800
+- 白州 日本森林 苦甜风味（限量版） — 15ml ¥1,800 / 30ml ¥3,500
+- 白州 12年 — 15ml ¥1,400 / 30ml ¥2,800
+- 白州 18年 — 15ml ¥4,000 / 30ml ¥8,000
+- 山崎 — ¥1,500
+- 山崎 埃斯欧迪 2024（限量版） — 15ml ¥1,400 / 30ml ¥2,800
+- 山崎 埃斯欧迪 2025（限量版） — 15ml ¥1,400 / 30ml ¥2,800
+- 山崎 12年 — 15ml ¥1,400 / 30ml ¥2,800
+- 山崎 烟熏批次（限量版） — 15ml ¥1,800 / 30ml ¥3,500
+- 山崎 18年 — 15ml ¥5,000 / 30ml ¥10,000
 
-## 日本威士忌 — Ichiro’s Malt
+## 日本威士忌 — 一郎麦芽
 
-- Ichiro’s Malt White Label — ¥1,000
-- Ichiro’s Malt Classical Edition — ¥1,200
-- Ichiro’s Malt Mizunara Wood Reserve — ¥1,500
-- Ichiro’s Malt Double Distilleries New Edition — ¥1,500
-- Ichiro’s Malt Double Distilleries Old Edition — ¥1,800
-- Ichiro’s Malt Wine Wood Reserve — ¥1,500
-- Ichiro’s Malt 20th Anniversary Edition — 15ml ¥1,500 / 30ml ¥3,000
+- 一郎麦芽 白标 — ¥1,000
+- 一郎麦芽 经典款 — ¥1,200
+- 一郎麦芽 水楢木珍藏 — ¥1,500
+- 一郎麦芽 双蒸馏厂 新版 — ¥1,500
+- 一郎麦芽 双蒸馏厂 旧版 — ¥1,800
+- 一郎麦芽 葡萄酒木桶珍藏 — ¥1,500
+- 一郎麦芽 20周年纪念版 — 15ml ¥1,500 / 30ml ¥3,000
 
 ## 日本威士忌 — 其他
 
-- Sogaini — ¥800
-- Iwai Tradition — ¥800
-- The Lucky Cat Choco & Luna — ¥1,200
-- Sakurao Single Malt — ¥1,200
-- Sakurao Sherry Cask — ¥1,800
-- Fuji Single Malt — ¥1,200
-- Tsunuki Single Malt — ¥1,400
-- Okinawa Island Blue Cask Strength — ¥1,800
+- 索盖尼 — ¥800
+- 岩井传统 — ¥800
+- 幸运猫 巧克力与露娜 — ¥1,200
+- 樱尾 单一麦芽 — ¥1,200
+- 樱尾 雪莉桶 — ¥1,800
+- 富士 单一麦芽 — ¥1,200
+- 津贯 单一麦芽 — ¥1,400
+- 冲绳岛蓝 桶强度 — ¥1,800
 
-## 日本威士忌 — Akkeshi
+## 日本威士忌 — 厚岸
 
-- Akkeshi Shousho — 15ml ¥1,800 / 30ml ¥3,500
-- Akkeshi Rikka — 15ml ¥1,800 / 30ml ¥3,500
-- Akkeshi Shokan — 15ml ¥1,800 / 30ml ¥3,500
-- Akkeshi Risshun — 15ml ¥1,800 / 30ml ¥3,500
-- Akkeshi Shunbun — 15ml ¥2,100 / 30ml ¥4,200
+- 厚岸 小暑 — 15ml ¥1,800 / 30ml ¥3,500
+- 厚岸 立夏 — 15ml ¥1,800 / 30ml ¥3,500
+- 厚岸 小寒 — 15ml ¥1,800 / 30ml ¥3,500
+- 厚岸 立春 — 15ml ¥1,800 / 30ml ¥3,500
+- 厚岸 春分 — 15ml ¥2,100 / 30ml ¥4,200
 
 ## 波本威士忌
 
-- Four Roses — ¥800
-- Maker’s Mark — ¥900
-- Wild Turkey 101 — ¥800
-- Wild Turkey 8 Year — ¥900
-- Wild Turkey Rye — ¥1,100
-- Bulleit — ¥900
-- Buffalo Trace — ¥900
-- Eagle Rare 10 Year — ¥1,300
-- Old Grand Dad 114 Proof — ¥900
-- Woodford Reserve — ¥1,000
-- I.W. Harper 12 Year — ¥1,300
-- Blanton’s Black — ¥1,500
-- Booker’s 2025 — ¥1,800
+- 四玫瑰 — ¥800
+- 美格 — ¥900
+- 野火鸡 101 — ¥800
+- 野火鸡 8年 — ¥900
+- 野火鸡 黑麦 — ¥1,100
+- 布莱特 — ¥900
+- 水牛足迹 — ¥900
+- 鹰牌珍稀 10年 — ¥1,300
+- 老爷爷 114度 — ¥900
+- 伍德福德珍藏 — ¥1,000
+- 艾维·哈珀 12年 — ¥1,300
+- 布兰顿黑牌 — ¥1,500
+- 布克斯 2025 — ¥1,800
 
 ## 爱尔兰威士忌
 
-- Jameson — ¥800
-- Jameson Cold Brew — ¥900
-- Bushmills Black Bush — ¥800
-- Busker — ¥800
-- Pogues Triple Distilled & Matured — ¥800
-- Pogues Single Malt — ¥800
-- Roe & Co — ¥1,000
-- Connemara — ¥1,000
-- Green Spot — ¥1,100
+- 尊美醇 — ¥800
+- 尊美醇 冷萃 — ¥900
+- 布什米尔黑布什 — ¥800
+- 巴斯克 — ¥800
+- 波格斯 三次蒸馏与熟成 — ¥800
+- 波格斯 单一麦芽 — ¥800
+- 罗伊与伙伴 — ¥1,000
+- 康尼马拉 — ¥1,000
+- 绿点 — ¥1,100
 
 ## 苏格兰威士忌 — 斯佩塞
 
-- Old Glasgow — ¥800
-- Singleton 12 Year — ¥900
-- GlenGrant Arboralis — ¥800
-- GlenGrant Arboralis Cask Strength — ¥1,100
-- GlenGrant 10 Year — ¥1,000
-- Ben Riach 12 Year “The Smokey” — ¥1,200
-- Glenlivet 12 Year — ¥1,000
-- Glenlivet 12 Year 200th Anniversary Limited Edition — ¥1,200
-- Glenfiddich 12 Year — ¥1,100
-- Glenfiddich 14 Year — ¥1,400
-- Glenfiddich 15 Year — ¥1,500
-- Glenfiddich 18 Year — 15ml ¥1,000 / 30ml ¥2,000
-- Speyburn 10 Year — ¥1,000
-- Speyburn 15 Year — ¥1,400
-- Speyburn 16 Year — ¥1,600
-- Speyburn 18 Year — 15ml ¥1,300 / 30ml ¥2,500
-- Macallan 12 Year Double Cask — ¥1,600
-- Macallan 12 Year Sherry Oak — 15ml ¥1,000 / 30ml ¥2,000
+- 老格拉斯哥 — ¥800
+- 苏格登 12年 — ¥900
+- 格兰冠 阿博罗利斯 — ¥800
+- 格兰冠 阿博罗利斯 桶强度 — ¥1,100
+- 格兰冠 10年 — ¥1,000
+- 本利亚克 12年 烟熏款 — ¥1,200
+- 格兰利威 12年 — ¥1,000
+- 格兰利威 12年 200周年限量版 — ¥1,200
+- 格兰菲迪 12年 — ¥1,100
+- 格兰菲迪 14年 — ¥1,400
+- 格兰菲迪 15年 — ¥1,500
+- 格兰菲迪 18年 — 15ml ¥1,000 / 30ml ¥2,000
+- 斯贝本 10年 — ¥1,000
+- 斯贝本 15年 — ¥1,400
+- 斯贝本 16年 — ¥1,600
+- 斯贝本 18年 — 15ml ¥1,300 / 30ml ¥2,500
+- 麦卡伦 12年 双桶 — ¥1,600
+- 麦卡伦 12年 雪莉橡木桶 — 15ml ¥1,000 / 30ml ¥2,000
 
 ## 苏格兰威士忌 — 高地
 
-- Ardmore Legacy — ¥900
-- Glen Turner 12 Year — ¥900
-- AnCnoc 12 Year — ¥1,000
-- Talisker 10 Year — ¥1,100
-- Arran Barrel Reserve — ¥1,000
-- Arran 10 Year — ¥1,200
-- Glenmorangie 12 Year — ¥1,000
-- Aberfeldy 12 Year — ¥1,100
-- Highland Park 12 Year — ¥1,200
-- Royal Brackla 12 Year — ¥1,400
-- Clynelish 14 Year — ¥1,400
-- Ben Nevis 10 Year — ¥1,500 （菜单备注：已停产，但目前有库存）
-- Nc’nean Orchard Cobbler — 15ml ¥1,000 / 30ml ¥2,000
+- 艾德莫尔 传承 — ¥900
+- 格兰特纳 12年 — ¥900
+- 安努克 12年 — ¥1,000
+- 泰斯卡 10年 — ¥1,100
+- 艾伦 桶藏珍选 — ¥1,000
+- 艾伦 10年 — ¥1,200
+- 格兰杰 12年 — ¥1,000
+- 艾柏迪 12年 — ¥1,100
+- 高原骑士 12年 — ¥1,200
+- 皇家布莱克拉 12年 — ¥1,400
+- 克里尼利基 14年 — ¥1,400
+- 本尼维斯 10年 — ¥1,500（菜单备注：菜单标为已停产，但目前有库存）
+- 妮奇南 果园鞋匠 — 15ml ¥1,000 / 30ml ¥2,000
 
 ## 苏格兰威士忌 — 艾雷岛
 
-- Islay Journey — ¥1,000
-- Scarabus 10 Year — ¥1,300
-- Smokehead Extra Rare — ¥1,000
-- Big Peat — ¥1,100
-- Kunshu Islay — ¥1,200
-- Finlaggan Original Peaty — ¥900
-- Finlaggan Cask Strength — ¥1,100
-- Bruichladdich Classic Laddie — ¥1,200
-- Bruichladdich Oldskool 10 Year — 15ml ¥1,000 / 30ml ¥2,000
-- Port Charlotte 10 Year — ¥1,200
-- Octomore 15.1 — 15ml ¥1,800 / 30ml ¥3,500
-- Bowmore 12 Year — ¥1,100
-- Kilchoman Machir Bay — ¥1,200
-- Kilchoman Sanaig — ¥1,300
-- Caol Ila 12 Year — ¥1,200
-- Lagavulin 8 Year — ¥1,200
-- Lagavulin 16 Year — ¥1,800
-- Laphroaig 10 Year — ¥1,200
-- Octomore （菜单副标题：Bruichladdic） — 15ml ¥1,800 / 30ml ¥3,500
-- Octomore 16.2 — ¥3,500
-- Ardbeg 10 — ¥1,100
+- 艾雷之旅 — ¥1,000
+- 斯卡拉布斯 10年 — ¥1,300
+- 烟头 额外珍稀 — ¥1,000
+- 大泥煤 — ¥1,100
+- 醇香艾雷 — ¥1,200
+- 芬尼根 原味泥煤 — ¥900
+- 芬尼根 桶强度 — ¥1,100
+- 布赫拉迪 经典拉迪 — ¥1,200
+- 布赫拉迪 老派 10年 — 15ml ¥1,000 / 30ml ¥2,000
+- 波夏 10年 — ¥1,200
+- 奥特摩尔 15.1 — 15ml ¥1,800 / 30ml ¥3,500
+- 波摩 12年 — ¥1,100
+- 齐侯门 马奇尔湾 — ¥1,200
+- 齐侯门 萨奈格 — ¥1,300
+- 卡尔里拉 12年 — ¥1,200
+- 乐加维林 8年 — ¥1,200
+- 乐加维林 16年 — ¥1,800
+- 拉弗格 10年 — ¥1,200
+- 奥特摩尔（菜单副标题：布赫拉迪） — 15ml ¥1,800 / 30ml ¥3,500
+- 奥特摩尔 16.2 — ¥3,500
+- 雅柏 10 — ¥1,100
 
 ## 苏格兰威士忌 — 调和型
 
-- Johnnie Walker Black Ruby — ¥900
-- Johnnie Walker Black Label 12 Year — ¥900
-- Johnnie Walker Double Black — ¥900
-- Johnnie Walker Green Label 15 Year — ¥1,100
-- Johnnie Walker Blue Label — 15ml ¥1,500 / 30ml ¥3,000
-- The Deacon — ¥900
-- Dewar’s Japanese Smooth — ¥800
-- Chivas Regal 12 Year — ¥800
-- Chivas Regal Mizunara 12 Year — ¥1,000
-- Ballantine 12 Year — ¥1,000
-- Ballantine Christmas Reserve — ¥1,000
-- Old Parr 12 Year — ¥1,000
-- Monkey Shoulder — ¥1,000
-- Spice King — ¥1,100
-- The Peat Monster — ¥1,300
-- Orchard House — ¥1,300
+- 尊尼获加 黑红宝石 — ¥900
+- 尊尼获加 黑牌 12年 — ¥900
+- 尊尼获加 双黑 — ¥900
+- 尊尼获加 绿牌 15年 — ¥1,100
+- 尊尼获加 蓝牌 — 15ml ¥1,500 / 30ml ¥3,000
+- 迪肯 — ¥900
+- 帝王 日本柔顺款 — ¥800
+- 芝华士 12年 — ¥800
+- 芝华士 水楢桶 12年 — ¥1,000
+- 百龄坛 12年 — ¥1,000
+- 百龄坛 圣诞珍藏 — ¥1,000
+- 老伯 12年 — ¥1,000
+- 猴肩 — ¥1,000
+- 香料之王 — ¥1,100
+- 泥煤怪兽 — ¥1,300
+- 果园小屋 — ¥1,300
 
 ## 苏格兰威士忌 — 坎贝尔镇
 
-- The Gauldrons — ¥1,200
-- Campbeltown Loch — ¥1,400
-- Springbank 10 Year — 15ml ¥1,300 / 30ml ¥2,600
-- Longrow — ¥1,600
-- Kilkerran 12 Year — ¥1,800
-- Kilkerran 16 Year 2024 — 15ml ¥1,200 / 30ml ¥2,400
-- Glen Scotia Double Cask — ¥1,100
-- Glen Scotia Double Cask Rum Finish — ¥1,200
-- Glen Scotia Victoriana — ¥1,600
-- Longrow 100 Proof — 15ml ¥1,000 / 30ml ¥2,000
+- 高德伦斯 — ¥1,200
+- 坎贝尔镇湖 — ¥1,400
+- 云顶 10年 — 15ml ¥1,300 / 30ml ¥2,600
+- 朗罗 — ¥1,600
+- 基尔凯兰 12年 — ¥1,800
+- 基尔凯兰 16年 2024 — 15ml ¥1,200 / 30ml ¥2,400
+- 格兰斯科舍 双桶 — ¥1,100
+- 格兰斯科舍 双桶 朗姆酒桶收尾 — ¥1,200
+- 格兰斯科舍 维多利亚娜 — ¥1,600
+- 朗罗 100度 — 15ml ¥1,000 / 30ml ¥2,000
 
 ## 田纳西威士忌
 
-- Jack Daniels — ¥800
-- Gentleman Jack — ¥900
+- 杰克丹尼 — ¥800
+- 绅士杰克 — ¥900
 
 ## 艾奥瓦威士忌
 
-- Slipknot No. 9 — ¥1,200
+- 活结 9号 — ¥1,200
 
 ## 加拿大威士忌
 
-- Canadian Club 12 Year — ¥800
-- Banff — ¥1,500
-- Coureur des Bois — ¥1,500
+- 加拿大俱乐部 12年 — ¥800
+- 班夫 — ¥1,500
+- 林间漫步 — ¥1,500
 
 ## 印度威士忌
 
-- Paul John Brilliance — ¥1,200
+- 保罗约翰 光辉 — ¥1,200
 
 ## 威尔士威士忌
 
-- Penderyn Madeira — ¥1,300
+- 彭德林 马德拉 — ¥1,300
 
 ## 以色列威士忌
 
-- M&H Classic — ¥1,100
+- 牛奶与蜂蜜 经典款 — ¥1,100
 
-BarTicket 中该分类的拼写为 “Israely Whiskey”。
+BarTicket 中以色列威士忌类别的名称拼写有误。
 
 ## 丹麦威士忌
 
-- Thornaes Sherry Oloroso — 15ml ¥1,000 / 30ml ¥2,000
+- 托尔内斯 雪莉奥罗索 — 15ml ¥1,000 / 30ml ¥2,000
 
 ## 菜单数据备注
 
-- 日文菜单中有一条 Nikka From The Barrel Extra Marriage，价格显示为 ¥0；上方英文条目显示为 15ml ¥1,200 / 30ml ¥2,300。发布前请核实日文条目的价格。
-- 菜单中有 Octomore 15.1，另有一条价格相同的 Octomore 项目。请确认它们是否为不同酒款。
-- 菜单还包含 Japanese Lottery 和 Islay Whiskey Lottery 抽奖项目。它们不是威士忌酒瓶，因此未列入库存清单。
-- Ben Nevis 10 Year 在菜单中标记为已停产酒款。
+- 日文菜单中的日果桶中原酒额外融合一项显示为 ¥0；上方对应条目显示为 15ml ¥1,200 / 30ml ¥2,300。发布前请核实日文条目的价格。
+- 菜单中有奥特摩尔 15.1，另有一条价格相同的奥特摩尔项目。请确认它们是否为不同酒款。
+- 菜单还包含日本威士忌抽奖和艾雷威士忌抽奖项目。它们不是瓶装威士忌，因此未列入酒单。
+- 本尼维斯 10年在菜单中标记为已停产，但目前仍有库存。
 - 菜单中只显示单一价格的项目未标明杯量，因此这里没有推测杯量。
