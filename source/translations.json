@@ -68,7 +68,9 @@
     "Planning a visit? Questions or bookings? Message us on Instagram.": "방문 계획, 질문 또는 예약이 있나요? Instagram으로 메시지를 보내 주세요.",
     "THE BAR / OFFICIAL INSTAGRAM": "바 / 공식 INSTAGRAM",
     "CHUCK / MANAGER": "CHUCK / 매니저",
-    "EXPLORE THE AREA": "주변 둘러보기"
+    "EXPLORE THE AREA": "주변 둘러보기",
+    "Whisky": "위스키",
+    "EXPLORE THE WHISKY LIST": "위스키 메뉴 보기"
   },
   "th": {
     "The bar": "เกี่ยวกับบาร์",
@@ -139,7 +141,9 @@
     "Planning a visit? Questions or bookings? Message us on Instagram.": "วางแผนมาเที่ยว มีคำถาม หรือต้องการจอง? ส่งข้อความหาเราทาง Instagram",
     "THE BAR / OFFICIAL INSTAGRAM": "บาร์ / INSTAGRAM ทางการ",
     "CHUCK / MANAGER": "CHUCK / ผู้จัดการ",
-    "EXPLORE THE AREA": "สำรวจบริเวณใกล้เคียง"
+    "EXPLORE THE AREA": "สำรวจบริเวณใกล้เคียง",
+    "Whisky": "วิสกี้",
+    "EXPLORE THE WHISKY LIST": "ดูรายการวิสกี้"
   },
   "zh-Hans": {
     "The bar": "酒吧介绍",
@@ -210,6 +214,8 @@
     "Planning a visit? Questions or bookings? Message us on Instagram.": "准备来玩？有问题或想预约？欢迎通过 Instagram 联系我们。",
     "THE BAR / OFFICIAL INSTAGRAM": "酒吧 / 官方 INSTAGRAM",
     "CHUCK / MANAGER": "CHUCK / 店长",
-    "EXPLORE THE AREA": "探索周边"
+    "EXPLORE THE AREA": "探索周边",
+    "Whisky": "威士忌",
+    "EXPLORE THE WHISKY LIST": "浏览威士忌酒单"
   }
 }

@@ -1,7 +1,7 @@
 from pathlib import Path
 from lxml import html, etree
 from PIL import Image,ImageOps
-import json,copy
+import json,copy,subprocess,sys
 from io import BytesIO
 ROOT=Path(__file__).resolve().parents[1];D=ROOT/'dist';ORIGIN='https://www.rockbarfxxkup.com'
 meta={
@@ -102,6 +102,9 @@ for code in meta:
   for attr in ['src','href']:
    v=el.get(attr,'')
    if v.startswith('assets/') or v in ['style.css','app.js']:el.set(attr,'/'+v)
+ # Route the whisky CTA to the matching language page.
+ whisky_path='/whisky/' if code=='en' else '/'+code.lower()+'/whisky/'
+ for link in doc.xpath('//a[@href="/whisky/"]'):link.set('href',whisky_path)
  for el in doc.xpath('//img'):
   src=el.get('src','');path=D/src.lstrip('/')
   if path.suffix.lower() in ['.jpg','.jpeg','.png'] and path.exists():
@@ -176,3 +179,4 @@ for url in [*urls.values(),ORIGIN+'/privacy/']:el=etree.SubElement(root,'{'+ns+'
 # Use the existing logo, preserving the established brand.
 logo=Image.open(D/'assets/logo.jpg').convert('RGB');ImageOps.pad(logo,(180,180),color='#161414').save(D/'assets/apple-touch-icon.png')
 print('Built all five language pages, metadata, structured data, bilingual privacy policy, robots, sitemap, social image and icon.')
+subprocess.run([sys.executable,str(ROOT/'scripts/build-whisky.py')],check=True)
