@@ -237,29 +237,11 @@ def render_page(config, inventory, menu_urls):
 def add_home_links(config):
     path = DIST / (config["folder"] + "/index.html" if config["folder"] else "index.html")
     text = path.read_text(encoding="utf-8")
-    # The canonical homepage template now owns these links and their localized copy.
-    if text.count('href="/whisky/"') >= 2 and 'data-track-event="whisky_page_open"' in text:
-        return
-    code = config["code"]
-    label = LABELS[code]
-    nav_text = {"en":"Whiskey menu","ja":"ウイスキー一覧","ko":"위스키 메뉴","th":"เมนูวิสกี้","zh-Hans":"威士忌酒单"}[code]
-    cta_text = {"en":"VIEW WHISKEY MENU ↗","ja":"ウイスキー一覧を見る ↗","ko":"위스키 목록 보기 ↗","th":"ดูรายการวิสกี้ ↗","zh-Hans":"查看威士忌酒单 ↗"}[code]
-    if "whisky-nav-link" not in text:
-        anchor = '<a class="whisky-nav-link" href="whisky/" data-track-event="whisky_menu_open" data-track-placement="header">' + escape(nav_text) + '</a>'
-        pattern = re.compile(r'(<a href="#drinks"[^>]*>.*?</a>)', re.DOTALL)
-        text, count = pattern.subn(r'\1' + anchor, text, count=1)
-        if count != 1:
-            raise ValueError("Could not place the whisky navigation link in " + str(path))
-    else:
-        text = re.sub(r'(<a class="whisky-nav-link"[^>]*>).*?(</a>)', lambda m: m.group(1) + escape(nav_text) + m.group(2), text, count=1, flags=re.DOTALL)
-    if "whisky-index-link" not in text:
-        anchor = '<a class="text-link whisky-index-link" href="whisky/" data-track-event="whisky_menu_open" data-track-placement="drinks">' + escape(cta_text) + '</a>'
-        pattern = re.compile(r'(<a class="text-link" href="https://chulps\.github\.io/barticket-frontend/menu")')
-        text, count = pattern.subn(anchor + r'\1', text, count=1)
-        if count != 1:
-            raise ValueError("Could not place the whisky drinks link in " + str(path))
-    else:
-        text = re.sub(r'(<a class="text-link whisky-index-link"[^>]*>).*?(</a>)', lambda m: m.group(1) + escape(cta_text) + m.group(2), text, count=1, flags=re.DOTALL)
+    # build-seo.py creates every locale from the canonical homepage template,
+    # which already contains the translated navigation link and primary CTA.
+    # Older builds injected a second link because their route is locale-prefixed.
+    text = re.sub(r'<a class="whisky-nav-link"[^>]*>.*?</a>', '', text, flags=re.DOTALL)
+    text = re.sub(r'<a class="text-link whisky-index-link"[^>]*>.*?</a>', '', text, flags=re.DOTALL)
     path.write_text(text, encoding="utf-8")
 
 def remove_home_links(config):

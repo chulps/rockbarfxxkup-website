@@ -143,14 +143,12 @@ html[lang=ko] .whisky-page .whisky-category h2,html[lang=th] .whisky-page .whisk
 .whisky-price{display:grid;justify-items:end;gap:2px;text-align:right;font-size:13px;font-variant-numeric:tabular-nums;line-height:1.5;white-space:nowrap}
 .whisky-item-note{max-width:220px;color:var(--muted);font-size:10px;white-space:normal}
 .whisky-empty{padding:24px 0;color:var(--muted)}.whisky-empty-title{color:var(--ink);font-weight:700}.whisky-suggestion{display:grid;gap:12px;max-width:620px;margin-top:18px;padding:20px;border:1px solid var(--line)}.whisky-suggestion>label:not(.whisky-suggestion-consent){color:var(--ink);font-size:13px;font-weight:700}.whisky-suggestion>input[type=text]{width:100%;min-height:48px;padding:10px 13px;border:1px solid var(--line);border-radius:0;background:var(--bg);color:var(--ink);font:inherit}.whisky-suggestion-note{margin:0;color:var(--muted);font-size:12px;line-height:1.6}.whisky-suggestion-consent{display:flex;align-items:flex-start;gap:10px;color:var(--ink);font-size:12px;line-height:1.6}.whisky-suggestion-consent input{width:18px;height:18px;flex:0 0 18px;margin:2px 0 0;accent-color:var(--acid)}.whisky-suggestion button{width:max-content;min-width:0;min-height:50px;padding:17px 22px;border:0;font-size:10px;font-weight:800;letter-spacing:.8px;transition:transform .2s,background .2s}.whisky-suggestion button:hover{transform:translateY(-3px)}.whisky-suggestion-status{min-height:1.5em;margin:0;color:var(--ink);font-size:12px}.whisky-suggestion-status.is-error{color:#ff8c85;background:#3b1111;border:1px solid var(--acid);padding:10px 12px}
-.whisky-index-link{margin-left:14px}
-
 .whisky-map{height:320px;margin:44px 0 0;border:1px solid var(--line);overflow:hidden}
 .whisky-map iframe{display:block;width:100%;height:420px;border:0}
 @media(max-width:700px){.whisky-map{height:290px;margin-top:32px}}
 
 
-@media(max-width:700px){.whisky-page .whisky-header{height:auto;min-height:80px}.whisky-page .whisky-header nav{gap:10px;flex-wrap:wrap}.whisky-page .whisky-header nav a{font-size:10px}.whisky-hero{padding-top:42px}.whisky-controls{grid-template-columns:minmax(0,1fr)}.whisky-controls input,.whisky-controls select,.whisky-controls button{width:100%}.whisky-list{grid-template-columns:1fr;gap:0}.whisky-category{padding:26px 0}.whisky-name{font-size:14px}.whisky-index-link{margin-left:0}}
+@media(max-width:700px){.whisky-page .whisky-header{height:auto;min-height:80px}.whisky-page .whisky-header nav{gap:10px;flex-wrap:wrap}.whisky-page .whisky-header nav a{font-size:10px}.whisky-hero{padding-top:42px}.whisky-controls{grid-template-columns:minmax(0,1fr)}.whisky-controls input,.whisky-controls select,.whisky-controls button{width:100%}.whisky-list{grid-template-columns:1fr;gap:0}.whisky-category{padding:26px 0}.whisky-name{font-size:14px}}
 @media(max-width:390px){.whisky-page .whisky-header nav{gap:8px}.whisky-page .whisky-header nav a{font-size:9px}.whisky-controls{grid-template-columns:1fr}}
 
 
