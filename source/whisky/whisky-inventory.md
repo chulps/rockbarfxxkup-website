@@ -1,4 +1,6 @@
-# Rock Bar FxxK Up Whisky Inventory
+# Rock and whiskey bar Sapporo: menu
+
+Page title: Rock and whiskey bar Sapporo: menu
 
 Last updated October 30, 2026
 
