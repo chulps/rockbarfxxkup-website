@@ -68,7 +68,7 @@ def parse_inventory(config):
         if line.startswith(config["description_prefix"]):
             description = line[len(config["description_prefix"]):].strip()
             continue
-        if not source_line and (line.startswith("Source:") or line.startswith("出典：") or line.startswith("출처:") or line.startswith("최종 업데이트:") or line.startswith("ที่มา:") or line.startswith("来源：") or line.startswith("Last updated ")):
+        if not source_line and (line.startswith("Source:") or line.startswith("出典：") or line.startswith("最終更新日：") or line.startswith("출처:") or line.startswith("최종 업데이트:") or line.startswith("ที่มา:") or line.startswith("อัปเดตล่าสุด:") or line.startswith("来源：") or line.startswith("最后更新：") or line.startswith("Last updated ")):
             source_line = line
             continue
         if line.startswith("## "):

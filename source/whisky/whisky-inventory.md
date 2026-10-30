@@ -1,6 +1,6 @@
 # Rock Bar FxxK Up Whisky Inventory
 
-Source: live BarTicket menu viewed October 30, 2026. Prices are copied as displayed. Items marked out of stock or with ambiguous menu data are called out in the notes.
+Last updated October 30, 2026
 
 ## Japanese Whisky — Nikka
 
