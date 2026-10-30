@@ -6,247 +6,247 @@
 
 페이지 소개 문구 제안: 일본 위스키, 스카치, 버번, 아이리시 위스키 등 다양한 위스키를 갖추고 있습니다. 취향이나 궁금한 술이 있으면 직원에게 편하게 물어보세요. 재고와 구성은 바뀔 수 있습니다.
 
-## 일본 위스키 — Nikka
+## 일본 위스키 — 니카
 
-- Nikka Frontier — ¥800
-- Nikka Session — ¥900
-- Nikka Days — ¥1,000
-- Nikka From The Barrel — ¥1,100
-- Nikka Coffey Grain — ¥1,100
-- Nikka Coffey Malt — ¥1,200
-- Nikka Pure Malt Black Distillery Limited — ¥1,200
-- Nikka Pure Malt Red Distillery Limited — ¥1,200
-- The Nikka Tailored — ¥1,300
-- Miyagikyo — ¥1,200
-- Taketsturu — ¥1,300
-- Taketsuru Old Edition — ¥1,800
-- Taketsuru Grande — 15ml ¥1,400 / 30ml ¥2,800
-- Taketsuru Essentials 2026 — 15ml ¥2,000 / 30ml ¥4,000
-- Taketsuru 17 Year — 15ml ¥2,500 / 30ml ¥5,000
-- Yoichi — ¥1,300
-- Yoichi Distillery Limited Blended Whiskey — ¥1,200
-- Yoichi Peaty & Salty — 15ml ¥1,200 / 30ml ¥2,300
-- Yoichi Sherry & Sweet — 15ml ¥1,200 / 30ml ¥2,300
-- Yoichi Woody & Vanillic — 15ml ¥1,200 / 30ml ¥2,300
-- Yoichi 10 Year — 15ml ¥1,300 / 30ml ¥2,500
-- Yoichi Grande — 15ml ¥1,400 / 30ml ¥2,800
-- Yoichi 12 Year — 15ml ¥3,000 / 30ml ¥6,000
-- Tsuru — 15ml ¥1,900 / 30ml ¥3,800
-- Nikka From The Barrel Extra Marriage — 15ml ¥1,200 / 30ml ¥2,300
+- 니카 프런티어 — ¥800
+- 니카 세션 — ¥900
+- 니카 데이즈 — ¥1,000
+- 니카 프롬 더 배럴 — ¥1,100
+- 니카 커피 그레인 — ¥1,100
+- 니카 커피 몰트 — ¥1,200
+- 니카 퓨어 몰트 블랙 증류소 한정 — ¥1,200
+- 니카 퓨어 몰트 레드 증류소 한정 — ¥1,200
+- 더 니카 테일러드 — ¥1,300
+- 미야기쿄 — ¥1,200
+- 다케쓰루 — ¥1,300
+- 다케쓰루 올드 에디션 — ¥1,800
+- 다케쓰루 그랑데 — 15ml ¥1,400 / 30ml ¥2,800
+- 다케쓰루 에센셜즈 2026 — 15ml ¥2,000 / 30ml ¥4,000
+- 다케쓰루 17년 — 15ml ¥2,500 / 30ml ¥5,000
+- 요이치 — ¥1,300
+- 요이치 증류소 한정 블렌디드 위스키 — ¥1,200
+- 요이치 피티 앤 솔티 — 15ml ¥1,200 / 30ml ¥2,300
+- 요이치 셰리 앤 스위트 — 15ml ¥1,200 / 30ml ¥2,300
+- 요이치 우디 앤 바닐릭 — 15ml ¥1,200 / 30ml ¥2,300
+- 요이치 10년 — 15ml ¥1,300 / 30ml ¥2,500
+- 요이치 그랑데 — 15ml ¥1,400 / 30ml ¥2,800
+- 요이치 12년 — 15ml ¥3,000 / 30ml ¥6,000
+- 쓰루 — 15ml ¥1,900 / 30ml ¥3,800
+- 니카 프롬 더 배럴 엑스트라 메리지 — 15ml ¥1,200 / 30ml ¥2,300
 
-## 일본 위스키 — Suntory
+## 일본 위스키 — 산토리
 
-- Suntory Special Reserve — ¥800
-- Suntory Kakubin Revival Edition — ¥800
-- Toki — ¥1,000
-- Chita — ¥1,100
-- Hibiki Japanese Harmony — ¥1,600
-- Hibiki Blender’s Choice — 15ml ¥1,300 / 30ml ¥2,500
-- Hibiki Master’s Select — 15ml ¥1,400 / 30ml ¥2,800
-- Hibiki Blossom Harmony 2025 (Limited Edition) — 15ml ¥1,400 / 30ml ¥2,800
-- Hibiki 12 Year — 15ml ¥2,500 / 30ml ¥5,000
-- Hibiki 17 Year — 15ml ¥3,000 / 30ml ¥6,000
-- Hibiki 21 Year — 15ml ¥4,000 / 30ml ¥8,000
-- Hakushu — ¥1,500
-- Hakushu SOD 2024 (Limited Edition) — 15ml ¥1,400 / 30ml ¥2,800
-- Hakushu SOD 2025 (Limited Edition) — 15ml ¥1,400 / 30ml ¥2,800
-- Hakushu Japanese Forest Bittersweet (Limited Edition) — 15ml ¥1,800 / 30ml ¥3,500
-- Hakushu 12 Year — 15ml ¥1,400 / 30ml ¥2,800
-- Hakushu 18 Year — 15ml ¥4,000 / 30ml ¥8,000
-- Yamazaki — ¥1,500
-- Yamazaki SOD 2024 (Limited Edition) — 15ml ¥1,400 / 30ml ¥2,800
-- Yamazaki SOD 2025 (Limited Edition) — 15ml ¥1,400 / 30ml ¥2,800
-- Yamazaki 12 Year — 15ml ¥1,400 / 30ml ¥2,800
-- Yamazaki Smoky Batch (Limited Edition) — 15ml ¥1,800 / 30ml ¥3,500
-- Yamazaki 18 Year — 15ml ¥5,000 / 30ml ¥10,000
+- 산토리 스페셜 리저브 — ¥800
+- 산토리 가쿠빈 리바이벌 에디션 — ¥800
+- 토키 — ¥1,000
+- 치타 — ¥1,100
+- 히비키 재패니즈 하모니 — ¥1,600
+- 히비키 블렌더스 초이스 — 15ml ¥1,300 / 30ml ¥2,500
+- 히비키 마스터스 셀렉트 — 15ml ¥1,400 / 30ml ¥2,800
+- 히비키 블로섬 하모니 2025 (한정판) — 15ml ¥1,400 / 30ml ¥2,800
+- 히비키 12년 — 15ml ¥2,500 / 30ml ¥5,000
+- 히비키 17년 — 15ml ¥3,000 / 30ml ¥6,000
+- 히비키 21년 — 15ml ¥4,000 / 30ml ¥8,000
+- 하쿠슈 — ¥1,500
+- 하쿠슈 에스오디 2024 (한정판) — 15ml ¥1,400 / 30ml ¥2,800
+- 하쿠슈 에스오디 2025 (한정판) — 15ml ¥1,400 / 30ml ¥2,800
+- 하쿠슈 재패니즈 포레스트 비터스위트 (한정판) — 15ml ¥1,800 / 30ml ¥3,500
+- 하쿠슈 12년 — 15ml ¥1,400 / 30ml ¥2,800
+- 하쿠슈 18년 — 15ml ¥4,000 / 30ml ¥8,000
+- 야마자키 — ¥1,500
+- 야마자키 에스오디 2024 (한정판) — 15ml ¥1,400 / 30ml ¥2,800
+- 야마자키 에스오디 2025 (한정판) — 15ml ¥1,400 / 30ml ¥2,800
+- 야마자키 12년 — 15ml ¥1,400 / 30ml ¥2,800
+- 야마자키 스모키 배치 (한정판) — 15ml ¥1,800 / 30ml ¥3,500
+- 야마자키 18년 — 15ml ¥5,000 / 30ml ¥10,000
 
-## 일본 위스키 — Ichiro’s Malt
+## 일본 위스키 — 이치로즈 몰트
 
-- Ichiro’s Malt White Label — ¥1,000
-- Ichiro’s Malt Classical Edition — ¥1,200
-- Ichiro’s Malt Mizunara Wood Reserve — ¥1,500
-- Ichiro’s Malt Double Distilleries New Edition — ¥1,500
-- Ichiro’s Malt Double Distilleries Old Edition — ¥1,800
-- Ichiro’s Malt Wine Wood Reserve — ¥1,500
-- Ichiro’s Malt 20th Anniversary Edition — 15ml ¥1,500 / 30ml ¥3,000
+- 이치로즈 몰트 화이트 라벨 — ¥1,000
+- 이치로즈 몰트 클래시컬 에디션 — ¥1,200
+- 이치로즈 몰트 미즈나라 우드 리저브 — ¥1,500
+- 이치로즈 몰트 더블 디스틸러리즈 뉴 에디션 — ¥1,500
+- 이치로즈 몰트 더블 디스틸러리즈 올드 에디션 — ¥1,800
+- 이치로즈 몰트 와인 우드 리저브 — ¥1,500
+- 이치로즈 몰트 20주년 기념 에디션 — 15ml ¥1,500 / 30ml ¥3,000
 
 ## 일본 위스키 — 기타
 
-- Sogaini — ¥800
-- Iwai Tradition — ¥800
-- The Lucky Cat Choco & Luna — ¥1,200
-- Sakurao Single Malt — ¥1,200
-- Sakurao Sherry Cask — ¥1,800
-- Fuji Single Malt — ¥1,200
-- Tsunuki Single Malt — ¥1,400
-- Okinawa Island Blue Cask Strength — ¥1,800
+- 소가이니 — ¥800
+- 이와이 트래디션 — ¥800
+- 더 럭키 캣 초코 앤 루나 — ¥1,200
+- 사쿠라오 싱글 몰트 — ¥1,200
+- 사쿠라오 셰리 캐스크 — ¥1,800
+- 후지 싱글 몰트 — ¥1,200
+- 쓰누키 싱글 몰트 — ¥1,400
+- 오키나와 아일랜드 블루 캐스크 스트렝스 — ¥1,800
 
-## 일본 위스키 — Akkeshi
+## 일본 위스키 — 앗케시
 
-- Akkeshi Shousho — 15ml ¥1,800 / 30ml ¥3,500
-- Akkeshi Rikka — 15ml ¥1,800 / 30ml ¥3,500
-- Akkeshi Shokan — 15ml ¥1,800 / 30ml ¥3,500
-- Akkeshi Risshun — 15ml ¥1,800 / 30ml ¥3,500
-- Akkeshi Shunbun — 15ml ¥2,100 / 30ml ¥4,200
+- 앗케시 쇼쇼 — 15ml ¥1,800 / 30ml ¥3,500
+- 앗케시 릿카 — 15ml ¥1,800 / 30ml ¥3,500
+- 앗케시 쇼칸 — 15ml ¥1,800 / 30ml ¥3,500
+- 앗케시 릿슌 — 15ml ¥1,800 / 30ml ¥3,500
+- 앗케시 슌분 — 15ml ¥2,100 / 30ml ¥4,200
 
 ## 버번
 
-- Four Roses — ¥800
-- Maker’s Mark — ¥900
-- Wild Turkey 101 — ¥800
-- Wild Turkey 8 Year — ¥900
-- Wild Turkey Rye — ¥1,100
-- Bulleit — ¥900
-- Buffalo Trace — ¥900
-- Eagle Rare 10 Year — ¥1,300
-- Old Grand Dad 114 Proof — ¥900
-- Woodford Reserve — ¥1,000
-- I.W. Harper 12 Year — ¥1,300
-- Blanton’s Black — ¥1,500
-- Booker’s 2025 — ¥1,800
+- 포 로지스 — ¥800
+- 메이커스 마크 — ¥900
+- 와일드 터키 101 — ¥800
+- 와일드 터키 8년 — ¥900
+- 와일드 터키 라이 — ¥1,100
+- 불릿 — ¥900
+- 버팔로 트레이스 — ¥900
+- 이글 레어 10년 — ¥1,300
+- 올드 그랜대드 114 프루프 — ¥900
+- 우드포드 리저브 — ¥1,000
+- 아이더블유 하퍼 12년 — ¥1,300
+- 블랜턴스 블랙 — ¥1,500
+- 부커스 2025 — ¥1,800
 
 ## 아이리시 위스키
 
-- Jameson — ¥800
-- Jameson Cold Brew — ¥900
-- Bushmills Black Bush — ¥800
-- Busker — ¥800
-- Pogues Triple Distilled & Matured — ¥800
-- Pogues Single Malt — ¥800
-- Roe & Co — ¥1,000
-- Connemara — ¥1,000
-- Green Spot — ¥1,100
+- 제임슨 — ¥800
+- 제임슨 콜드 브루 — ¥900
+- 부시밀스 블랙 부시 — ¥800
+- 버스커 — ¥800
+- 포그스 트리플 디스틸드 앤 머추어드 — ¥800
+- 포그스 싱글 몰트 — ¥800
+- 로 앤 코 — ¥1,000
+- 코네마라 — ¥1,000
+- 그린 스팟 — ¥1,100
 
 ## 스카치 — 스페이사이드
 
-- Old Glasgow — ¥800
-- Singleton 12 Year — ¥900
-- GlenGrant Arboralis — ¥800
-- GlenGrant Arboralis Cask Strength — ¥1,100
-- GlenGrant 10 Year — ¥1,000
-- Ben Riach 12 Year “The Smokey” — ¥1,200
-- Glenlivet 12 Year — ¥1,000
-- Glenlivet 12 Year 200th Anniversary Limited Edition — ¥1,200
-- Glenfiddich 12 Year — ¥1,100
-- Glenfiddich 14 Year — ¥1,400
-- Glenfiddich 15 Year — ¥1,500
-- Glenfiddich 18 Year — 15ml ¥1,000 / 30ml ¥2,000
-- Speyburn 10 Year — ¥1,000
-- Speyburn 15 Year — ¥1,400
-- Speyburn 16 Year — ¥1,600
-- Speyburn 18 Year — 15ml ¥1,300 / 30ml ¥2,500
-- Macallan 12 Year Double Cask — ¥1,600
-- Macallan 12 Year Sherry Oak — 15ml ¥1,000 / 30ml ¥2,000
+- 올드 글래스고 — ¥800
+- 싱글톤 12년 — ¥900
+- 글렌그랜트 아보랄리스 — ¥800
+- 글렌그랜트 아보랄리스 캐스크 스트렝스 — ¥1,100
+- 글렌그랜트 10년 — ¥1,000
+- 벤리악 12년 더 스모키 — ¥1,200
+- 글렌리벳 12년 — ¥1,000
+- 글렌리벳 12년 200주년 기념 한정판 — ¥1,200
+- 글렌피딕 12년 — ¥1,100
+- 글렌피딕 14년 — ¥1,400
+- 글렌피딕 15년 — ¥1,500
+- 글렌피딕 18년 — 15ml ¥1,000 / 30ml ¥2,000
+- 스페이번 10년 — ¥1,000
+- 스페이번 15년 — ¥1,400
+- 스페이번 16년 — ¥1,600
+- 스페이번 18년 — 15ml ¥1,300 / 30ml ¥2,500
+- 맥캘란 12년 더블 캐스크 — ¥1,600
+- 맥캘란 12년 셰리 오크 — 15ml ¥1,000 / 30ml ¥2,000
 
 ## 스카치 — 하이랜드
 
-- Ardmore Legacy — ¥900
-- Glen Turner 12 Year — ¥900
-- AnCnoc 12 Year — ¥1,000
-- Talisker 10 Year — ¥1,100
-- Arran Barrel Reserve — ¥1,000
-- Arran 10 Year — ¥1,200
-- Glenmorangie 12 Year — ¥1,000
-- Aberfeldy 12 Year — ¥1,100
-- Highland Park 12 Year — ¥1,200
-- Royal Brackla 12 Year — ¥1,400
-- Clynelish 14 Year — ¥1,400
-- Ben Nevis 10 Year — ¥1,500 (메뉴 메모: 단종됐지만 현재 재고 있음)
-- Nc’nean Orchard Cobbler — 15ml ¥1,000 / 30ml ¥2,000
+- 아드모어 레거시 — ¥900
+- 글렌 터너 12년 — ¥900
+- 앤녹 12년 — ¥1,000
+- 탈리스커 10년 — ¥1,100
+- 아란 배럴 리저브 — ¥1,000
+- 아란 10년 — ¥1,200
+- 글렌모렌지 12년 — ¥1,000
+- 애버펠디 12년 — ¥1,100
+- 하이랜드 파크 12년 — ¥1,200
+- 로열 브라클라 12년 — ¥1,400
+- 클라이넬리시 14년 — ¥1,400
+- 벤 네비스 10년 (메뉴에는 단종으로 표시되어 있으나 현재 재고 있음) — ¥1,500 (메뉴 메모: 단종됐지만 현재 재고 있음)
+- 느케넌 오차드 코블러 — 15ml ¥1,000 / 30ml ¥2,000
 
 ## 스카치 — 아일라
 
-- Islay Journey — ¥1,000
-- Scarabus 10 Year — ¥1,300
-- Smokehead Extra Rare — ¥1,000
-- Big Peat — ¥1,100
-- Kunshu Islay — ¥1,200
-- Finlaggan Original Peaty — ¥900
-- Finlaggan Cask Strength — ¥1,100
-- Bruichladdich Classic Laddie — ¥1,200
-- Bruichladdich Oldskool 10 Year — 15ml ¥1,000 / 30ml ¥2,000
-- Port Charlotte 10 Year — ¥1,200
-- Octomore 15.1 — 15ml ¥1,800 / 30ml ¥3,500
-- Bowmore 12 Year — ¥1,100
-- Kilchoman Machir Bay — ¥1,200
-- Kilchoman Sanaig — ¥1,300
-- Caol Ila 12 Year — ¥1,200
-- Lagavulin 8 Year — ¥1,200
-- Lagavulin 16 Year — ¥1,800
-- Laphroaig 10 Year — ¥1,200
-- Octomore (메뉴 부표기: Bruichladdic) — 15ml ¥1,800 / 30ml ¥3,500
-- Octomore 16.2 — ¥3,500
-- Ardbeg 10 — ¥1,100
+- 아일라 저니 — ¥1,000
+- 스카라버스 10년 — ¥1,300
+- 스모크헤드 엑스트라 레어 — ¥1,000
+- 빅 피트 — ¥1,100
+- 쿤슈 아일라 — ¥1,200
+- 핀라간 오리지널 피티 — ¥900
+- 핀라간 캐스크 스트렝스 — ¥1,100
+- 브룩라디 클래식 래디 — ¥1,200
+- 브룩라디 올드스쿨 10년 — 15ml ¥1,000 / 30ml ¥2,000
+- 포트 샬럿 10년 — ¥1,200
+- 옥토모어 15.1 — 15ml ¥1,800 / 30ml ¥3,500
+- 보모어 12년 — ¥1,100
+- 킬호만 마키어 베이 — ¥1,200
+- 킬호만 사나이그 — ¥1,300
+- 카올 일라 12년 — ¥1,200
+- 라가불린 8년 — ¥1,200
+- 라가불린 16년 — ¥1,800
+- 라프로익 10년 — ¥1,200
+- 옥토모어 (메뉴 표기: 브룩라디) — 15ml ¥1,800 / 30ml ¥3,500
+- 옥토모어 16.2 — ¥3,500
+- 아드벡 10 — ¥1,100
 
 ## 스카치 — 블렌디드
 
-- Johnnie Walker Black Ruby — ¥900
-- Johnnie Walker Black Label 12 Year — ¥900
-- Johnnie Walker Double Black — ¥900
-- Johnnie Walker Green Label 15 Year — ¥1,100
-- Johnnie Walker Blue Label — 15ml ¥1,500 / 30ml ¥3,000
-- The Deacon — ¥900
-- Dewar’s Japanese Smooth — ¥800
-- Chivas Regal 12 Year — ¥800
-- Chivas Regal Mizunara 12 Year — ¥1,000
-- Ballantine 12 Year — ¥1,000
-- Ballantine Christmas Reserve — ¥1,000
-- Old Parr 12 Year — ¥1,000
-- Monkey Shoulder — ¥1,000
-- Spice King — ¥1,100
-- The Peat Monster — ¥1,300
-- Orchard House — ¥1,300
+- 조니 워커 블랙 루비 — ¥900
+- 조니 워커 블랙 라벨 12년 — ¥900
+- 조니 워커 더블 블랙 — ¥900
+- 조니 워커 그린 라벨 15년 — ¥1,100
+- 조니 워커 블루 라벨 — 15ml ¥1,500 / 30ml ¥3,000
+- 더 디컨 — ¥900
+- 듀어스 재패니즈 스무스 — ¥800
+- 시바스 리갈 12년 — ¥800
+- 시바스 리갈 미즈나라 12년 — ¥1,000
+- 밸런타인 12년 — ¥1,000
+- 밸런타인 크리스마스 리저브 — ¥1,000
+- 올드 파 12년 — ¥1,000
+- 몽키 숄더 — ¥1,000
+- 스파이스 킹 — ¥1,100
+- 더 피트 몬스터 — ¥1,300
+- 오차드 하우스 — ¥1,300
 
 ## 스카치 — 캠벨타운
 
-- The Gauldrons — ¥1,200
-- Campbeltown Loch — ¥1,400
-- Springbank 10 Year — 15ml ¥1,300 / 30ml ¥2,600
-- Longrow — ¥1,600
-- Kilkerran 12 Year — ¥1,800
-- Kilkerran 16 Year 2024 — 15ml ¥1,200 / 30ml ¥2,400
-- Glen Scotia Double Cask — ¥1,100
-- Glen Scotia Double Cask Rum Finish — ¥1,200
-- Glen Scotia Victoriana — ¥1,600
-- Longrow 100 Proof — 15ml ¥1,000 / 30ml ¥2,000
+- 더 골드론스 — ¥1,200
+- 캠벨타운 로크 — ¥1,400
+- 스프링뱅크 10년 — 15ml ¥1,300 / 30ml ¥2,600
+- 롱로우 — ¥1,600
+- 킬커란 12년 — ¥1,800
+- 킬커란 16년 2024 — 15ml ¥1,200 / 30ml ¥2,400
+- 글렌 스코샤 더블 캐스크 — ¥1,100
+- 글렌 스코샤 더블 캐스크 럼 피니시 — ¥1,200
+- 글렌 스코샤 빅토리아나 — ¥1,600
+- 롱로우 100 프루프 — 15ml ¥1,000 / 30ml ¥2,000
 
 ## 테네시 위스키
 
-- Jack Daniels — ¥800
-- Gentleman Jack — ¥900
+- 잭 다니엘스 — ¥800
+- 젠틀맨 잭 — ¥900
 
 ## 아이오와 위스키
 
-- Slipknot No. 9 — ¥1,200
+- 슬립낫 넘버 9 — ¥1,200
 
 ## 캐나다 위스키
 
-- Canadian Club 12 Year — ¥800
-- Banff — ¥1,500
-- Coureur des Bois — ¥1,500
+- 캐나디안 클럽 12년 — ¥800
+- 밴프 — ¥1,500
+- 쿠뢰르 데 부아 — ¥1,500
 
 ## 인도 위스키
 
-- Paul John Brilliance — ¥1,200
+- 폴 존 브릴리언스 — ¥1,200
 
 ## 웨일스 위스키
 
-- Penderyn Madeira — ¥1,300
+- 펜더린 마데이라 — ¥1,300
 
 ## 이스라엘 위스키
 
-- M&H Classic — ¥1,100
+- 엠앤에이치 클래식 — ¥1,100
 
-BarTicket 메뉴 카테고리에는 “Israely Whiskey”라고 표기되어 있습니다.
+BarTicket의 이스라엘 위스키 카테고리명에는 오기가 있습니다.
 
 ## 덴마크 위스키
 
-- Thornaes Sherry Oloroso — 15ml ¥1,000 / 30ml ¥2,000
+- 토르네스 셰리 올로로소 — 15ml ¥1,000 / 30ml ¥2,000
 
 ## 메뉴 데이터 확인 사항
 
-- Nikka From The Barrel Extra Marriage의 일본어 메뉴 항목은 ¥0으로 표시되어 있으며, 위의 영어 항목(15ml ¥1,200 / 30ml ¥2,300)과 함께 나타납니다. 게시 전에 일본어 항목의 가격을 확인하세요.
-- 메뉴에는 Octomore 15.1과 동일한 15ml·30ml 가격의 별도 Octomore 항목이 있습니다. 서로 다른 제품인지 확인하세요.
-- 메뉴에 Japanese Lottery와 Islay Whiskey Lottery도 있습니다. 위스키 병이 아니라 추첨 상품이므로 목록에서 제외했습니다.
-- Ben Nevis 10 Year는 단종된 병으로 표시되어 있습니다.
+- 니카 프롬 더 배럴 엑스트라 메리지의 일본어 메뉴 항목은 ¥0으로 표시되어 있으며, 위 항목(15ml ¥1,200 / 30ml ¥2,300)과 함께 나타납니다. 게시 전에 일본어 항목의 가격을 확인하세요.
+- 메뉴에는 옥토모어 15.1과 동일한 15ml·30ml 가격의 별도 옥토모어 항목이 있습니다. 서로 다른 제품인지 확인하세요.
+- 메뉴에는 재패니즈 위스키 추첨 상품과 아일라 위스키 추첨 상품도 있습니다. 병 제품이 아니라 추첨 상품이므로 목록에서 제외했습니다.
+- 벤 네비스 10년은 메뉴상 단종으로 표시되어 있지만 현재 재고가 있습니다.
 - 가격이 하나만 표시된 항목은 메뉴에 잔 용량이 없어 용량을 추정하지 않았습니다.
