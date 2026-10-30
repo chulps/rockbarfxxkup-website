@@ -4,14 +4,16 @@ const assert = require('node:assert/strict');
 const runtime = readFileSync('dist/experiments.js', 'utf8');
 const analytics = readFileSync('dist/analytics.js', 'utf8');
 const shippedConfig = JSON.parse(readFileSync('source/experiments.json', 'utf8'));
-assert.equal(shippedConfig.firstVisit.enabled, true, 'the approved confidence test must be enabled');
 assert.equal(shippedConfig.firstVisit.allocation, .5);
-assert.equal(shippedConfig.firstVisit.copy.en.headline, 'Your music. Your whisky. Your night.');
-assert.equal(shippedConfig.firstVisit.copy.en.supporting, 'Song requests welcome. Great whisky, rock music, and a friendly place to spend your night in Susukino.');
 
-function page({language='en', enabled=false, random=.1, store=new Map(), blocked=false, observer=true}={}) {
+function page({language='en', enabled=false, random=.1, store=new Map(), blocked=false, observer=true, rollout='A', now='2026-10-31T00:00:00Z', controlCopy}={}) {
   const config = JSON.parse(JSON.stringify(shippedConfig));
   config.firstVisit.enabled = enabled;
+  // Simulated clock and horizon keep lifecycle tests valid after future launches.
+  config.firstVisit.startsAt = '2026-10-01T00:00:00Z';
+  config.firstVisit.endsAt = '2026-11-23T00:00:00Z';
+  config.firstVisit.rolloutVariant = rollout;
+  if (controlCopy) config.firstVisit.controlCopy = controlCopy;
   const events=[];let handler, seen, randomCalls=0, writes=0;
   const headline={textContent:'CONTROL HEADLINE',replaceChildren(...nodes){this.textContent=nodes.map(n=>n.textContent).join('')}};
   const supporting={textContent:'CONTROL SUPPORTING'};
@@ -19,7 +21,7 @@ function page({language='en', enabled=false, random=.1, store=new Map(), blocked
   const footer={contains:link=>!!link.footer};
   const window={FXXKUP_EXPERIMENT_CONFIG:config,gtag:(...args)=>events.push(args)};
   if(observer)window.IntersectionObserver=true;
-  const context={window,Math:Object.assign(Object.create(Math),{random:()=>{randomCalls++;return random}}),
+  const context={Date: class extends Date {static now(){return new Date(now).getTime()}},window,Math:Object.assign(Object.create(Math),{random:()=>{randomCalls++;return random}}),
     localStorage:{getItem:key=>{if(blocked)throw Error('blocked');return store.get(key)??null},setItem:(key,value)=>{if(blocked)throw Error('blocked');writes++;store.set(key,value)}},
     location:{search:'?experiment=B&enabled=true'},
     document:{documentElement:{lang:language},querySelector:selector=>({'.hero-copy':hero,'.hero-line':headline,'.hero-desc':supporting}[selector]),getElementById:()=>footer,
@@ -73,8 +75,8 @@ for(const language of Object.keys(shippedConfig.firstVisit.copy)) {
     const p=page({language,enabled:true,random});
     assert.equal(p.window.firstVisitExperiment.variant,variant);
     assert.equal(p.store.get(shippedConfig.firstVisit.storageKey),variant);
-    assert.equal(p.headline.textContent,variant==='A'?'CONTROL HEADLINE':shippedConfig.firstVisit.copy[language].lines.join(' '));
-    assert.equal(p.supporting.textContent,variant==='A'?'CONTROL SUPPORTING':shippedConfig.firstVisit.copy[language].supporting);
+    assert.equal(p.headline.textContent,variant==='A'?(shippedConfig.firstVisit.controlCopy?.[language]?.lines.join(' ') || 'CONTROL HEADLINE'):shippedConfig.firstVisit.copy[language].lines.join(' '));
+    assert.equal(p.supporting.textContent,variant==='A'?(shippedConfig.firstVisit.controlCopy?.[language]?.supporting || 'CONTROL SUPPORTING'):shippedConfig.firstVisit.copy[language].supporting);
     p.observe(.1);assert.equal(p.events.length,0);
     const unexposed=link('instagram_click','footer-contact',{footer:true});p.click(unexposed);
     assert.equal(p.events.at(-1)[2].experiment_id,undefined);
@@ -90,8 +92,25 @@ for(const language of Object.keys(shippedConfig.firstVisit.copy)) {
 const immediate=page({enabled:true,random:.9,observer:false});immediate.click(link('directions_click','hero',{hero:true}));
 assert.deepEqual(immediate.events.map(e=>e[1]),['experiment_view','directions_click']);
 immediate.click(link('directions_click','hero',{hero:true}));assert.equal(immediate.events.filter(e=>e[1]==='experiment_view').length,1);
-const blocked=page({enabled:true,blocked:true});assert.equal(blocked.window.firstVisitExperiment,undefined);assert.equal(blocked.headline.textContent,'CONTROL HEADLINE');
+const blocked=page({enabled:true,blocked:true});assert.equal(blocked.window.firstVisitExperiment,undefined);assert.equal(blocked.headline.textContent,shippedConfig.firstVisit.controlCopy?.en.lines.join(' ') || 'CONTROL HEADLINE');
 console.log('PASS: rollout clicks and destinations in 5 locales; no retired or disabled exposures; persistent 50/50 A/B, localization, visibility/click exposure deduplication, and blocked-storage fallback.');
 
 // Allow offline integration tests to feed actual runtime events to the Python analyzer.
 module.exports = {page, link};
+
+const expired=page({enabled:true,now:'2099-01-01T00:00:00Z'});
+assert.equal(expired.window.firstVisitExperiment,undefined);
+assert.equal(expired.counts().randomCalls,0);
+const promoted=page({enabled:false,rollout:'B'});
+assert.equal(promoted.window.firstVisitExperiment,undefined);
+assert.equal(promoted.headline.textContent,shippedConfig.firstVisit.copy.en.lines.join(' '));
+promoted.observe(.8);assert.equal(promoted.events.length,0);
+console.log('PASS: expired enrollment stops assigning; permanent B applies without experiment tracking.');
+const incumbent=page({enabled:true,blocked:true,controlCopy:shippedConfig.firstVisit.copy});
+assert.equal(incumbent.headline.textContent,shippedConfig.firstVisit.copy.en.lines.join(' '));
+assert.equal(incumbent.window.firstVisitExperiment,undefined);
+const followupStore=new Map([[shippedConfig.firstVisit.storageKey,'B']]);
+const followup=page({enabled:true,now:'2026-11-23T12:00:00Z',store:followupStore});
+assert.equal(followup.window.firstVisitExperiment.variant,'B');assert.equal(followup.counts().randomCalls,0);
+const noLateEnrollment=page({enabled:true,now:'2026-11-23T12:00:00Z'});
+assert.equal(noLateEnrollment.window.firstVisitExperiment,undefined);assert.equal(noLateEnrollment.counts().randomCalls,0);

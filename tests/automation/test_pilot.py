@@ -1,9 +1,14 @@
 import importlib.util
 import datetime as dt
 import json
+import sys
+import types
 from pathlib import Path
 import tempfile
 import unittest
+from urllib.error import HTTPError
+from io import BytesIO
+from unittest.mock import patch, MagicMock
 spec=importlib.util.spec_from_file_location('pilot',Path(__file__).resolve().parents[2]/'automation/pilot.py')
 p=importlib.util.module_from_spec(spec);spec.loader.exec_module(p)
 
@@ -18,6 +23,38 @@ class PilotTests(unittest.TestCase):
                 e=dict(visitor_id=f'{arm}{i}',variant=arm,experiment_id='test',timestamp='2026-10-01T00:00:00+00:00',event='experiment_view');out.append(e)
                 if i<k: out.append(dict(e,event='directions_click',timestamp='2026-10-01T00:01:00+00:00'))
         return out
+    def test_gbp_website_separates_campaign_and_referral_diagnostics(self):
+        calls = []
+        def fake(url, body):
+            calls.append(body)
+            return {'rows': [], 'rowCount': 10001}
+        result = p.collect_gbp_website('2026-09-29', '2026-10-26', fake)
+        self.assertEqual(len(calls), 3)
+        self.assertTrue(result['truncated'])
+        self.assertEqual(calls[0]['dimensionFilter']['filter']['fieldName'], 'sessionCampaignName')
+        self.assertEqual(calls[0]['dimensionFilter']['filter']['stringFilter']['value'], 'google_business_profile')
+        self.assertEqual(calls[1]['metrics'], [{'name': 'eventCount'}, {'name': 'keyEvents'}])
+        self.assertEqual(calls[2]['dimensionFilter']['filter']['fieldName'], 'sessionSourceMedium')
+        self.assertNotIn('userId', str(calls))
+        self.assertNotIn('pageLocation', str(calls))
+
+    def test_gbp_snapshot_validation_and_freshness(self):
+        good = dict(schema_version=1, source='ga4_business_profile_ui',
+            scope='rock_bar_fxxk_up_only', period={'start':'2026-09-29', 'end':'2026-10-26'},
+            observed_at='2026-10-27T08:00:00+09:00', metrics={'calls':1, 'directions':99})
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp)/'snapshot.json'
+            def read(data):
+                path.write_text(json.dumps(data))
+                return p.read_gbp_import(path, dt.date(2026,10,28))
+            self.assertEqual(read(good)['snapshot_age_days'], 1)
+            for change in [dict(metrics={'calls':True}), dict(metrics={'calls':-1}),
+                dict(metrics={'calls':'***'}), dict(metrics={'visitor_id':1}),
+                dict(observed_at='2026-10-27T08:00:00'), dict(scope='unknown'),
+                dict(secret='reject unknown fields'),
+                dict(period={'start':'2026-10-28','end':'2026-10-26'})]:
+                with self.assertRaises(ValueError): read(dict(good, **change))
+
     def test_empty(self): self.assertIsNone(p.analyze([],self.plan())['winner'])
     def test_duplicates_and_pre_exposure(self):
         e=self.events(); e.append(dict(e[1]));e.append(dict(e[1],visitor_id='unexposed'))
@@ -56,6 +93,46 @@ class PilotTests(unittest.TestCase):
         r=p.collect('2026-10-01','2026-10-24',fake)
         self.assertEqual(r['gsc_totals'],{'rows':[]})
         self.assertEqual(r['api_errors'],['ga4: PermissionError'])
+    def test_http_permission_errors_are_actionable_without_logging_bodies(self):
+        def fake(url,body):
+            if 'analyticsdata' in url: raise HTTPError(url,403,'Forbidden',None,BytesIO(b'{"private":"not retained"}'))
+            return {'rows':[]}
+        result=p.collect('2026-10-01','2026-10-24',fake)
+        self.assertEqual(result['api_errors'],['ga4: HTTP 403'])
+    def test_oauth_requires_explicit_authorization(self):
+        with tempfile.TemporaryDirectory() as temp:
+            with patch.dict('os.environ', {'FXXKUP_OAUTH_TOKEN_FILE':str(Path(temp)/'missing.json')}, clear=False):
+                with self.assertRaisesRegex(ValueError,'use --authorize'):
+                    p.google_credentials()
+    def test_oauth_token_is_saved_owner_only(self):
+        with tempfile.TemporaryDirectory() as temp:
+            token=Path(temp)/'private'/'google-token.json'
+            credential=MagicMock();credential.to_json.return_value='{}'
+            p.save_credentials(credential,token)
+            self.assertEqual(token.read_text(),'{}')
+            self.assertEqual(token.stat().st_mode & 0o777,0o600)
+            self.assertEqual(token.parent.stat().st_mode & 0o777,0o700)
+    def test_oauth_reuses_saved_valid_token(self):
+        credentials=MagicMock(valid=True)
+        with tempfile.TemporaryDirectory() as temp:
+            token=Path(temp)/'token.json';token.write_text('{}')
+            with patch('google.oauth2.credentials.Credentials.from_authorized_user_file',return_value=credentials) as load:
+                self.assertIs(p.google_credentials(token_file=token),credentials)
+            load.assert_called_once_with(str(token),p.SCOPES)
+    def test_oauth_browser_flow_only_runs_when_authorized(self):
+        with tempfile.TemporaryDirectory() as temp:
+            client=Path(temp)/'desktop-client.json';client.write_text('{"installed":{}}')
+            token=Path(temp)/'private'/'token.json'
+            credentials=MagicMock();credentials.to_json.return_value='{"refresh_token":"test-only"}'
+            flow=MagicMock();flow.run_local_server.return_value=credentials
+            package=types.ModuleType('google_auth_oauthlib');module=types.ModuleType('google_auth_oauthlib.flow')
+            flow_class=MagicMock();flow_class.from_client_secrets_file.return_value=flow
+            module.InstalledAppFlow=flow_class
+            with patch.dict(sys.modules,{'google_auth_oauthlib':package,'google_auth_oauthlib.flow':module}):
+                self.assertIs(p.google_credentials(authorize=True,token_file=token,client_file=client),credentials)
+            flow_class.from_client_secrets_file.assert_called_once_with(str(client),p.SCOPES)
+            flow.run_local_server.assert_called_once_with(port=0,access_type='offline',prompt='consent')
+            self.assertEqual(token.stat().st_mode & 0o777,0o600)
     def test_runtime_to_analysis(self):
         import subprocess
         js = """

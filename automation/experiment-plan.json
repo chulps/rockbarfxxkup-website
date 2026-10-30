@@ -5,9 +5,12 @@
   "sample_per_arm": 2400,
   "minimum_absolute_lift": 0.01,
   "min_days": 14,
-  "elapsed_days": 0,
   "preregistered": false,
-  "guardrails_reviewed": false,
-  "window_mature": false,
-  "note": "Existing active test; no historical winner inference. Example future sample: ~2400/arm for 5% to 7% at 80% power, two-sided alpha .05. Replace with prospective baseline-based power plan before a new version. Review mature unique-visitor cohorts only at fixed horizon; weekly reports are descriptive."
+  "note": "Legacy test has no prospective registration. Preserve assignments through Nov 22; close descriptively at fixed deadline, retain incumbent A without claiming a winner. Future tests require a prospective plan and feasible enrollment forecast.",
+  "schema_version": 2,
+  "enrollment_start": "2026-10-26T00:00:00+09:00",
+  "enrollment_end": "2026-11-23T00:00:00+09:00",
+  "analysis_at": "2026-11-28T00:00:00+09:00",
+  "alpha": 0.05,
+  "mode": "legacy_descriptive"
 }

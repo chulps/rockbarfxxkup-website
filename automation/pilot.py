@@ -4,16 +4,18 @@ import datetime as dt
 import json
 import math
 import os
+import tempfile
 import ssl
 from pathlib import Path
 from html.parser import HTMLParser
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://www.rockbarfxxkup.com'
-ROUTES = {'en': '/', 'ja': '/ja/', 'ko': '/ko/', 'th': '/th/'}
+ROUTES = {'en': '/', 'ja': '/ja/', 'ko': '/ko/', 'th': '/th/', 'zh-Hans': '/zh-hans/'}
 SCOPES = ['https://www.googleapis.com/auth/analytics.readonly', 'https://www.googleapis.com/auth/webmasters.readonly']
 
 def window(today=None):
@@ -65,6 +67,121 @@ def api(url, body, credentials):
     import certifi
     with urlopen(request, timeout=45, context=ssl.create_default_context(cafile=certifi.where())) as response: return json.load(response)
 
+def save_credentials(credentials, token_file):
+    """Atomically save refresh credentials outside the source tree, owner-only."""
+    token_file = Path(token_file).expanduser()
+    token_file.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+    os.chmod(token_file.parent, 0o700)
+    fd, temporary = tempfile.mkstemp(prefix='.google-token-', dir=token_file.parent)
+    try:
+        os.fchmod(fd, 0o600)
+        with os.fdopen(fd, 'w', encoding='utf-8') as stream:
+            stream.write(credentials.to_json())
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, token_file)
+        os.chmod(token_file, 0o600)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
+
+def google_credentials(authorize=False, token_file=None, client_file=None):
+    """Use installed-app OAuth only; --authorize is the sole browser-launch path."""
+    from google.auth.transport.requests import Request as AuthRequest
+    from google.oauth2.credentials import Credentials
+
+    token_file = Path(token_file or os.environ.get(
+        'FXXKUP_OAUTH_TOKEN_FILE', '~/.config/fxxkup-seo/google-token.json')).expanduser()
+    client_file = client_file or os.environ.get('FXXKUP_OAUTH_CLIENT_FILE')
+
+    if token_file.is_file():
+        credentials = Credentials.from_authorized_user_file(str(token_file), SCOPES)
+        if credentials.valid:
+            return credentials
+        if credentials.expired and credentials.refresh_token:
+            try:
+                credentials.refresh(AuthRequest())
+                save_credentials(credentials, token_file)
+                return credentials
+            except Exception:
+                if not authorize:
+                    raise ValueError('Saved Google access could not be refreshed; rerun with --authorize to sign in again')
+        if not authorize:
+            raise ValueError('Saved Google access expired; rerun with --authorize to sign in again')
+
+    if not authorize:
+        raise ValueError('Google OAuth token missing; use --authorize with your Desktop OAuth client JSON')
+    if not client_file or not Path(client_file).expanduser().is_file():
+        raise ValueError('Set FXXKUP_OAUTH_CLIENT_FILE or pass --oauth-client with the downloaded Desktop client JSON')
+
+    from google_auth_oauthlib.flow import InstalledAppFlow
+    flow = InstalledAppFlow.from_client_secrets_file(str(Path(client_file).expanduser()), SCOPES)
+    credentials = flow.run_local_server(port=0, access_type='offline', prompt='consent')
+    save_credentials(credentials, token_file)
+    return credentials
+
+def collect_gbp_website(start, end, request):
+    """Aggregate on-site behavior only. This never calls the restricted GBP API."""
+    url = 'https://analyticsdata.googleapis.com/v1beta/properties/559070143:runReport'
+    dates = [{'startDate': str(start), 'endDate': str(end)}]
+    campaign = {'filter': {'fieldName': 'sessionCampaignName', 'stringFilter': {
+        'matchType': 'EXACT', 'value': 'google_business_profile', 'caseSensitive': True}}}
+    def query(dimensions, metrics, dimension_filter):
+        return request(url, {'dateRanges': dates,
+            'dimensions': [{'name': n} for n in dimensions],
+            'metrics': [{'name': n} for n in metrics],
+            'dimensionFilter': dimension_filter, 'limit': '10000'})
+    sessions = query(['sessionCampaignName', 'sessionSourceMedium', 'sessionManualAdContent'],
+                     ['sessions', 'engagedSessions', 'keyEvents'], campaign)
+    events = query(['sessionCampaignName', 'sessionSourceMedium', 'eventName'],
+                   ['eventCount', 'keyEvents'], campaign)
+    referrals = query(['sessionSourceMedium'], ['sessions'], {'filter': {
+        'fieldName': 'sessionSourceMedium', 'stringFilter': {'matchType': 'FULL_REGEXP',
+        'value': r'(.*\.)?(google\.[^ ]+|googleusercontent\.com|goo\.gl) / referral',
+        'caseSensitive': False}}})
+    reports = {'campaign_sessions': sessions, 'campaign_events': events,
+               'google_referral_diagnostic': referrals}
+    return {'source': 'GA4 Data API; session-scoped campaign attribution',
+            'period': {'start': str(start), 'end': str(end)},
+            'reports': reports,
+            'truncated': any(r.get('rowCount', 0) > len(r.get('rows', [])) for r in reports.values()),
+            'limitations': [
+                'Campaign labels identify tagged sessions, not verified human GBP clicks.',
+                'google / organic without the GBP campaign is not identifiable as GBP.',
+                'Google referrals are diagnostic candidates only; they do not prove GBP origin.',
+                'directions_click opens Maps from the website; it is not a Maps directions request or a visit.',
+                'Key events are session-attributed here, not an advertising attribution-model report.',
+                'Maps/Search views, profile calls and profile directions require separate GBP evidence.']}
+
+
+def read_gbp_import(path, today=None):
+    """Accept a small, explicitly sourced aggregate snapshot; reject ambiguous inputs."""
+    data = json.loads(Path(path).read_text())
+    required = {'schema_version', 'source', 'scope', 'period', 'observed_at', 'metrics'}
+    if set(data) != required or type(data['schema_version']) is not int or data['schema_version'] != 1:
+        raise ValueError('invalid GBP snapshot schema')
+    if data['source'] not in ('ga4_business_profile_ui', 'gbp_performance_export'):
+        raise ValueError('unsupported GBP source')
+    if data['scope'] not in ('rock_bar_fxxk_up_only', 'all_linked_profiles_unverified'):
+        raise ValueError('invalid profile scope')
+    if set(data['period']) != {'start', 'end'}:
+        raise ValueError('invalid date range')
+    start, end = (dt.date.fromisoformat(data['period'][k]) for k in ('start', 'end'))
+    observed = dt.datetime.fromisoformat(data['observed_at'])
+    if observed.tzinfo is None or start > end or end > observed.date():
+        raise ValueError('invalid snapshot dates')
+    allowed = {'interactions', 'website_clicks', 'calls', 'directions', 'views', 'menus'}
+    if not data['metrics'] or not set(data['metrics']) <= allowed:
+        raise ValueError('invalid GBP metrics')
+    if any(type(n) is not int or n < 0 for n in data['metrics'].values()):
+        raise ValueError('metrics must be nonnegative integers; omit unavailable values')
+    age = ((today or dt.datetime.now(ZoneInfo('Asia/Tokyo')).date()) - observed.date()).days
+    if age < 0:
+        raise ValueError('future snapshot')
+    return dict(data, snapshot_age_days=age, period_end_age_days=((today or dt.datetime.now(ZoneInfo('Asia/Tokyo')).date()) - end).days, freshness='historical snapshot; never auto-refreshed',
+                caveat='Do not sum with website events or infer person-level journeys.')
+
+
 def collect(start, end, request):
     """Paginate query opportunities separately from property totals (privacy limits apply)."""
     original_request=request
@@ -72,7 +189,8 @@ def collect(start, end, request):
     def request(url, body):
         try: return original_request(url,body)
         except Exception as exc:
-            errors.append(('ga4' if 'analyticsdata' in url else 'gsc')+': '+type(exc).__name__)
+            detail='HTTP '+str(exc.code) if isinstance(exc,HTTPError) else type(exc).__name__
+            errors.append(('ga4' if 'analyticsdata' in url else 'gsc')+': '+detail)
             return {'unavailable':True}
     gsc_url = 'https://www.googleapis.com/webmasters/v3/sites/'+quote('sc-domain:rockbarfxxkup.com',safe='')+'/searchAnalytics/query'
     dates = {'startDate':str(start),'endDate':str(end),'dataState':'final','type':'web'}
@@ -90,8 +208,19 @@ def collect(start, end, request):
         'dimensions':[{'name':'sessionDefaultChannelGroup'},{'name':'language'}],
         'metrics':[{'name':x} for x in ['sessions','engagedSessions','keyEvents']],
         'dimensionFilter':{'filter':{'fieldName':'sessionDefaultChannelGroup','stringFilter':{'matchType':'EXACT','value':'Organic Search'}}},'limit':'10000'})
+    all_traffic=request(ga_url, {'dateRanges':[{'startDate':str(start),'endDate':str(end)}],
+        'dimensions':[{'name':'sessionDefaultChannelGroup'}],
+        'metrics':[{'name':x} for x in ['sessions','totalUsers','engagedSessions','keyEvents']], 'limit':'10000'})
+    named_events=request(ga_url, {'dateRanges':[{'startDate':str(start),'endDate':str(end)}],
+        'dimensions':[{'name':'eventName'},{'name':'pagePath'}],
+        'metrics':[{'name':'eventCount'}], 'limit':'10000'})
+    landing_pages=request(ga_url, {'dateRanges':[{'startDate':str(start),'endDate':str(end)}],
+        'dimensions':[{'name':'landingPage'},{'name':'sessionDefaultChannelGroup'}],
+        'metrics':[{'name':'sessions'},{'name':'engagedSessions'},{'name':'keyEvents'}], 'limit':'10000'})
+    gbp_website = collect_gbp_website(start, end, request)
     return {'period':{'start':str(start),'end':str(end),'gsc_timezone':'America/Los_Angeles','ga_timezone':'property setting; verify'},
-            'api_errors':errors,'gsc_totals':totals,'previous_gsc_period':[str(previous_start),str(previous_end)],'previous_gsc_totals':previous_totals,'gsc_rows':rows,'ga4_organic':ga,
+            'all_traffic':all_traffic,'named_events':named_events,'landing_pages':landing_pages,
+            'gbp_website':gbp_website,'api_errors':list(dict.fromkeys(errors)),'gsc_totals':totals,'previous_gsc_period':[str(previous_start),str(previous_end)],'previous_gsc_totals':previous_totals,'gsc_rows':rows,'ga4_organic':ga,
             'ga4_truncated':ga.get('rowCount',0)>len(ga.get('rows',[])),
             'limits':'GSC top rows omit anonymized queries; GA4 metadata retained; never sum query rows as total.'}
 
@@ -148,9 +277,9 @@ def analyze(events, plan):
             c['rate']=c['converted']/c['exposed']; c['wilson95']=wilson(c['converted'],c['exposed'])
         if c['exposed']<plan['sample_per_arm']: result['reasons'].append('planned sample not reached: '+arm)
     if not plan['preregistered']: result['reasons'].append('prospective plan not registered; historical analysis descriptive only')
-    if not plan['guardrails_reviewed']: result['reasons'].append('guardrails not reviewed')
-    if plan['elapsed_days']<plan['min_days']: result['reasons'].append('minimum duration not reached')
-    if not plan['window_mature']: result['reasons'].append('conversion window incomplete')
+    if not plan.get('guardrails_reviewed',False): result['reasons'].append('guardrails not reviewed')
+    if plan.get('elapsed_days',0)<plan['min_days']: result['reasons'].append('minimum duration not reached')
+    if not plan.get('window_mature',False): result['reasons'].append('conversion window incomplete')
     if all(counts[a]['exposed'] for a in ('A','B')):
         a,b=counts['A'],counts['B']; result['absolute_lift']=b['rate']-a['rate']
         result['relative_lift']=b['rate']/a['rate']-1 if a['rate'] else None
@@ -158,6 +287,10 @@ def analyze(events, plan):
         result['lift95']=[b['wilson95'][0]-a['wilson95'][1],b['wilson95'][1]-a['wilson95'][0]]
         if not result['reasons'] and result['lift95'][0]>plan['minimum_absolute_lift']:
             result.update(status='recommend_B_for_review',winner='B')
+        elif not result['reasons'] and result['lift95'][1]<-plan['minimum_absolute_lift']:
+            result.update(status='recommend_A_for_review',winner='A')
+        elif not result['reasons']:
+            result['status']='completed_inconclusive'
     return result
 
 def run(live=False, output=Path('reports'), events=None):
@@ -177,12 +310,20 @@ def run(live=False, output=Path('reports'), events=None):
     evidence['analytics']=None
     if live:
         try:
-            import google.auth
-            credentials,_=google.auth.default(scopes=SCOPES)
+            credentials=google_credentials()
             evidence['analytics']=collect(start,end,lambda url,body:api(url,body,credentials))
             evidence['blockers'].extend(evidence['analytics']['api_errors'])
         except Exception as exc: evidence['blockers'].append('Google API baseline unavailable: '+type(exc).__name__+'; browser observations are separate')
     else: evidence['blockers'].append('Offline mode: no Google APIs called')
+    evidence['gbp_performance_snapshot'] = None
+    snapshot_path = output/'gbp-performance-import.json'
+    if snapshot_path.is_file():
+        try:
+            evidence['gbp_performance_snapshot'] = read_gbp_import(snapshot_path)
+            evidence['gbp_performance_snapshot']['matches_website_report_period'] = (
+                evidence['gbp_performance_snapshot']['period'] == {'start': str(start), 'end': str(end)})
+        except (ValueError, TypeError, KeyError, OSError):
+            evidence['blockers'].append('GBP snapshot import invalid; excluded from report')
     plan=json.loads((ROOT/'automation/experiment-plan.json').read_text())
     evidence['experiment']=analyze([json.loads(l) for l in events.read_text().splitlines() if l.strip()] if events else [],plan)
     evidence['opportunities']=opportunities(evidence['analytics']['gsc_rows']) if evidence['analytics'] else []
@@ -193,10 +334,19 @@ def run(live=False, output=Path('reports'), events=None):
     lines=['# Weekly SEO + conversion pilot', '', 'Mode: '+evidence['mode'],'Generated: '+evidence['run_at'],'','## Technical evidence']
     for lang,a in evidence['audit'].items(): lines.append(f"- {lang}: "+(', '.join(k for k,v in a.get('checks',{}).items() if not v) or ('read failed' if 'error' in a else 'all implemented checks passed')))
     lines+=['','## Fresh API baseline',json.dumps({k:v for k,v in (evidence['analytics'] or {}).items() if k!='gsc_rows'},ensure_ascii=False,indent=2) if evidence['analytics'] else 'Unavailable; see blockers.','','## Search opportunities',json.dumps(evidence['opportunities'],ensure_ascii=False,indent=2) if evidence['opportunities'] else 'No fresh API query evidence. Do not invent keyword demand.', '', '## Historical browser evidence (not refreshed by this job)',json.dumps(evidence['historical_browser_snapshot'],ensure_ascii=False,indent=2),'## Historical query recommendations',json.dumps(evidence['historical_opportunities'],ensure_ascii=False,indent=2),'## Conversion experiment',json.dumps(evidence['experiment'],indent=2),'','## Blockers']+['- '+b for b in evidence['blockers']]
+    lines += ['', '## Separate GBP performance snapshot (not website events)',
+        json.dumps(evidence['gbp_performance_snapshot'], ensure_ascii=False, indent=2)
+        if evidence['gbp_performance_snapshot'] else 'Unavailable: import a validated GBP export or UI snapshot. Never infer Maps actions from website events.']
     lines+=['','## Required review','- Compare visible name, address, phone, hours and map destination with the verified Business Profile. No profile access was assumed.','- Review EN/JA evidence first; KO/TH hypotheses require observed queries or qualitative research.','- Keep existing B rollouts and current experiment ID/storage key. No ranking claim from visitor randomization.','- No automatic changes, merge, deployment, review solicitation, fabricated traffic or link creation.']
     (output/'weekly.md').write_text('\n'.join(lines)+'\n')
     return evidence
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(); p.add_argument('--live',action='store_true');p.add_argument('--output',type=Path,default=Path('reports'));p.add_argument('--events',type=Path)
-    a=p.parse_args(); run(a.live,a.output,a.events)
+    p=argparse.ArgumentParser(); p.add_argument('--live',action='store_true');p.add_argument('--authorize',action='store_true',help='perform the one-time local Google read-only OAuth consent flow');p.add_argument('--oauth-client',help='path to downloaded Desktop OAuth client JSON');p.add_argument('--output',type=Path,default=Path(os.environ.get('FXXKUP_REPORT_DIR','reports')).expanduser());p.add_argument('--events',type=Path)
+    a=p.parse_args()
+    if a.authorize:
+        google_credentials(authorize=True,client_file=a.oauth_client)
+        print('Google read-only access saved in the private local token file.')
+    else:
+        run(a.live,a.output,a.events)
+        print((a.output/'weekly.md').read_text())

@@ -1,33 +1,42 @@
-// The next test is prepared, but a strict false-by-default configuration gates
-// assignment, copy changes and analytics. URL parameters cannot launch it.
+// Fixed-horizon tests; completed rollouts never emit experiment exposures.
 (() => {
   const config = window.FXXKUP_EXPERIMENT_CONFIG?.firstVisit;
-  if (!config || config.enabled !== true) return;
+  if (!config) return;
   const language = document.documentElement.lang;
-  const copy = config.copy[language];
-  if (!copy) return;
+  const now = Date.now();
+  const started = !config.startsAt || now >= Date.parse(config.startsAt);
+  const ended = config.endsAt && now >= Date.parse(config.endsAt);
+  const expired = config.endsAt && now >= Date.parse(config.endsAt) + 86400000;
+  let running = config.enabled === true && started && !expired;
+  const fallback = config.rolloutVariant || 'A';
   let variant;
-  try {
+  if (!running) variant = fallback;
+  else try {
     variant = localStorage.getItem(config.storageKey);
     if (variant !== 'A' && variant !== 'B') {
-      variant = Math.random() < config.allocation ? 'A' : 'B';
-      localStorage.setItem(config.storageKey, variant);
-      if (localStorage.getItem(config.storageKey) !== variant) return;
+      if (ended) { running = false; variant = fallback; }
+      else {
+        variant = Math.random() < config.allocation ? 'A' : 'B';
+        localStorage.setItem(config.storageKey, variant);
+        if (localStorage.getItem(config.storageKey) !== variant) return;
+      }
     }
   } catch {
-    // A visitor without persistent storage sees the existing copy and is not
-    // enrolled, rather than switching arms on every page or language change.
-    return;
+    // Storage-blocked visitors get the current incumbent, without enrollment.
+    running = false;
+    variant = fallback;
   }
+  const copy = variant === 'B' ? config.copy?.[language] : config.controlCopy?.[language];
+  if (running && !config.copy?.[language]) return;
   const experiment = {id: config.id, variant, copyApplied: false};
-  window.firstVisitExperiment = experiment;
+  if (running) window.firstVisitExperiment = experiment;
   window.fxxkupFirstVisit = {
     applyCopy() {
       if (experiment.copyApplied) return;
       const headline = document.querySelector('.hero-line');
       const supporting = document.querySelector('.hero-desc');
       if (!headline || !supporting) return;
-      if (variant === 'B') {
+      if (copy) {
         const nodes = [];
         copy.lines.forEach((line, i) => {
           if (i) nodes.push(document.createElement('br'));
