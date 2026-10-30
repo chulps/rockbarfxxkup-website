@@ -105,6 +105,8 @@ for code in meta:
  # Route the whisky CTA to the matching language page.
  whisky_path='/whisky/' if code=='en' else '/'+code.lower()+'/whisky/'
  for link in doc.xpath('//a[@href="/whisky/"]'):link.set('href',whisky_path)
+ music_path='/music/' if code=='en' else '/'+code.lower()+'/music/'
+ for link in doc.xpath('//a[@href="/music/"]'):link.set('href',music_path)
  for el in doc.xpath('//img'):
   src=el.get('src','');path=D/src.lstrip('/')
   if path.suffix.lower() in ['.jpg','.jpeg','.png'] and path.exists():
@@ -172,8 +174,13 @@ for fragment in html.fragments_fromstring((ROOT/'source/privacy.html').read_text
 (D/'privacy').mkdir(exist_ok=True)
 (D/'privacy/index.html').write_text('<!doctype html>\n'+html.tostring(policy,encoding='unicode',method='html'))
 (D/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: '+ORIGIN+'/sitemap.xml\n')
-ns='http://www.sitemaps.org/schemas/sitemap/0.9';root=etree.Element('{'+ns+'}urlset',nsmap={None:ns})
+ns='http://www.sitemaps.org/schemas/sitemap/0.9';xns='http://www.w3.org/1999/xhtml';root=etree.Element('{'+ns+'}urlset',nsmap={None:ns,'xhtml':xns})
 for url in [*urls.values(),ORIGIN+'/privacy/']:el=etree.SubElement(root,'{'+ns+'}url');etree.SubElement(el,'{'+ns+'}loc').text=url
+music_urls={code:ORIGIN+('/music/' if code=='en' else '/'+code.lower()+'/music/') for code in meta}
+for code,url in music_urls.items():
+ el=etree.SubElement(root,'{'+ns+'}url');etree.SubElement(el,'{'+ns+'}loc').text=url
+ for other,alternate in music_urls.items():etree.SubElement(el,'{'+xns+'}link',rel='alternate',hreflang=other,href=alternate)
+ etree.SubElement(el,'{'+xns+'}link',rel='alternate',hreflang='x-default',href=music_urls['en'])
 (D/'sitemap.xml').write_bytes(etree.tostring(root,xml_declaration=True,encoding='UTF-8',pretty_print=True))
 (D/'site.webmanifest').write_text(json.dumps({'name':'Rock Bar FxxK Up — Sapporo','short_name':'FxxK Up','start_url':'/','display':'browser','background_color':'#161414','theme_color':'#161414','icons':[{'src':'/assets/apple-touch-icon.png','sizes':'180x180','type':'image/png'}]}))
 # Use the existing logo, preserving the established brand.
