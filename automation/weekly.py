@@ -13,6 +13,7 @@ from zoneinfo import ZoneInfo
 import pilot
 from bigquery_events import export
 from decision import evaluate
+from site_pages import pages, audit_page
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -44,26 +45,29 @@ def collect_run(report_root, offline=False):
     # not write access to the global config directory.
     pilot.save_credentials=lambda *args:None
     evidence=pilot.run(not offline,run_dir)
-    for lang,route in pilot.ROUTES.items():
-        url=pilot.ORIGIN+route+'whisky/'
+    discovered=pages(ROOT)
+    home_routes=set(pilot.ROUTES.values())
+    for page in discovered:
+        if page['route'] in home_routes: continue
+        key=page['route']
         try:
             if offline:
-                body=(ROOT/'dist'/route.lstrip('/')/'whisky/index.html').read_text()
-                status=None
-            else: body,status,_=pilot.public_get(url)
-            checks=pilot.audit(body,lang,url)
-            # Whisky pages use alternate URLs for whisky, not homepage alternates.
-            doc=pilot.Document(body)
-            alts={a.get('hreflang'):a.get('href') for t,a in doc.tags if t=='link' and a.get('rel')=='alternate'}
-            checks['hreflang']=all(alts.get(l)==pilot.ORIGIN+r+'whisky/' for l,r in pilot.ROUTES.items())
-            # These checks describe the page's own structured data and navigation.
-            checks.pop('local_schema',None)
-            checks.pop('instagram_link',None)
-            checks.pop('maps_link',None)
-            evidence['audit'][lang+'_whisky']={'checks':checks,'status':status}
+                body=page['path'].read_text(); status=None
+            else: body,status,_=pilot.public_get(page['url'])
+            evidence['audit'][key]={'checks':audit_page(body,page),'status':status}
         except Exception as exc:
-            evidence['audit'][lang+'_whisky']={'error':type(exc).__name__}
-            evidence['blockers'].append('whisky page read failed: '+lang)
+            evidence['audit'][key]={'error':type(exc).__name__}
+            evidence['blockers'].append('page read failed: '+key)
+    evidence['page_coverage']={'total':len(discovered),'routes':[p['route'] for p in discovered]}
+    # A source/live mismatch is visible, rather than silently skipping new routes.
+    if not offline:
+        import xml.etree.ElementTree as ET
+        from site_pages import NS
+        try:
+            live_urls={n.text for n in ET.fromstring(evidence['sitemap.xml']).findall('s:url/s:loc',NS)}
+            if live_urls!={p['url'] for p in discovered}:
+                evidence['blockers'].append('live sitemap differs from current source')
+        except (KeyError,ET.ParseError): evidence['blockers'].append('live sitemap unavailable or invalid')
     plan=json.loads((ROOT/'automation/experiment-plan.json').read_text())
     events=[]
     coverage={'ok':False,'complete_through':None,'error':'offline mode'}
