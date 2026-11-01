@@ -4,9 +4,38 @@
   const count = document.getElementById('menu-count');
   const clear = document.getElementById('menu-clear');
   const empty = document.getElementById('menu-empty');
+  const categoryControl = document.querySelector('.whisky-category-control');
   const groups = [...document.querySelectorAll('[data-menu-group]')];
   const rows = [...document.querySelectorAll('.menu-item')];
   const normalize = value => value.normalize('NFKC').toLocaleLowerCase().trim();
+  const countMeasureContext = document.createElement('canvas').getContext('2d');
+
+  function positionCategoryCount() {
+    if (!categoryControl || !countMeasureContext) return;
+    const selectedLabel = category.options[category.selectedIndex]?.textContent || '';
+    const style = window.getComputedStyle(category);
+    countMeasureContext.font = style.font;
+    const labelWidth = countMeasureContext.measureText(selectedLabel).width;
+    const leftPadding = (Number.parseFloat(style.paddingLeft) || 13) + (Number.parseFloat(style.borderLeftWidth) || 0);
+    const rightBorder = Number.parseFloat(style.borderRightWidth) || 0;
+    const left = leftPadding + labelWidth + 8;
+    const countWidth = count.getBoundingClientRect().width;
+    if (left + countWidth <= category.clientWidth - 36) {
+      count.style.left = left + 'px';
+      count.style.right = 'auto';
+      count.style.textAlign = 'left';
+      category.style.paddingRight = Math.ceil(category.clientWidth - rightBorder - left + 8) + 'px';
+    } else {
+      count.style.left = 'auto';
+      count.style.right = '36px';
+      count.style.textAlign = 'right';
+      category.style.paddingRight = Math.ceil(44 + countWidth) + 'px';
+    }
+  }
+
+  positionCategoryCount();
+  window.addEventListener('resize', positionCategoryCount);
+  document.fonts?.ready.then(positionCategoryCount);
 
   function update() {
     const query = normalize(search.value);
@@ -23,7 +52,8 @@
       group.hidden = groupVisible === 0;
       visible += groupVisible;
     });
-    count.textContent = `${visible} ${visible === 1 ? 'drink' : 'drinks'}`;
+    count.textContent = `(${visible} ${visible === 1 ? 'drink' : 'drinks'})`;
+    positionCategoryCount();
     empty.hidden = visible !== 0;
   }
 

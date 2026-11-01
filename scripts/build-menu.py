@@ -122,7 +122,7 @@ def main():
       <label class="sr-only" for="menu-search">Search the drinks menu</label>
       <input id="menu-search" type="search" placeholder="Search drinks, brands or styles" autocomplete="off">
       <label class="sr-only" for="menu-category">Category</label>
-      <div class="whisky-category-control"><select id="menu-category">{"".join(options)}</select><p id="menu-count" aria-live="polite">{len(items)} drinks</p></div>
+      <div class="whisky-category-control"><select id="menu-category">{"".join(options)}</select><p id="menu-count" aria-live="polite">({len(items)} drinks)</p></div>
       <button id="menu-clear" type="button">Clear</button>
     </div>
     <section id="menu-empty" class="whisky-empty" aria-live="polite" hidden><p class="whisky-empty-title">No drinks match that search.</p><p>Try a different name, category or style.</p></section>
