@@ -52,7 +52,9 @@
       group.hidden = groupVisible === 0;
       visible += groupVisible;
     });
-    count.textContent = `(${visible} ${visible === 1 ? 'drink' : 'drinks'})`;
+    const unit = visible === 1 ? count.dataset.unitSingular : count.dataset.unitPlural;
+    const separator = count.dataset.unitSpace === 'false' ? '' : ' ';
+    count.textContent = `(${visible}${separator}${unit})`;
     positionCategoryCount();
     empty.hidden = visible !== 0;
   }

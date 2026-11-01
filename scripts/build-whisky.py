@@ -196,7 +196,7 @@ def render_page(config, inventory, menu_urls):
     <p class="whisky-intro">{escape(inventory["description"])}</p>
     <p class="whisky-availability">{escape(label["availability"])}</p>
     {source_note}
-  <div class="whisky-visit-links"><a href="/menu/" data-track-event="menu_open" data-track-destination="static_menu" data-track-placement="whisky_visit_links">{escape(label["full_menu"])} {external_icon}</a><a class="whisky-directions-button" href="https://maps.app.goo.gl/95hYVdZMdPot4WQy5" target="_blank" rel="noopener" data-track-event="whisky_directions_click" data-track-destination="google_maps" data-track-placement="whisky_visit_links">{escape(label["directions"])} {external_icon}</a></div>
+  <div class="whisky-visit-links"><a href="{escape(lang_root + 'menu/', quote=True)}" data-track-event="menu_open" data-track-destination="static_menu" data-track-placement="whisky_visit_links">{escape(label["full_menu"])} {external_icon}</a><a class="whisky-directions-button" href="https://maps.app.goo.gl/95hYVdZMdPot4WQy5" target="_blank" rel="noopener" data-track-event="whisky_directions_click" data-track-destination="google_maps" data-track-placement="whisky_visit_links">{escape(label["directions"])} {external_icon}</a></div>
   </section>
   <section class="whisky-catalog" aria-label="{escape(inventory['heading'], quote=True)}">
     <div class="whisky-controls" hidden>

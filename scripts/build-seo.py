@@ -107,6 +107,8 @@ for code in meta:
  for link in doc.xpath('//a[@href="/whisky/"]'):link.set('href',whisky_path)
  music_path='/music/' if code=='en' else '/'+code.lower()+'/music/'
  for link in doc.xpath('//a[@href="/music/"]'):link.set('href',music_path)
+ menu_path='/menu/' if code=='en' else '/'+code.lower()+'/menu/'
+ for link in doc.xpath('//a[@href="/menu/"]'):link.set('href',menu_path)
  for el in doc.xpath('//img'):
   src=el.get('src','');path=D/src.lstrip('/')
   if path.suffix.lower() in ['.jpg','.jpeg','.png'] and path.exists():
