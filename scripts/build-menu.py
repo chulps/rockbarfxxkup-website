@@ -117,6 +117,13 @@ def main():
                 "clear": "Clear",
                 "emptyTitle": "No drinks match that search.",
                 "emptyText": "Try a different name, category or style.",
+                "requestTitle": "Tell us what you were looking for.",
+                "requestText": "Send a drink name or style request. A request does not confirm that we currently serve it.",
+                "requestLabel": "Drink name or style",
+                "requestPlaceholder": "What drink were you looking for?",
+                "requestNote": "Please do not include personal information. Your request is sent to GA4 to help us understand what guests are looking for.",
+                "requestConsent": "I am submitting only a drink name or style and no personal information.",
+                "requestButton": "Send drink request",
                 "home": "The bar", "music": "Music", "whisky": "Whisky", "fullMenu": "Full menu", "directions": "GET DIRECTIONS",
                 "countSingular": "drink", "countPlural": "drinks", "countSpace": "true"
             }
@@ -214,7 +221,17 @@ def main():
       <div class="whisky-category-control"><select id="menu-category" aria-label="{escape(all_label, quote=True)}">{"".join(options)}</select><p id="menu-count" data-unit-singular="{escape(count_unit_singular, quote=True)}" data-unit-plural="{escape(count_unit_plural, quote=True)}" data-unit-space="{count_unit_space}" aria-live="polite">({len(items)}{(' ' if count_unit_space == 'true' else '')}{escape(count_initial_unit)})</p></div>
       <button id="menu-clear" type="button">{escape(copy['clear'])}</button>
     </div>
-    <section id="menu-empty" class="whisky-empty" aria-live="polite" hidden><p class="whisky-empty-title">{escape(copy['emptyTitle'])}</p><p>{escape(copy['emptyText'])}</p></section>
+    <section id="menu-empty" class="whisky-empty" aria-live="polite" hidden><p class="whisky-empty-title">{escape(copy['emptyTitle'])}</p><p>{escape(copy['emptyText'])}</p>
+      <form id="menu-drink-request-form" class="whisky-suggestion" novalidate>
+        <p class="whisky-empty-title">{escape(copy['requestTitle'])}</p><p>{escape(copy['requestText'])}</p>
+        <label for="menu-drink-request">{escape(copy['requestLabel'])}</label>
+        <input id="menu-drink-request" name="request" type="text" maxlength="80" autocomplete="off" placeholder="{escape(copy['requestPlaceholder'], quote=True)}" required>
+        <p class="whisky-suggestion-note">{escape(copy['requestNote'])}</p>
+        <label class="whisky-suggestion-consent"><input id="menu-drink-request-consent" type="checkbox" required> {escape(copy['requestConsent'])}</label>
+        <button class="button yellow" type="submit">{escape(copy['requestButton'])}</button>
+        <p id="menu-drink-request-status" class="whisky-suggestion-status" role="status" aria-live="polite"><svg class="whisky-suggestion-status-icon" viewBox="0 0 42 28" aria-hidden="true"><path d="M2 24h38M5 24V8m32 16V8"/><path class="whisky-gate-arm" d="M8 8h25"/></svg><span id="menu-drink-request-message"></span></p>
+      </form>
+    </section>
     {"".join(sections)}
   </section>
 </main>
