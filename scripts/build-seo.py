@@ -126,7 +126,7 @@ for code in meta:
   if link.get('data-language') or link.get('hreflang'):
    event='language_select'
    if not link.get('data-language'):link.set('data-language',link.get('hreflang'))
-  elif href=='https://chulps.github.io/barticket-frontend/menu':event='menu_open'
+  elif href in ['https://chulps.github.io/barticket-frontend/menu','/menu/']:event='menu_open'
   elif href.startswith('tel:'):event='phone_click'
   elif 'maps.app.goo.gl/' in href:event='google_reviews_click' if 'rating' in classes else 'directions_click'
   elif 'instagram.com/' in href:
@@ -145,7 +145,7 @@ for code in meta:
      if 'language-links' in ancestor.get('class','').split():placement='language_links';break
    link.set('data-track-placement',placement)
  schema={'@context':'https://schema.org','@graph':[
- {'@type':'BarOrPub','@id':ORIGIN+'/#bar','name':'Rock Bar FxxK Up','alternateName':['Rock Bar Fxxkup','ロックバー FxxK Up'],'url':ORIGIN+'/','image':[ORIGIN+'/assets/bottle-wall.jpg',ORIGIN+'/assets/neon-sign.jpg'],'logo':ORIGIN+'/assets/logo.svg','telephone':'+81-11-200-9666','address':{'@type':'PostalAddress','streetAddress':'第3旭観光ビル6F, 南5条西5丁目21-3','addressLocality':'札幌市中央区','addressRegion':'北海道','postalCode':'064-0805','addressCountry':'JP'},'hasMenu':'https://chulps.github.io/barticket-frontend/menu','hasMap':'https://maps.app.goo.gl/95hYVdZMdPot4WQy5','sameAs':['https://www.instagram.com/rockbar_fxxkup/'],'openingHoursSpecification':[{'@type':'OpeningHoursSpecification','dayOfWeek':['Monday','Wednesday'],'opens':'21:00','closes':'03:00'},{'@type':'OpeningHoursSpecification','dayOfWeek':['Tuesday','Thursday','Friday','Saturday','Sunday'],'opens':'21:00','closes':'04:00'}]},
+ {'@type':'BarOrPub','@id':ORIGIN+'/#bar','name':'Rock Bar FxxK Up','alternateName':['Rock Bar Fxxkup','ロックバー FxxK Up'],'url':ORIGIN+'/','image':[ORIGIN+'/assets/bottle-wall.jpg',ORIGIN+'/assets/neon-sign.jpg'],'logo':ORIGIN+'/assets/logo.svg','telephone':'+81-11-200-9666','address':{'@type':'PostalAddress','streetAddress':'第3旭観光ビル6F, 南5条西5丁目21-3','addressLocality':'札幌市中央区','addressRegion':'北海道','postalCode':'064-0805','addressCountry':'JP'},'hasMenu':ORIGIN+'/menu/','hasMap':'https://maps.app.goo.gl/95hYVdZMdPot4WQy5','sameAs':['https://www.instagram.com/rockbar_fxxkup/'],'openingHoursSpecification':[{'@type':'OpeningHoursSpecification','dayOfWeek':['Monday','Wednesday'],'opens':'21:00','closes':'03:00'},{'@type':'OpeningHoursSpecification','dayOfWeek':['Tuesday','Thursday','Friday','Saturday','Sunday'],'opens':'21:00','closes':'04:00'}]},
  {'@type':'WebSite','@id':ORIGIN+'/#website','url':ORIGIN+'/','name':'Rock Bar FxxK Up','inLanguage':list(meta),'publisher':{'@id':ORIGIN+'/#bar'}},
  {'@type':'WebPage','@id':urls[code]+'#webpage','url':urls[code],'name':title,'description':desc,'inLanguage':code,'isPartOf':{'@id':ORIGIN+'/#website'},'about':{'@id':ORIGIN+'/#bar'}}]}
  tag('script',type='application/ld+json').text=json.dumps(schema,ensure_ascii=False).replace('</','<\\/')

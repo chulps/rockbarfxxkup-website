@@ -196,7 +196,7 @@ def render_page(config, inventory, menu_urls):
     <p class="whisky-intro">{escape(inventory["description"])}</p>
     <p class="whisky-availability">{escape(label["availability"])}</p>
     {source_note}
-  <div class="whisky-visit-links"><a href="https://chulps.github.io/barticket-frontend/menu" target="_blank" rel="noopener" data-track-event="whisky_full_menu_click" data-track-destination="interactive_menu" data-track-placement="whisky_visit_links">{escape(label["full_menu"])} {external_icon}</a><a class="whisky-directions-button" href="https://maps.app.goo.gl/95hYVdZMdPot4WQy5" target="_blank" rel="noopener" data-track-event="whisky_directions_click" data-track-destination="google_maps" data-track-placement="whisky_visit_links">{escape(label["directions"])} {external_icon}</a></div>
+  <div class="whisky-visit-links"><a href="/menu/" data-track-event="menu_open" data-track-destination="static_menu" data-track-placement="whisky_visit_links">{escape(label["full_menu"])} {external_icon}</a><a class="whisky-directions-button" href="https://maps.app.goo.gl/95hYVdZMdPot4WQy5" target="_blank" rel="noopener" data-track-event="whisky_directions_click" data-track-destination="google_maps" data-track-placement="whisky_visit_links">{escape(label["directions"])} {external_icon}</a></div>
   </section>
   <section class="whisky-catalog" aria-label="{escape(inventory['heading'], quote=True)}">
     <div class="whisky-controls" hidden>
@@ -256,18 +256,29 @@ def write_sitemap():
     xhtml_ns = "http://www.w3.org/1999/xhtml"
     ET.register_namespace("", sitemap_ns)
     ET.register_namespace("xhtml", xhtml_ns)
-    root = ET.Element("{" + sitemap_ns + "}urlset")
-    urls = [ORIGIN + "/", ORIGIN + "/ja/", ORIGIN + "/ko/", ORIGIN + "/th/", ORIGIN + "/zh-hans/", ORIGIN + "/privacy/"]
-    urls.extend(page_url(config) for config in ACTIVE_LANGUAGES)
+    sitemap_path = DIST / "sitemap.xml"
+    if sitemap_path.exists():
+        root = ET.parse(sitemap_path).getroot()
+    else:
+        root = ET.Element("{" + sitemap_ns + "}urlset")
+    existing = {
+        node.find("{" + sitemap_ns + "}loc").text: node
+        for node in root.findall("{" + sitemap_ns + "}url")
+        if node.find("{" + sitemap_ns + "}loc") is not None
+    }
     alternates = [(config["code"], page_url(config)) for config in ACTIVE_LANGUAGES]
-    for url in urls:
-        node = ET.SubElement(root, "{" + sitemap_ns + "}url")
-        ET.SubElement(node, "{" + sitemap_ns + "}loc").text = url
-        if url.endswith("/whisky/"):
-            for lang, alternate_url in alternates:
-                ET.SubElement(node, "{" + xhtml_ns + "}link", {"rel":"alternate", "hreflang":lang, "href":alternate_url})
-            ET.SubElement(node, "{" + xhtml_ns + "}link", {"rel":"alternate", "hreflang":"x-default", "href":page_url(ACTIVE_LANGUAGES[0])})
-    (DIST / "sitemap.xml").write_bytes(ET.tostring(root, encoding="utf-8", xml_declaration=True))
+    for config in ACTIVE_LANGUAGES:
+        url = page_url(config)
+        node = existing.get(url)
+        if node is None:
+            node = ET.SubElement(root, "{" + sitemap_ns + "}url")
+            ET.SubElement(node, "{" + sitemap_ns + "}loc").text = url
+        for alternate in node.findall("{" + xhtml_ns + "}link"):
+            node.remove(alternate)
+        for lang, alternate_url in alternates:
+            ET.SubElement(node, "{" + xhtml_ns + "}link", {"rel":"alternate", "hreflang":lang, "href":alternate_url})
+        ET.SubElement(node, "{" + xhtml_ns + "}link", {"rel":"alternate", "hreflang":"x-default", "href":page_url(ACTIVE_LANGUAGES[0])})
+    sitemap_path.write_bytes(ET.tostring(root, encoding="utf-8", xml_declaration=True))
     (DIST / "robots.txt").write_text("User-agent: *\nAllow: /\n\nSitemap: " + ORIGIN + "/sitemap.xml\n", encoding="utf-8")
 
 def main():
@@ -289,6 +300,9 @@ def main():
         add_home_links(config)
     shutil.copyfile(ROOT / "source" / "whisky.js", DIST / "whisky.js")
     write_sitemap()
+    import subprocess
+    import sys
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "build-menu.py")], check=True)
     print("Built all active localized whisky pages from the source inventories.")
 
 if __name__ == "__main__":
