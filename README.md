@@ -83,17 +83,30 @@ The goal is to make the right page useful for the right search—not to repeat k
 
 The build publishes language-specific titles and descriptions, canonical URLs, reciprocal `hreflang` links (including `x-default`), a sitemap, crawl rules, and structured data. Each language has a stable route and pre-rendered page content so search engines and visitors can reach it directly.
 
-## The autonomous A/B test
+## The autonomous A/B and SEO workflow
 
-The site includes an automated, first-visit confidence experiment. When enabled, a visitor’s browser assigns and remembers a 50/50 variant, serves localized copy, and records an exposure only after the hero is actually seen. Relevant clicks can then be attributed to the exposed variant.
+The experiment runs in two layers. The site assigns and remembers a 50/50 variant in the visitor’s browser, serves localized copy, and records exposure after the hero is seen. A fixed-horizon analysis joins mature GA4 events with the BigQuery export, checks data coverage and experiment guardrails, and makes a deterministic promote, retain, or inconclusive decision. Weekly SEO collection also reads Search Console and public sitemap pages.
 
-The automation handles assignment and measurement; **it does not declare a winner or rewrite/publish the site by itself**. Results need human review, enough data, and a deliberate release decision. GA4 event instrumentation is configured for the experiment and site actions; confirm that events are arriving in the GA4 property before drawing conclusions from reports. Experiment configuration and operating notes are in [`source/experiments.json`](source/experiments.json) and [`EXPERIMENTS.md`](EXPERIMENTS.md).
+The scheduled Codex workflow reviews aggregate evidence and can apply a verified decision, make bounded site changes, and publish through the existing Sites project under the owner’s standing authorization. Python does the collection and statistics; no separate LLM API is called by the collector. It does not optimize toward a winner from weekly peeks: the test plan sets the window and gates in advance, and insufficient evidence keeps the current copy. See [`automation/README.md`](automation/README.md), [`automation/OPTIMIZER.md`](automation/OPTIMIZER.md), [`automation/weekly.py`](automation/weekly.py), and [`automation/decision.py`](automation/decision.py).
+
+## Connected measurement sources
+
+| Source | What the project reads or records | Connection and limits |
+| --- | --- | --- |
+| **Google Analytics 4 (GA4)** | Site page and action events; traffic channels, language, landing pages, named events, and sessions tagged for Google Business Profile links. | Site measurement ID `G-JPYT9JRWBT`; Data API property `559070143`. Read-only reporting. Tagged GBP sessions describe website activity only. |
+| **Google Search Console** | Clicks, impressions, CTR, average position, and query/page/country/device rows for the verified domain property. | Webmasters API with read-only scope for `sc-domain:rockbarfxxkup.com`. This collector reports search performance; it does not request URL indexing. |
+| **Google BigQuery** | GA4 exported event rows used to build mature A/B cohorts and apply the predeclared decision rules. | Read-only project `chuck-tech`, dataset `analytics_559070143`, location `asia-northeast1`. Visitor identifiers are used in memory for cohort joins; saved reports contain aggregate experiment results. |
+| **Google Business Profile (GBP)** | Optional, separately labeled snapshot of profile views, calls, directions, website clicks, or menu actions when a validated export is supplied. | Native Business Profile Performance API access is **not connected**: the documented application was rejected and the current OAuth grant lacks `business.manage`. The project separately reports GA4 sessions tagged `google_business_profile`; those are not Maps/Search profile metrics. No fresh GBP snapshot is bundled here. |
+| **BarTicket menu export** | Static source data for the searchable menu’s 280 listed drinks, categories, and yen prices. | Imported from the supplied JSON into [`source/menu/menu-data.json`](source/menu/menu-data.json); it is not a live BarTicket API connection. |
+
+The analytics and Search Console OAuth grants are read-only; BigQuery uses a separate read-only grant. Token files and OAuth client configuration are stored in the owner’s local configuration directory, outside this repository. Private run reports are written under ignored `reports/` and are not part of the public site or this GitHub repository. Source code and operational notes for these connections live in [`automation/pilot.py`](automation/pilot.py), [`automation/bigquery_events.py`](automation/bigquery_events.py), and [`automation/weekly.py`](automation/weekly.py).
 
 ## Built with
 
 - Static HTML, CSS, and JavaScript
 - Python build scripts for localized pages, metadata, sitemap, and menu generation
-- GA4 event instrumentation for navigation and conversion intent
+- GA4 web events and read-only GA4 / Search Console / BigQuery reporting
+- Scheduled SEO and experiment workflow with bounded publishing through Sites
 - Five locales: English, Japanese, Korean, Thai, and Simplified Chinese
 
 ## Build locally
