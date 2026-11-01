@@ -47,20 +47,20 @@ def main():
                 " ".join(item.get("tags", [])),
             ]).strip()
             rows.append(
-                '<li class="menu-item" data-search="' + escape(searchable, quote=True) + '">'
-                '<span class="menu-item-name">' + escape(name) + '</span>'
-                '<span class="menu-item-price">' + escape(price) + '</span>'
+                '<li class="whisky-item menu-item" data-search="' + escape(searchable, quote=True) + '">'
+                '<span class="whisky-name menu-item-name">' + escape(name) + '</span>'
+                '<span class="whisky-price menu-item-price">' + escape(price) + '</span>'
                 '</li>'
             )
             list_items.append({"@type": "ListItem", "position": position, "name": name})
         sections.append(
-            '<section class="menu-category" data-menu-group data-category-id="' + str(category_id) + '">'
+            '<section class="whisky-category menu-category" data-menu-group data-category-id="' + str(category_id) + '">'
             '<h2 id="category-' + str(category_id) + '">' + escape(category) + '</h2>'
-            '<ul class="menu-list">' + "".join(rows) + '</ul></section>'
+            '<ul class="whisky-list">' + "".join(rows) + '</ul></section>'
         )
 
-    title = "Drinks Menu & Prices | Rock Bar FxxK Up"
-    description = "Browse the drinks menu and prices at Rock Bar FxxK Up, a rock and whisky bar in Susukino, Sapporo. Search Japanese whisky, Scotch, cocktails, beer and more."
+    title = "Sapporo Bar Menu & Prices | Rock Bar FxxK Up"
+    description = "Browse Rock Bar FxxK Up's full drinks menu and prices in Susukino, Sapporo. Search Japanese whisky, Scotch, bourbon, cocktails, beer and more."
     canonical = ORIGIN + "/menu/"
     schema = {
         "@context": "https://schema.org",
@@ -110,11 +110,12 @@ def main():
 </header>
 <main id="main">
   <section class="whisky-hero menu-hero">
-    <div class="section-tag">SUSUKINO / SAPPORO · FULL DRINKS MENU</div>
-    <h1>DRINKS MENU<br>&amp; PRICES<span class="accent">.</span></h1>
-    <p class="whisky-intro">Browse the drinks at Rock Bar FxxK Up, a rock and whisky bar in Susukino, Sapporo. Search Japanese whisky, Scotch, bourbon, cocktails, beer and more.</p>
+    <div class="section-tag">ROCK &amp; WHISKY BAR / SUSUKINO, SAPPORO</div>
+    <h1>SAPPORO BAR<br>MENU &amp; PRICES<span class="accent">.</span></h1>
+    <p class="whisky-intro">Browse Rock Bar FxxK Up's full drinks menu in Susukino, Sapporo. Find Japanese whisky, Scotch, bourbon, cocktails, beer, soft drinks and more, with prices listed by pour or serving.</p>
     <p class="whisky-availability">¥500 cover charge (tax included) · One drink minimum</p>
     <p class="whisky-updated">Last updated November 1, 2026</p>
+    <p class="whisky-availability">Prices are shown as listed. Items and availability may change.</p>
   </section>
   <section class="whisky-catalog menu-catalog" aria-label="Full drinks menu">
     <div class="whisky-controls menu-controls">

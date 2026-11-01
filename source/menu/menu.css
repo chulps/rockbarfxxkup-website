@@ -8,12 +8,6 @@
 .menu-controls{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 0;border-bottom:1px solid var(--line)}
 .menu-controls #menu-count{margin:0;color:var(--muted);font-size:11px;white-space:nowrap}
 .menu-category{scroll-margin-top:90px}
-.menu-item{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:18px;padding:12px 0;border-bottom:1px solid #403a3880;min-width:0}
-.menu-item-name{font-size:14px;font-weight:600;overflow-wrap:anywhere}
-.menu-item-price{font-size:13px;white-space:nowrap;text-align:right}
-.menu-page .whisky-category h2{font-family:var(--display);font-size:clamp(27px,4vw,42px);line-height:1.08;margin:0 0 12px}
 .menu-page .menu-category[hidden],.menu-page .menu-item[hidden],.menu-page #menu-empty[hidden]{display:none}
-.menu-page .whisky-category{padding:34px 0;border-top:1px solid var(--line)}
-.menu-page .menu-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:30px}
 .menu-page .whisky-controls{display:grid;grid-template-columns:minmax(220px,1fr) minmax(240px,.7fr) auto;gap:12px;align-items:center}
-@media(max-width:700px){.menu-page .whisky-header{height:auto;min-height:80px}.menu-page .whisky-header nav{gap:10px;flex-wrap:wrap}.menu-page .whisky-header nav a{font-size:10px}.menu-page .whisky-controls{grid-template-columns:minmax(0,1fr)}.menu-page .whisky-controls input,.menu-page .whisky-controls select,.menu-page .whisky-controls button{width:100%}.menu-page .menu-list{grid-template-columns:1fr;gap:0}.menu-page .whisky-category{padding:26px 0}.menu-page .menu-item-name{font-size:14px}}
+@media(max-width:700px){.menu-page .whisky-header{height:auto;min-height:80px}.menu-page .whisky-header nav{gap:10px;flex-wrap:wrap}.menu-page .whisky-header nav a{font-size:10px}.menu-page .whisky-controls{grid-template-columns:minmax(0,1fr)}.menu-page .whisky-controls input,.menu-page .whisky-controls select,.menu-page .whisky-controls button{width:100%}}
