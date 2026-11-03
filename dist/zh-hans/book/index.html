@@ -39,6 +39,8 @@
       <h2 id="form-title" data-copy="formTitle">订位请求</h2>
       <p class="booking-note" data-copy="notConfirmed">这是订位请求，不是已确认的预订。请等待酒吧发送确认邮件后再出发。</p>
       <form id="reservation-form" novalidate>
+        <noscript><p class="booking-note" data-copy="noScript">发送请求需要启用 JavaScript。请改为致电酒吧或通过 Instagram 发消息。</p></noscript>
+        <fieldset id="booking-controls" disabled>
         <div class="booking-fields">
           <label><span data-copy="name">姓名</span><input name="guest_name" required maxlength="120" autocomplete="name" data-copy-placeholder="姓名"></label>
           <label><span data-copy="party">人数</span><input name="party_size" required type="number" min="1" max="20" step="1" inputmode="numeric" value="2"></label>
@@ -48,7 +50,8 @@
           <label class="booking-wide"><span data-copy="note">备注（选填）</span><textarea name="note" maxlength="500" rows="3" data-copy-placeholder="请填写经理需要了解的信息"></textarea></label>
           <label class="booking-trap" aria-hidden="true" tabindex="-1">Website<input name="website" autocomplete="off" tabindex="-1"></label>
         </div>
-        <button id="submit-button" class="button yellow booking-submit" type="submit"><span data-copy="submit">发送请求</span><span aria-hidden="true">→</span></button>
+        <button id="submit-button" class="button yellow booking-submit" type="submit" disabled><span data-copy="submit">发送请求</span><span aria-hidden="true">→</span></button>
+        </fieldset>
         <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
       </form>
       <p class="booking-footnote" data-copy="privacy">我们会使用您的信息审核并回复此请求。请查看隐私政策。</p>
@@ -60,6 +63,6 @@
     </section>
   </main>
   <footer class="booking-footer"><a href="/privacy/" data-copy="privacyLink">隐私政策</a><span>ROCK &amp; WHISKY · SUSUKINO, SAPPORO</span><span>© 2026 ROCK BAR FXXK UP</span></footer>
-<script id="booking-messages" type="application/json">{"home": "首页", "visit": "前往酒吧", "eyebrow": "札幌薄野", "title": "提交订位请求", "lead": "告诉我们您希望到店的日期和时间。经理审核后会通过邮件回复。", "formTitle": "订位请求", "notConfirmed": "这是订位请求，不是已确认的预订。请等待酒吧发送确认邮件后再出发。", "name": "姓名", "namePlaceholder": "姓名", "party": "人数", "date": "到店日期", "time": "到店时间（日本时间）", "email": "电子邮箱", "emailPlaceholder": "you@example.com", "note": "备注（选填）", "notePlaceholder": "请填写经理需要了解的信息", "submit": "发送请求", "privacy": "我们会使用您的信息审核并回复此请求。请查看隐私政策。", "urgent": "如需尽快答复，请致电酒吧。", "instagram": "通过 Instagram 联系我们", "privacyLink": "隐私政策", "required": "请填写所有必填项。", "sending": "正在发送…", "sent": "已收到您的请求。酒吧批准后，预订才会确认。", "emailAccepted": "我们也发送了请求收件邮件。这封邮件不是预订确认。", "emailOff": "邮件确认功能尚未启用。如需尽快答复，请致电酒吧。", "emailUnclear": "无法确认邮件发送状态。如需尽快答复，请致电酒吧。", "error": "请求发送失败。请重试或联系酒吧。", "titleTag": "订位请求 | Rock Bar FxxK Up", "description": "提交札幌薄野 Rock Bar FxxK Up 的订位请求。经理将审核您希望的日期和时间。", "emailLanguage": "日语请求会收到日语邮件，其他语言的请求会收到英语邮件。"}</script>
+<script id="booking-messages" type="application/json">{"home": "首页", "visit": "前往酒吧", "eyebrow": "札幌薄野", "title": "提交订位请求", "lead": "告诉我们您希望到店的日期和时间。经理审核后会通过邮件回复。", "formTitle": "订位请求", "notConfirmed": "这是订位请求，不是已确认的预订。请等待酒吧发送确认邮件后再出发。", "name": "姓名", "namePlaceholder": "姓名", "party": "人数", "date": "到店日期", "time": "到店时间（日本时间）", "email": "电子邮箱", "emailPlaceholder": "you@example.com", "note": "备注（选填）", "notePlaceholder": "请填写经理需要了解的信息", "submit": "发送请求", "privacy": "我们会使用您的信息审核并回复此请求。请查看隐私政策。", "urgent": "如需尽快答复，请致电酒吧。", "instagram": "通过 Instagram 联系我们", "privacyLink": "隐私政策", "required": "请填写所有必填项。", "sending": "正在发送…", "sent": "已收到您的请求。酒吧批准后，预订才会确认。", "emailAccepted": "我们也发送了请求收件邮件。这封邮件不是预订确认。", "emailOff": "邮件确认功能尚未启用。如需尽快答复，请致电酒吧。", "emailUnclear": "无法确认邮件发送状态。如需尽快答复，请致电酒吧。", "error": "请求发送失败。请重试或联系酒吧。", "titleTag": "订位请求 | Rock Bar FxxK Up", "description": "提交札幌薄野 Rock Bar FxxK Up 的订位请求。经理将审核您希望的日期和时间。", "emailLanguage": "日语请求会收到日语邮件，其他语言的请求会收到英语邮件。", "noScript": "发送请求需要启用 JavaScript。请改为致电酒吧或通过 Instagram 发消息。"}</script>
 </body>
 </html>

@@ -30,6 +30,8 @@
       <h2 id="form-title" data-copy="formTitle">Reservation request</h2>
       <p class="booking-note" data-copy="notConfirmed">This is a request, not a confirmed reservation. Please wait for the bar’s email before traveling.</p>
       <form id="reservation-form" novalidate>
+        <noscript><p class="booking-note" data-copy="noScript">JavaScript is required to send a request. Please call the bar or message us on Instagram instead.</p></noscript>
+        <fieldset id="booking-controls" disabled>
         <div class="booking-fields">
           <label><span data-copy="name">Your name</span><input name="guest_name" required maxlength="120" autocomplete="name" data-copy-placeholder="namePlaceholder"></label>
           <label><span data-copy="party">Party size</span><input name="party_size" required type="number" min="1" max="20" step="1" inputmode="numeric" value="2"></label>
@@ -39,7 +41,8 @@
           <label class="booking-wide"><span data-copy="note">Note (optional)</span><textarea name="note" maxlength="500" rows="3" data-copy-placeholder="notePlaceholder"></textarea></label>
           <label class="booking-trap" aria-hidden="true" tabindex="-1">Website<input name="website" autocomplete="off" tabindex="-1"></label>
         </div>
-        <button id="submit-button" class="button yellow booking-submit" type="submit"><span data-copy="submit">Send request</span><span aria-hidden="true">→</span></button>
+        <button id="submit-button" class="button yellow booking-submit" type="submit" disabled><span data-copy="submit">Send request</span><span aria-hidden="true">→</span></button>
+        </fieldset>
         <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
       </form>
       <p class="booking-footnote" data-copy="privacy">We use your details to review and respond to this request. See our privacy policy.</p>

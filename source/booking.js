@@ -10,7 +10,9 @@
   const timeInput = form.elements.namedItem("arrival_time");
   const status = document.querySelector("#form-status");
   const button = document.querySelector("#submit-button");
+  const controls = document.querySelector("#booking-controls");
   const attemptStorageKey = "rockbar-reservation-attempt-v1";
+  let submitting = false;
 
   function japanDate() {
     const parts = new Intl.DateTimeFormat("en-CA", {
@@ -54,6 +56,7 @@
 
   form.addEventListener("submit", async event => {
     event.preventDefault();
+    if (submitting) return;
     status.dataset.kind = "";
     if (!form.reportValidity()) {
       status.textContent = messages.required;
@@ -71,10 +74,11 @@
       locale: formLocale,
     };
     const canonical = JSON.stringify(body);
-    const fingerprint = await digest(canonical);
+    submitting = true;
     button.disabled = true;
     status.textContent = messages.sending;
     try {
+      const fingerprint = await digest(canonical);
       const response = await fetch(`${API_URL}/reservations/requests`, {
         method: "POST",
         credentials: "omit",
@@ -102,7 +106,10 @@
       status.textContent = messages.error;
       status.dataset.kind = "error";
     } finally {
+      submitting = false;
       button.disabled = false;
     }
   });
+  controls.disabled = false;
+  button.disabled = false;
 })();

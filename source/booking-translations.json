@@ -30,7 +30,8 @@
     "error": "We couldn’t send the request. Please try again or contact the bar.",
     "titleTag": "Request a table | Rock Bar FxxK Up",
     "description": "Request a table at Rock Bar FxxK Up in Susukino, Sapporo. A manager will review your requested date and time.",
-    "emailLanguage": "Emails are Japanese for Japanese requests and English for all other requests."
+    "emailLanguage": "Emails are Japanese for Japanese requests and English for all other requests.",
+    "noScript": "JavaScript is required to send a request. Please call the bar or message us on Instagram instead."
   },
   "ja": {
     "home": "ホーム",
@@ -63,7 +64,8 @@
     "error": "リクエストを送信できませんでした。再度お試しいただくか、お店へご連絡ください。",
     "titleTag": "予約リクエスト | Rock Bar FxxK Up",
     "description": "札幌・すすきののRock Bar FxxK Upへの予約リクエスト。希望日時を担当者が確認します。",
-    "emailLanguage": "日本語のリクエストには日本語で、それ以外のリクエストには英語でメールをお送りします。"
+    "emailLanguage": "日本語のリクエストには日本語で、それ以外のリクエストには英語でメールをお送りします。",
+    "noScript": "リクエストの送信にはJavaScriptが必要です。お電話またはInstagramのメッセージでご連絡ください。"
   },
   "ko": {
     "home": "홈",
@@ -96,7 +98,8 @@
     "error": "요청을 보내지 못했습니다. 다시 시도하거나 바에 문의해 주세요.",
     "titleTag": "예약 요청 | Rock Bar FxxK Up",
     "description": "삿포로 스스키노 Rock Bar FxxK Up의 예약 요청 페이지입니다. 매니저가 희망 날짜와 시간을 확인합니다.",
-    "emailLanguage": "일본어 요청에는 일본어로, 그 외 요청에는 영어로 이메일을 보냅니다."
+    "emailLanguage": "일본어 요청에는 일본어로, 그 외 요청에는 영어로 이메일을 보냅니다.",
+    "noScript": "요청을 보내려면 JavaScript가 필요합니다. 전화 또는 Instagram 메시지로 문의해 주세요."
   },
   "th": {
     "home": "หน้าแรก",
@@ -129,7 +132,8 @@
     "error": "ส่งคำขอไม่สำเร็จ กรุณาลองอีกครั้งหรือติดต่อร้าน",
     "titleTag": "คำขอจองโต๊ะ | Rock Bar FxxK Up",
     "description": "ส่งคำขอจอง Rock Bar FxxK Up ในซูซูกิโนะ ซัปโปโร ผู้จัดการจะตรวจสอบวันและเวลาที่ต้องการ",
-    "emailLanguage": "คำขอภาษาญี่ปุ่นจะได้รับอีเมลภาษาญี่ปุ่น ส่วนคำขอภาษาอื่นจะได้รับอีเมลภาษาอังกฤษ"
+    "emailLanguage": "คำขอภาษาญี่ปุ่นจะได้รับอีเมลภาษาญี่ปุ่น ส่วนคำขอภาษาอื่นจะได้รับอีเมลภาษาอังกฤษ",
+    "noScript": "ต้องเปิด JavaScript เพื่อส่งคำขอ กรุณาโทรหาบาร์หรือส่งข้อความทาง Instagram แทน"
   },
   "zh-hans": {
     "home": "首页",
@@ -162,6 +166,7 @@
     "error": "请求发送失败。请重试或联系酒吧。",
     "titleTag": "订位请求 | Rock Bar FxxK Up",
     "description": "提交札幌薄野 Rock Bar FxxK Up 的订位请求。经理将审核您希望的日期和时间。",
-    "emailLanguage": "日语请求会收到日语邮件，其他语言的请求会收到英语邮件。"
+    "emailLanguage": "日语请求会收到日语邮件，其他语言的请求会收到英语邮件。",
+    "noScript": "发送请求需要启用 JavaScript。请改为致电酒吧或通过 Instagram 发消息。"
   }
 }
