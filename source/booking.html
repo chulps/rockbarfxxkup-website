@@ -38,7 +38,13 @@
           <label><span data-copy="date">Arrival date</span><input name="arrival_date" required type="date"></label>
           <label><span data-copy="time">Arrival time (Japan time)</span><input name="arrival_time" required type="time" step="900"></label>
           <label class="booking-wide"><span data-copy="email">Email address</span><input name="contact_email" required type="email" maxlength="254" autocomplete="email" inputmode="email" data-copy-placeholder="emailPlaceholder"></label>
-          <label class="booking-wide"><span data-copy="note">Note (optional)</span><textarea name="note" maxlength="500" rows="3" data-copy-placeholder="notePlaceholder"></textarea></label>
+          <div class="booking-wide booking-note-translation">
+            <label><span data-copy="note">Note (optional)</span><textarea name="note" rows="3" data-copy-placeholder="notePlaceholder"></textarea></label>
+            <small id="note-count" class="booking-character-count" aria-live="polite"><span data-copy="noteCountLabel">Characters</span>: <span data-note-count>0</span> / 500</small>
+            <label class="booking-translation-consent"><input name="translate_note" type="checkbox" value="true"><span data-copy="translationConsent">Translate this note for managers (optional)</span></label>
+            <label id="note-language-field" hidden><span data-copy="noteLanguage">What language is your note written in?</span><select name="note_language" disabled><option value="" data-copy="chooseNoteLanguage">Choose a language</option><option value="en" data-copy="english">English</option><option value="ja" data-copy="japanese">Japanese</option></select></label>
+            <small class="booking-translation-note" data-copy="translationNotice">Translation is optional and unchecked by default. If you opt in, the note is sent as typed to MyMemory for translation and may be stored or processed by its partners. Anything you include in the note, including personal information, is shared. Name, contact, party size, and arrival fields are not included in the translation request. Machine translation may be inaccurate. Without consent, only your original note is shared with the bar.</small>
+          </div>
           <label class="booking-trap" aria-hidden="true" tabindex="-1">Website<input name="website" autocomplete="off" tabindex="-1"></label>
         </div>
         <button id="submit-button" class="button yellow booking-submit" type="submit" disabled><span data-copy="submit">Send request</span><span aria-hidden="true">→</span></button>

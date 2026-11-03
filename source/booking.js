@@ -11,8 +11,31 @@
   const status = document.querySelector("#form-status");
   const button = document.querySelector("#submit-button");
   const controls = document.querySelector("#booking-controls");
+  const noteInput = form.elements.namedItem("note");
+  const noteCount = document.querySelector("[data-note-count]");
+  const translateNote = form.elements.namedItem("translate_note");
+  const noteLanguage = form.elements.namedItem("note_language");
+  const noteLanguageField = document.querySelector("#note-language-field");
   const attemptStorageKey = "rockbar-reservation-attempt-v1";
   let submitting = false;
+
+  function syncTranslationConsent() {
+    const enabled = translateNote.checked;
+    noteInput.required = enabled;
+    noteLanguageField.hidden = !enabled;
+    noteLanguage.disabled = !enabled;
+    noteLanguage.required = enabled;
+  }
+  translateNote.addEventListener("change", syncTranslationConsent);
+  syncTranslationConsent();
+
+  function updateNoteCount() {
+    const count = Array.from(noteInput.value).length;
+    noteCount.textContent = String(count);
+    noteInput.setCustomValidity(count > 500 ? messages.noteTooLong : "");
+  }
+  noteInput.addEventListener("input", updateNoteCount);
+  updateNoteCount();
 
   function japanDate() {
     const parts = new Intl.DateTimeFormat("en-CA", {
@@ -58,6 +81,13 @@
     event.preventDefault();
     if (submitting) return;
     status.dataset.kind = "";
+    updateNoteCount();
+    if (noteInput.validity.customError) {
+      status.textContent = messages.noteTooLong;
+      status.dataset.kind = "error";
+      noteInput.reportValidity();
+      return;
+    }
     if (!form.reportValidity()) {
       status.textContent = messages.required;
       status.dataset.kind = "error";
@@ -69,7 +99,9 @@
       arrival_date: dateInput.value,
       arrival_time: timeInput.value,
       contact_email: form.elements.namedItem("contact_email").value,
-      note: form.elements.namedItem("note").value,
+      note: noteInput.value,
+      translate_note: translateNote.checked,
+      note_language: translateNote.checked ? noteLanguage.value : null,
       website: form.elements.namedItem("website").value,
       locale: formLocale,
     };
@@ -99,6 +131,8 @@
       status.textContent = `${messages.sent} ${deliveryMessage} (${result.reference})`;
       status.dataset.kind = "success";
       form.reset();
+      syncTranslationConsent();
+      updateNoteCount();
       dateInput.min = japanDate();
       dateInput.value = dateInput.min;
       form.elements.namedItem("party_size").value = "2";
