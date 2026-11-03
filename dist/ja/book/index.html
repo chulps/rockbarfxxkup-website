@@ -1,0 +1,74 @@
+<!doctype html>
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#161414">
+  <meta name="description" content="札幌・すすきののRock Bar FxxK Upへの予約リクエスト。希望日時を担当者が確認します。">
+  <link rel="icon" href="/assets/logo.svg">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/booking.css">
+  <title>予約リクエスト | Rock Bar FxxK Up</title>
+  <script src="/booking.js" defer></script>
+
+  <link rel="canonical" href="https://www.rockbarfxxkup.com/ja/book/">
+  <link rel="alternate" hreflang="en" href="https://www.rockbarfxxkup.com/book/">
+  <link rel="alternate" hreflang="ja" href="https://www.rockbarfxxkup.com/ja/book/">
+  <link rel="alternate" hreflang="ko" href="https://www.rockbarfxxkup.com/ko/book/">
+  <link rel="alternate" hreflang="th" href="https://www.rockbarfxxkup.com/th/book/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://www.rockbarfxxkup.com/zh-hans/book/">
+  <link rel="alternate" hreflang="x-default" href="https://www.rockbarfxxkup.com/book/">
+</head>
+<body data-locale="ja">
+  <header class="booking-header">
+    <a class="brand" href="/ja/" aria-label="Rock Bar FxxK Up home"><img src="/assets/logo.svg" alt="Rock Bar FxxK Up" width="66" height="66"><span>SUSUKINO<br>SAPPORO, JP</span></a>
+    <nav aria-label="Main navigation"><a href="/ja/" data-copy="home">ホーム</a><a href="/ja/#visit" data-copy="visit">アクセス</a></nav>
+    <div class="language-links" aria-label="ウェブサイトの言語">
+      <a href="/book/" lang="en">EN</a><a href="/ja/book/" lang="ja" aria-current="page">日本語</a><a href="/ko/book/" lang="ko">한국어</a><a href="/th/book/" lang="th">ไทย</a><a href="/zh-hans/book/" lang="zh-Hans">简体中文</a>
+    </div>
+  </header>
+  <main class="booking-page">
+    <section class="booking-intro">
+      <p class="eyebrow"><span class="dot"></span><span data-copy="eyebrow">札幌・すすきの</span></p>
+      <h1 data-copy="title">予約リクエスト<span class="accent">.</span></h1>
+      <p class="booking-lead" data-copy="lead">ご希望の来店日時をお知らせください。担当者が確認し、結果をメールでご連絡します。</p>
+      <p class="booking-email-language" data-copy="emailLanguage">日本語のリクエストには日本語で、それ以外のリクエストには英語でメールをお送りします。</p>
+    </section>
+    <section class="booking-card" aria-labelledby="form-title">
+      <h2 id="form-title" data-copy="formTitle">予約リクエスト</h2>
+      <p class="booking-note" data-copy="notConfirmed">これは予約のリクエストです。お店から確定メールが届くまで、ご予約は確定していません。</p>
+      <form id="reservation-form" novalidate>
+        <noscript><p class="booking-note" data-copy="noScript">リクエストの送信にはJavaScriptが必要です。お電話またはInstagramのメッセージでご連絡ください。</p></noscript>
+        <fieldset id="booking-controls" disabled>
+        <div class="booking-fields">
+          <label><span data-copy="name">お名前</span><input name="guest_name" required maxlength="120" autocomplete="name" data-copy-placeholder="お名前"></label>
+          <label><span data-copy="party">人数</span><input name="party_size" required type="number" min="1" max="20" step="1" inputmode="numeric" value="2"></label>
+          <label><span data-copy="date">ご来店日</span><input name="arrival_date" required type="date"></label>
+          <label><span data-copy="time">ご来店時間（日本時間）</span><input name="arrival_time" required type="time" step="900"></label>
+          <label class="booking-wide"><span data-copy="email">メールアドレス</span><input name="contact_email" required type="email" maxlength="254" autocomplete="email" inputmode="email" data-copy-placeholder="you@example.com"></label>
+          <div class="booking-wide booking-note-translation">
+            <label><span data-copy="note">メモ（任意）</span><textarea name="note" rows="3" data-copy-placeholder="担当者への連絡事項があればご記入ください"></textarea></label>
+            <small id="note-count" class="booking-character-count" aria-live="polite"><span data-copy="noteCountLabel">文字数</span>: <span data-note-count>0</span> / 500</small>
+            <label class="booking-translation-consent"><input name="translate_note" type="checkbox" value="true"><span data-copy="translationConsent">このメモを翻訳のためMyMemoryへ送信することに同意します（任意）</span></label>
+            <label id="note-language-field" hidden><span data-copy="noteLanguage">メモの言語</span><select name="note_language" disabled><option value="" data-copy="chooseNoteLanguage">言語を選択</option><option value="en" data-copy="english">英語</option><option value="ja" data-copy="japanese">日本語</option></select></label>
+            <small class="booking-translation-note" data-copy="translationNotice">翻訳への同意は任意で、初期状態ではオフです。同意すると、入力したメモ全文がMyMemoryへ送信され、長期間保存またはパートナーにより処理される場合があります。メモに記載した個人情報も共有されます。氏名、連絡先、人数、来店日時の各欄は翻訳リクエストに含まれません。機械翻訳は不正確な場合があります。同意しない場合、元のメモだけがお店に共有されます。元のメモと翻訳文は予約リクエストに保存され、担当者が確認します。</small>
+          </div>
+          <label class="booking-trap" aria-hidden="true" tabindex="-1">Website<input name="website" autocomplete="off" tabindex="-1"></label>
+        </div>
+        <button id="submit-button" class="button yellow booking-submit" type="submit" disabled><span data-copy="submit">リクエストを送信</span><span aria-hidden="true">→</span></button>
+        </fieldset>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="booking-footnote" data-copy="privacy">ご入力情報は予約の確認とご連絡に使用します。プライバシーポリシーをご確認ください。</p>
+    </section>
+    <section class="booking-contact">
+      <p data-copy="urgent">お急ぎの方はお電話ください。</p>
+      <a href="tel:0112009666">011-200-9666</a>
+      <a href="https://www.instagram.com/rockbar_fxxkup/" target="_blank" rel="noopener" data-copy="instagram">Instagramでメッセージ</a>
+    </section>
+  </main>
+  <footer class="booking-footer"><a href="/privacy/" data-copy="privacyLink">プライバシーポリシー</a><span>ROCK &amp; WHISKY · SUSUKINO, SAPPORO</span><span>© 2026 ROCK BAR FXXK UP</span></footer>
+<script id="booking-messages" type="application/json">{"home": "ホーム", "visit": "アクセス", "eyebrow": "札幌・すすきの", "title": "予約リクエスト", "lead": "ご希望の来店日時をお知らせください。担当者が確認し、結果をメールでご連絡します。", "formTitle": "予約リクエスト", "notConfirmed": "これは予約のリクエストです。お店から確定メールが届くまで、ご予約は確定していません。", "name": "お名前", "namePlaceholder": "お名前", "party": "人数", "date": "ご来店日", "time": "ご来店時間（日本時間）", "email": "メールアドレス", "emailPlaceholder": "you@example.com", "note": "メモ（任意）", "notePlaceholder": "担当者への連絡事項があればご記入ください", "translationNotice": "翻訳への同意は任意で、初期状態ではオフです。同意すると、入力したメモ全文がMyMemoryへ送信され、長期間保存またはパートナーにより処理される場合があります。メモに記載した個人情報も共有されます。氏名、連絡先、人数、来店日時の各欄は翻訳リクエストに含まれません。機械翻訳は不正確な場合があります。同意しない場合、元のメモだけがお店に共有されます。元のメモと翻訳文は予約リクエストに保存され、担当者が確認します。", "submit": "リクエストを送信", "privacy": "ご入力情報は予約の確認とご連絡に使用します。プライバシーポリシーをご確認ください。", "urgent": "お急ぎの方はお電話ください。", "instagram": "Instagramでメッセージ", "privacyLink": "プライバシーポリシー", "required": "必須項目を入力してください。", "sending": "送信中…", "sent": "リクエストを受け付けました。お店の承認があるまで予約は確定していません。", "emailAccepted": "受付メールも送信しました。このメールは予約確定の連絡ではありません。", "emailOff": "メール確認は現在準備中です。お急ぎの場合はお電話ください。", "emailUnclear": "メールの送信状態を確認できませんでした。お急ぎの場合はお電話ください。", "error": "リクエストを送信できませんでした。再度お試しいただくか、お店へご連絡ください。", "titleTag": "予約リクエスト | Rock Bar FxxK Up", "description": "札幌・すすきののRock Bar FxxK Upへの予約リクエスト。希望日時を担当者が確認します。", "emailLanguage": "日本語のリクエストには日本語で、それ以外のリクエストには英語でメールをお送りします。", "translationConsent": "このメモを翻訳のためMyMemoryへ送信することに同意します（任意）", "noteLanguage": "メモの言語", "chooseNoteLanguage": "言語を選択", "english": "英語", "japanese": "日本語", "noteCountLabel": "文字数", "noteTooLong": "メモは500文字以内で入力してください。", "noScript": "リクエストの送信にはJavaScriptが必要です。お電話またはInstagramのメッセージでご連絡ください。"}</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#161414">
+  <meta name="description" content="Request a table at Rock Bar FxxK Up in Susukino, Sapporo. A manager will review your requested date and time.">
+  <link rel="icon" href="/assets/logo.svg">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/booking.css">
+  <title>Request a table | Rock Bar FxxK Up</title>
+  <script src="/booking.js" defer></script>
+
+  <link rel="canonical" href="https://www.rockbarfxxkup.com/book/">
+  <link rel="alternate" hreflang="en" href="https://www.rockbarfxxkup.com/book/">
+  <link rel="alternate" hreflang="ja" href="https://www.rockbarfxxkup.com/ja/book/">
+  <link rel="alternate" hreflang="ko" href="https://www.rockbarfxxkup.com/ko/book/">
+  <link rel="alternate" hreflang="th" href="https://www.rockbarfxxkup.com/th/book/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://www.rockbarfxxkup.com/zh-hans/book/">
+  <link rel="alternate" hreflang="x-default" href="https://www.rockbarfxxkup.com/book/">
+</head>
+<body data-locale="en">
+  <header class="booking-header">
+    <a class="brand" href="/" aria-label="Rock Bar FxxK Up home"><img src="/assets/logo.svg" alt="Rock Bar FxxK Up" width="66" height="66"><span>SUSUKINO<br>SAPPORO, JP</span></a>
+    <nav aria-label="Main navigation"><a href="/" data-copy="home">Home</a><a href="/#visit" data-copy="visit">Find us</a></nav>
+    <div class="language-links" aria-label="Website language">
+      <a href="/book/" lang="en" aria-current="page">EN</a><a href="/ja/book/" lang="ja">日本語</a><a href="/ko/book/" lang="ko">한국어</a><a href="/th/book/" lang="th">ไทย</a><a href="/zh-hans/book/" lang="zh-Hans">简体中文</a>
+    </div>
+  </header>
+  <main class="booking-page">
+    <section class="booking-intro">
+      <p class="eyebrow"><span class="dot"></span><span data-copy="eyebrow">SUSUKINO · SAPPORO</span></p>
+      <h1 data-copy="title">Request a table<span class="accent">.</span></h1>
+      <p class="booking-lead" data-copy="lead">Tell us when you’d like to visit. A manager will review your request and email you after a decision.</p>
+      <p class="booking-email-language" data-copy="emailLanguage">Emails are Japanese for Japanese requests and English for all other requests.</p>
+    </section>
+    <section class="booking-card" aria-labelledby="form-title">
+      <h2 id="form-title" data-copy="formTitle">Reservation request</h2>
+      <p class="booking-note" data-copy="notConfirmed">This is a request, not a confirmed reservation. Please wait for the bar’s email before traveling.</p>
+      <form id="reservation-form" novalidate>
+        <noscript><p class="booking-note" data-copy="noScript">JavaScript is required to send a request. Please call the bar or message us on Instagram instead.</p></noscript>
+        <fieldset id="booking-controls" disabled>
+        <div class="booking-fields">
+          <label><span data-copy="name">Your name</span><input name="guest_name" required maxlength="120" autocomplete="name" data-copy-placeholder="Name"></label>
+          <label><span data-copy="party">Party size</span><input name="party_size" required type="number" min="1" max="20" step="1" inputmode="numeric" value="2"></label>
+          <label><span data-copy="date">Arrival date</span><input name="arrival_date" required type="date"></label>
+          <label><span data-copy="time">Arrival time (Japan time)</span><input name="arrival_time" required type="time" step="900"></label>
+          <label class="booking-wide"><span data-copy="email">Email address</span><input name="contact_email" required type="email" maxlength="254" autocomplete="email" inputmode="email" data-copy-placeholder="you@example.com"></label>
+          <div class="booking-wide booking-note-translation">
+            <label><span data-copy="note">Note (optional)</span><textarea name="note" rows="3" data-copy-placeholder="Anything the manager should know?"></textarea></label>
+            <small id="note-count" class="booking-character-count" aria-live="polite"><span data-copy="noteCountLabel">Characters</span>: <span data-note-count>0</span> / 500</small>
+            <label class="booking-translation-consent"><input name="translate_note" type="checkbox" value="true"><span data-copy="translationConsent">I agree to send this note to MyMemory for translation (optional)</span></label>
+            <label id="note-language-field" hidden><span data-copy="noteLanguage">What language is your note written in?</span><select name="note_language" disabled><option value="" data-copy="chooseNoteLanguage">Choose a language</option><option value="en" data-copy="english">English</option><option value="ja" data-copy="japanese">Japanese</option></select></label>
+            <small class="booking-translation-note" data-copy="translationNotice">Translation is optional and unchecked by default. If you opt in, the note is sent as typed to MyMemory and may be stored long term or processed by its partners. Anything you include in the note, including personal information, is shared. Name, contact, party size, and arrival fields are not included in the translation request. Machine translation may be inaccurate. Without consent, only your original note is shared with the bar. The original and any translation are stored with the request for managers to review.</small>
+          </div>
+          <label class="booking-trap" aria-hidden="true" tabindex="-1">Website<input name="website" autocomplete="off" tabindex="-1"></label>
+        </div>
+        <button id="submit-button" class="button yellow booking-submit" type="submit" disabled><span data-copy="submit">Send request</span><span aria-hidden="true">→</span></button>
+        </fieldset>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="booking-footnote" data-copy="privacy">We use your details to review and respond to this request. See our privacy policy.</p>
+    </section>
+    <section class="booking-contact">
+      <p data-copy="urgent">Need an urgent answer? Please call the bar.</p>
+      <a href="tel:0112009666">011-200-9666</a>
+      <a href="https://www.instagram.com/rockbar_fxxkup/" target="_blank" rel="noopener" data-copy="instagram">Message us on Instagram</a>
+    </section>
+  </main>
+  <footer class="booking-footer"><a href="/privacy/" data-copy="privacyLink">Privacy policy</a><span>ROCK &amp; WHISKY · SUSUKINO, SAPPORO</span><span>© 2026 ROCK BAR FXXK UP</span></footer>
+<script id="booking-messages" type="application/json">{"home": "Home", "visit": "Find us", "eyebrow": "SUSUKINO · SAPPORO", "title": "Request a table", "lead": "Tell us when you’d like to visit. A manager will review your request and email you after a decision.", "formTitle": "Reservation request", "notConfirmed": "This is a request, not a confirmed reservation. Please wait for the bar’s email before traveling.", "name": "Your name", "namePlaceholder": "Name", "party": "Party size", "date": "Arrival date", "time": "Arrival time (Japan time)", "email": "Email address", "emailPlaceholder": "you@example.com", "note": "Note (optional)", "notePlaceholder": "Anything the manager should know?", "translationNotice": "Translation is optional and unchecked by default. If you opt in, the note is sent as typed to MyMemory and may be stored long term or processed by its partners. Anything you include in the note, including personal information, is shared. Name, contact, party size, and arrival fields are not included in the translation request. Machine translation may be inaccurate. Without consent, only your original note is shared with the bar. The original and any translation are stored with the request for managers to review.", "submit": "Send request", "privacy": "We use your details to review and respond to this request. See our privacy policy.", "urgent": "Need an urgent answer? Please call the bar.", "instagram": "Message us on Instagram", "privacyLink": "Privacy policy", "required": "Please complete every required field.", "sending": "Sending…", "sent": "Your request was received. It is not confirmed until the bar approves it.", "emailAccepted": "We also sent a request receipt email. This is not a confirmed reservation.", "emailOff": "Email confirmation is not active yet. Please call the bar if you need a reply soon.", "emailUnclear": "We couldn’t verify the email status. Please call the bar if you need a reply soon.", "error": "We couldn’t send the request. Please try again or contact the bar.", "titleTag": "Request a table | Rock Bar FxxK Up", "description": "Request a table at Rock Bar FxxK Up in Susukino, Sapporo. A manager will review your requested date and time.", "emailLanguage": "Emails are Japanese for Japanese requests and English for all other requests.", "translationConsent": "I agree to send this note to MyMemory for translation (optional)", "noteLanguage": "What language is your note written in?", "chooseNoteLanguage": "Choose a language", "english": "English", "japanese": "Japanese", "noteCountLabel": "Characters", "noteTooLong": "Please keep the note to 500 characters or fewer.", "noScript": "JavaScript is required to send a request. Please call the bar or message us on Instagram instead."}</script>
+</body>
+</html>

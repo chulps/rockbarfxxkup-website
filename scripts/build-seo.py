@@ -109,6 +109,8 @@ for code in meta:
  for link in doc.xpath('//a[@href="/music/"]'):link.set('href',music_path)
  menu_path='/menu/' if code=='en' else '/'+code.lower()+'/menu/'
  for link in doc.xpath('//a[@href="/menu/"]'):link.set('href',menu_path)
+ booking_path='/book/' if code=='en' else '/'+code.lower()+'/book/'
+ for link in doc.xpath('//a[@href="/book/"]'):link.set('href',booking_path)
  for el in doc.xpath('//img'):
   src=el.get('src','');path=D/src.lstrip('/')
   if path.suffix.lower() in ['.jpg','.jpeg','.png'] and path.exists():
@@ -129,6 +131,7 @@ for code in meta:
    event='language_select'
    if not link.get('data-language'):link.set('data-language',link.get('hreflang'))
   elif href in ['https://chulps.github.io/barticket-frontend/menu','/menu/']:event='menu_open'
+  elif href.endswith('/book/'):event='booking_open'
   elif href.startswith('tel:'):event='phone_click'
   elif 'maps.app.goo.gl/' in href:event='google_reviews_click' if 'rating' in classes else 'directions_click'
   elif 'instagram.com/' in href:
@@ -189,3 +192,4 @@ for code,url in music_urls.items():
 logo=Image.open(D/'assets/logo.jpg').convert('RGB');ImageOps.pad(logo,(180,180),color='#161414').save(D/'assets/apple-touch-icon.png')
 print('Built all five language pages, metadata, structured data, bilingual privacy policy, robots, sitemap, social image and icon.')
 subprocess.run([sys.executable,str(ROOT/'scripts/build-whisky.py')],check=True)
+subprocess.run([sys.executable,str(ROOT/'scripts/build-booking.py')],check=True)

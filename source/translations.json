@@ -73,7 +73,8 @@
     "EXPLORE THE WHISKY LIST": "위스키 메뉴 보기",
     "WATCH THE BAR REEL": "바 내부 영상 보기",
     "Music": "음악",
-    "Explore Japanese whisky, Scotch and bourbon at our whisky bar in Susukino, Sapporo.<br>Browse our whisky list and prices; ask us about cocktails and beer.": "스스키노의 위스키 바에서 일본 위스키, 스카치, 버번을 만나보세요.<br>위스키 목록과 가격을 둘러보고 칵테일과 맥주도 직원에게 문의하세요."
+    "Explore Japanese whisky, Scotch and bourbon at our whisky bar in Susukino, Sapporo.<br>Browse our whisky list and prices; ask us about cocktails and beer.": "스스키노의 위스키 바에서 일본 위스키, 스카치, 버번을 만나보세요.<br>위스키 목록과 가격을 둘러보고 칵테일과 맥주도 직원에게 문의하세요.",
+    "BOOK A TABLE": "테이블 예약 요청"
   },
   "th": {
     "The bar": "เกี่ยวกับบาร์",
@@ -149,7 +150,8 @@
     "EXPLORE THE WHISKY LIST": "ดูรายการวิสกี้",
     "WATCH THE BAR REEL": "ชมบรรยากาศภายในบาร์",
     "Music": "ดนตรี",
-    "Explore Japanese whisky, Scotch and bourbon at our whisky bar in Susukino, Sapporo.<br>Browse our whisky list and prices; ask us about cocktails and beer.": "พบกับวิสกี้ญี่ปุ่น สกอตช์ และเบอร์เบินที่บาร์วิสกี้ในซูซูกิโนะ ซัปโปโร<br>ดูรายการและราคา แล้วสอบถามเราเกี่ยวกับค็อกเทลและเบียร์"
+    "Explore Japanese whisky, Scotch and bourbon at our whisky bar in Susukino, Sapporo.<br>Browse our whisky list and prices; ask us about cocktails and beer.": "พบกับวิสกี้ญี่ปุ่น สกอตช์ และเบอร์เบินที่บาร์วิสกี้ในซูซูกิโนะ ซัปโปโร<br>ดูรายการและราคา แล้วสอบถามเราเกี่ยวกับค็อกเทลและเบียร์",
+    "BOOK A TABLE": "ส่งคำขอจองโต๊ะ"
   },
   "zh-Hans": {
     "The bar": "酒吧介绍",
@@ -225,6 +227,7 @@
     "EXPLORE THE WHISKY LIST": "浏览威士忌酒单",
     "WATCH THE BAR REEL": "看看酒吧内部",
     "Music": "音乐",
-    "Explore Japanese whisky, Scotch and bourbon at our whisky bar in Susukino, Sapporo.<br>Browse our whisky list and prices; ask us about cocktails and beer.": "在札幌薄野的威士忌酒吧探索日本威士忌、苏格兰威士忌与波本威士忌。<br>查看酒单与价格，也欢迎询问鸡尾酒和啤酒。"
+    "Explore Japanese whisky, Scotch and bourbon at our whisky bar in Susukino, Sapporo.<br>Browse our whisky list and prices; ask us about cocktails and beer.": "在札幌薄野的威士忌酒吧探索日本威士忌、苏格兰威士忌与波本威士忌。<br>查看酒单与价格，也欢迎询问鸡尾酒和啤酒。",
+    "BOOK A TABLE": "提交订位请求"
   }
 }

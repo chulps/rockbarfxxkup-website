@@ -1,0 +1,74 @@
+<!doctype html>
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#161414">
+  <meta name="description" content="ส่งคำขอจอง Rock Bar FxxK Up ในซูซูกิโนะ ซัปโปโร ผู้จัดการจะตรวจสอบวันและเวลาที่ต้องการ">
+  <link rel="icon" href="/assets/logo.svg">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/booking.css">
+  <title>คำขอจองโต๊ะ | Rock Bar FxxK Up</title>
+  <script src="/booking.js" defer></script>
+
+  <link rel="canonical" href="https://www.rockbarfxxkup.com/th/book/">
+  <link rel="alternate" hreflang="en" href="https://www.rockbarfxxkup.com/book/">
+  <link rel="alternate" hreflang="ja" href="https://www.rockbarfxxkup.com/ja/book/">
+  <link rel="alternate" hreflang="ko" href="https://www.rockbarfxxkup.com/ko/book/">
+  <link rel="alternate" hreflang="th" href="https://www.rockbarfxxkup.com/th/book/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://www.rockbarfxxkup.com/zh-hans/book/">
+  <link rel="alternate" hreflang="x-default" href="https://www.rockbarfxxkup.com/book/">
+</head>
+<body data-locale="th">
+  <header class="booking-header">
+    <a class="brand" href="/th/" aria-label="Rock Bar FxxK Up home"><img src="/assets/logo.svg" alt="Rock Bar FxxK Up" width="66" height="66"><span>SUSUKINO<br>SAPPORO, JP</span></a>
+    <nav aria-label="Main navigation"><a href="/th/" data-copy="home">หน้าแรก</a><a href="/th/#visit" data-copy="visit">แผนที่</a></nav>
+    <div class="language-links" aria-label="ウェブサイトの言語">
+      <a href="/book/" lang="en">EN</a><a href="/ja/book/" lang="ja">日本語</a><a href="/ko/book/" lang="ko">한국어</a><a href="/th/book/" lang="th" aria-current="page">ไทย</a><a href="/zh-hans/book/" lang="zh-Hans">简体中文</a>
+    </div>
+  </header>
+  <main class="booking-page">
+    <section class="booking-intro">
+      <p class="eyebrow"><span class="dot"></span><span data-copy="eyebrow">ซูซูกิโนะ · ซัปโปโร</span></p>
+      <h1 data-copy="title">ส่งคำขอจองโต๊ะ<span class="accent">.</span></h1>
+      <p class="booking-lead" data-copy="lead">แจ้งวันและเวลาที่ต้องการมา ผู้จัดการจะตรวจสอบและตอบกลับทางอีเมลหลังตัดสินใจ</p>
+      <p class="booking-email-language" data-copy="emailLanguage">คำขอภาษาญี่ปุ่นจะได้รับอีเมลภาษาญี่ปุ่น ส่วนคำขอภาษาอื่นจะได้รับอีเมลภาษาอังกฤษ</p>
+    </section>
+    <section class="booking-card" aria-labelledby="form-title">
+      <h2 id="form-title" data-copy="formTitle">คำขอจอง</h2>
+      <p class="booking-note" data-copy="notConfirmed">นี่เป็นคำขอเท่านั้น ยังไม่ใช่การจองที่ยืนยันแล้ว กรุณารออีเมลจากทางร้านก่อนเดินทาง</p>
+      <form id="reservation-form" novalidate>
+        <noscript><p class="booking-note" data-copy="noScript">ต้องเปิด JavaScript เพื่อส่งคำขอ กรุณาโทรหาบาร์หรือส่งข้อความทาง Instagram แทน</p></noscript>
+        <fieldset id="booking-controls" disabled>
+        <div class="booking-fields">
+          <label><span data-copy="name">ชื่อ</span><input name="guest_name" required maxlength="120" autocomplete="name" data-copy-placeholder="ชื่อ"></label>
+          <label><span data-copy="party">จำนวนคน</span><input name="party_size" required type="number" min="1" max="20" step="1" inputmode="numeric" value="2"></label>
+          <label><span data-copy="date">วันที่มาถึง</span><input name="arrival_date" required type="date"></label>
+          <label><span data-copy="time">เวลามาถึง (เวลาญี่ปุ่น)</span><input name="arrival_time" required type="time" step="900"></label>
+          <label class="booking-wide"><span data-copy="email">อีเมล</span><input name="contact_email" required type="email" maxlength="254" autocomplete="email" inputmode="email" data-copy-placeholder="you@example.com"></label>
+          <div class="booking-wide booking-note-translation">
+            <label><span data-copy="note">หมายเหตุ (ไม่บังคับ)</span><textarea name="note" rows="3" data-copy-placeholder="ข้อมูลที่ผู้จัดการควรทราบ"></textarea></label>
+            <small id="note-count" class="booking-character-count" aria-live="polite"><span data-copy="noteCountLabel">จำนวนอักขระ</span>: <span data-note-count>0</span> / 500</small>
+            <label class="booking-translation-consent"><input name="translate_note" type="checkbox" value="true"><span data-copy="translationConsent">ยินยอมส่งหมายเหตุนี้ไปยัง MyMemory เพื่อแปล (ไม่บังคับ)</span></label>
+            <label id="note-language-field" hidden><span data-copy="noteLanguage">หมายเหตุเขียนเป็นภาษาใด</span><select name="note_language" disabled><option value="" data-copy="chooseNoteLanguage">เลือกภาษา</option><option value="en" data-copy="english">อังกฤษ</option><option value="ja" data-copy="japanese">ญี่ปุ่น</option></select></label>
+            <small class="booking-translation-note" data-copy="translationNotice">การยินยอมแปลเป็นทางเลือกและปิดไว้ตามค่าเริ่มต้น หากยินยอม ข้อความหมายเหตุทั้งหมดจะถูกส่งไปยัง MyMemory และอาจถูกเก็บไว้นานหรือประมวลผลโดยพันธมิตร ข้อมูลส่วนตัวใด ๆ ที่เขียนในหมายเหตุก็จะถูกส่งด้วย ช่องชื่อ ข้อมูลติดต่อ จำนวนคน และเวลามาถึงจะไม่รวมอยู่ในคำขอแปล การแปลด้วยเครื่องอาจคลาดเคลื่อน หากไม่ยินยอม ร้านจะเห็นเฉพาะหมายเหตุต้นฉบับ ข้อความต้นฉบับและคำแปลจะถูกเก็บไว้กับคำขอเพื่อให้ผู้จัดการตรวจสอบ</small>
+          </div>
+          <label class="booking-trap" aria-hidden="true" tabindex="-1">Website<input name="website" autocomplete="off" tabindex="-1"></label>
+        </div>
+        <button id="submit-button" class="button yellow booking-submit" type="submit" disabled><span data-copy="submit">ส่งคำขอ</span><span aria-hidden="true">→</span></button>
+        </fieldset>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="booking-footnote" data-copy="privacy">เราใช้ข้อมูลของคุณเพื่อตรวจสอบและตอบคำขอนี้ โปรดอ่านนโยบายความเป็นส่วนตัว</p>
+    </section>
+    <section class="booking-contact">
+      <p data-copy="urgent">หากต้องการคำตอบเร่งด่วน กรุณาโทรหาร้าน</p>
+      <a href="tel:0112009666">011-200-9666</a>
+      <a href="https://www.instagram.com/rockbar_fxxkup/" target="_blank" rel="noopener" data-copy="instagram">ส่งข้อความทาง Instagram</a>
+    </section>
+  </main>
+  <footer class="booking-footer"><a href="/privacy/" data-copy="privacyLink">นโยบายความเป็นส่วนตัว</a><span>ROCK &amp; WHISKY · SUSUKINO, SAPPORO</span><span>© 2026 ROCK BAR FXXK UP</span></footer>
+<script id="booking-messages" type="application/json">{"home": "หน้าแรก", "visit": "แผนที่", "eyebrow": "ซูซูกิโนะ · ซัปโปโร", "title": "ส่งคำขอจองโต๊ะ", "lead": "แจ้งวันและเวลาที่ต้องการมา ผู้จัดการจะตรวจสอบและตอบกลับทางอีเมลหลังตัดสินใจ", "formTitle": "คำขอจอง", "notConfirmed": "นี่เป็นคำขอเท่านั้น ยังไม่ใช่การจองที่ยืนยันแล้ว กรุณารออีเมลจากทางร้านก่อนเดินทาง", "name": "ชื่อ", "namePlaceholder": "ชื่อ", "party": "จำนวนคน", "date": "วันที่มาถึง", "time": "เวลามาถึง (เวลาญี่ปุ่น)", "email": "อีเมล", "emailPlaceholder": "you@example.com", "note": "หมายเหตุ (ไม่บังคับ)", "notePlaceholder": "ข้อมูลที่ผู้จัดการควรทราบ", "translationNotice": "การยินยอมแปลเป็นทางเลือกและปิดไว้ตามค่าเริ่มต้น หากยินยอม ข้อความหมายเหตุทั้งหมดจะถูกส่งไปยัง MyMemory และอาจถูกเก็บไว้นานหรือประมวลผลโดยพันธมิตร ข้อมูลส่วนตัวใด ๆ ที่เขียนในหมายเหตุก็จะถูกส่งด้วย ช่องชื่อ ข้อมูลติดต่อ จำนวนคน และเวลามาถึงจะไม่รวมอยู่ในคำขอแปล การแปลด้วยเครื่องอาจคลาดเคลื่อน หากไม่ยินยอม ร้านจะเห็นเฉพาะหมายเหตุต้นฉบับ ข้อความต้นฉบับและคำแปลจะถูกเก็บไว้กับคำขอเพื่อให้ผู้จัดการตรวจสอบ", "submit": "ส่งคำขอ", "privacy": "เราใช้ข้อมูลของคุณเพื่อตรวจสอบและตอบคำขอนี้ โปรดอ่านนโยบายความเป็นส่วนตัว", "urgent": "หากต้องการคำตอบเร่งด่วน กรุณาโทรหาร้าน", "instagram": "ส่งข้อความทาง Instagram", "privacyLink": "นโยบายความเป็นส่วนตัว", "required": "กรุณากรอกข้อมูลที่จำเป็นให้ครบ", "sending": "กำลังส่ง…", "sent": "เราได้รับคำขอแล้ว การจองยังไม่ยืนยันจนกว่าร้านจะอนุมัติ", "emailAccepted": "เราได้ส่งอีเมลรับคำขอแล้ว อีเมลนี้ยังไม่ใช่การยืนยันการจอง", "emailOff": "ระบบยืนยันทางอีเมลยังไม่เปิดใช้งาน หากต้องการคำตอบเร่งด่วนกรุณาโทรหาร้าน", "emailUnclear": "ไม่สามารถตรวจสอบสถานะอีเมลได้ หากต้องการคำตอบเร่งด่วนกรุณาโทรหาร้าน", "error": "ส่งคำขอไม่สำเร็จ กรุณาลองอีกครั้งหรือติดต่อร้าน", "titleTag": "คำขอจองโต๊ะ | Rock Bar FxxK Up", "description": "ส่งคำขอจอง Rock Bar FxxK Up ในซูซูกิโนะ ซัปโปโร ผู้จัดการจะตรวจสอบวันและเวลาที่ต้องการ", "emailLanguage": "คำขอภาษาญี่ปุ่นจะได้รับอีเมลภาษาญี่ปุ่น ส่วนคำขอภาษาอื่นจะได้รับอีเมลภาษาอังกฤษ", "translationConsent": "ยินยอมส่งหมายเหตุนี้ไปยัง MyMemory เพื่อแปล (ไม่บังคับ)", "noteLanguage": "หมายเหตุเขียนเป็นภาษาใด", "chooseNoteLanguage": "เลือกภาษา", "english": "อังกฤษ", "japanese": "ญี่ปุ่น", "noteCountLabel": "จำนวนอักขระ", "noteTooLong": "โปรดจำกัดหมายเหตุไม่เกิน 500 อักขระ", "noScript": "ต้องเปิด JavaScript เพื่อส่งคำขอ กรุณาโทรหาบาร์หรือส่งข้อความทาง Instagram แทน"}</script>
+</body>
+</html>
