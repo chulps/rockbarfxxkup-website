@@ -17,7 +17,8 @@ for lang,path,url in [(code,('index.html' if code=='en' else code.lower()+'/inde
  for attr in doc.xpath('//@data-en|//@data-ja'):assert 'data-ja=' not in attr
  assert 'muddyeagle18' not in (D/path).read_text()
  assert len(doc.xpath('//img[@width and @height]'))==len(doc.xpath('//img'))
- assert doc.xpath('//a[@href="/menu/"]')
+ menu_path = "/menu/" if lang == "en" else f"/{lang.lower()}/menu/"
+ assert doc.xpath('//a[@href=$href]', href=menu_path), (lang, menu_path)
 etree.fromstring((D/'sitemap.xml').read_bytes());assert 'Sitemap: '+origin+'/sitemap.xml' in (D/'robots.txt').read_text()
 assert 'grayscale(' not in (D/'style.css').read_text()
 print('PASS: canonical URLs, language alternates, metadata, schema, assets, sitemap and robots.')
