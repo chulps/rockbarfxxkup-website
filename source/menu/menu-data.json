@@ -895,16 +895,6 @@
     }
   },
   {
-    "id": 72,
-    "category": "Scotch",
-    "name": "Speyburn 15 Year",
-    "subcategory": "Speyside",
-    "tags": [],
-    "prices": {
-      "standard": 1400
-    }
-  },
-  {
     "id": 73,
     "category": "Scotch",
     "name": "Speyburn 16 Year",
@@ -1415,16 +1405,6 @@
       "standard": 1000
     },
     "notes": "※"
-  },
-  {
-    "id": 118,
-    "category": "Scotch",
-    "name": "Ballantine Christmas Reserve",
-    "subcategory": "Blended",
-    "tags": [],
-    "prices": {
-      "standard": 1000
-    }
   },
   {
     "id": 119,
@@ -2387,7 +2367,7 @@
     "name": "Cristalino",
     "tags": [],
     "prices": {
-      "standard": 1200
+      "standard": 1300
     }
   },
   {

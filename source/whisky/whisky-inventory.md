@@ -1,6 +1,7 @@
-# Rock and whiskey bar Sapporo: menu
+# Whiskey Bar in Sapporo’s Susukino | Rock Bar FxxK Up
 
-Page title: Rock and whiskey bar Sapporo: menu
+Page title: Whiskey Bar in Sapporo’s Susukino | Rock Bar FxxK Up
+Page description: Compare Yoichi, Akkeshi and Yamazaki pours at Rock Bar FxxK Up, a four-minute walk from Susukino Station. Browse the whisky menu with prices and request a rock song.
 
 Last updated October 30, 2026
 
@@ -8,7 +9,6 @@ Last updated October 30, 2026
 
 - Nikka Frontier — ¥800
 - Nikka Session — ¥900
-- Nikka Days — ¥1,000
 - Nikka From The Barrel — ¥1,100
 - Nikka Coffey Grain — ¥1,100
 - Nikka Coffey Malt — ¥1,200
@@ -55,7 +55,6 @@ Last updated October 30, 2026
 - Yamazaki SOD 2024 (Limited Edition) — 15ml ¥1,400 / 30ml ¥2,800
 - Yamazaki SOD 2025 (Limited Edition) — 15ml ¥1,400 / 30ml ¥2,800
 - Yamazaki 12 Year — 15ml ¥1,400 / 30ml ¥2,800
-- Yamazaki Smoky Batch (Limited Edition) — 15ml ¥1,800 / 30ml ¥3,500
 - Yamazaki 18 Year — 15ml ¥5,000 / 30ml ¥10,000
 
 ## Japanese Whisky — Ichiro’s Malt
@@ -73,7 +72,6 @@ Last updated October 30, 2026
 - Sogaini — ¥800
 - Iwai Tradition — ¥800
 - The Lucky Cat Choco & Luna — ¥1,200
-- Sakurao Single Malt — ¥1,200
 - Sakurao Sherry Cask — ¥1,800
 - Fuji Single Malt — ¥1,200
 - Tsunuki Single Malt — ¥1,400
@@ -84,7 +82,7 @@ Last updated October 30, 2026
 - Akkeshi Shousho — 15ml ¥1,800 / 30ml ¥3,500
 - Akkeshi Rikka — 15ml ¥1,800 / 30ml ¥3,500
 - Akkeshi Shokan — 15ml ¥1,800 / 30ml ¥3,500
-- Akkeshi Risshun — 15ml ¥1,800 / 30ml ¥3,500
+- Akkeshi Keichitsu — 15ml ¥1,800 / 30ml ¥3,500
 - Akkeshi Shunbun — 15ml ¥2,100 / 30ml ¥4,200
 
 ## Bourbon
@@ -122,7 +120,7 @@ Last updated October 30, 2026
 - GlenGrant Arboralis — ¥800
 - GlenGrant Arboralis Cask Strength — ¥1,100
 - GlenGrant 10 Year — ¥1,000
-- Ben Riach 12 Year “The Smokey” — ¥1,200
+- Ben Riach 12 Year — ¥1,200
 - Glenlivet 12 Year — ¥1,000
 - Glenlivet 12 Year 200th Anniversary Limited Edition — ¥1,200
 - Glenfiddich 12 Year — ¥1,100
@@ -130,7 +128,6 @@ Last updated October 30, 2026
 - Glenfiddich 15 Year — ¥1,500
 - Glenfiddich 18 Year — 15ml ¥1,000 / 30ml ¥2,000
 - Speyburn 10 Year — ¥1,000
-- Speyburn 15 Year — ¥1,400
 - Speyburn 16 Year — ¥1,600
 - Speyburn 18 Year — 15ml ¥1,300 / 30ml ¥2,500
 - Macallan 12 Year Double Cask — ¥1,600
@@ -172,8 +169,8 @@ Last updated October 30, 2026
 - Lagavulin 8 Year — ¥1,200
 - Lagavulin 16 Year — ¥1,800
 - Laphroaig 10 Year — ¥1,200
-- Octomore (menu subtitle: Bruichladdic) — 15ml ¥1,800 / 30ml ¥3,500
-- Octomore 16.2 — ¥3,500
+- Octomore — 15ml ¥1,800 / 30ml ¥3,500
+- Octomore 16.2 — 15ml ¥1,800 / 30ml ¥3,500 / standard ¥3,500
 - Ardbeg 10 — ¥1,100
 
 ## Scotch — Blended
@@ -188,7 +185,6 @@ Last updated October 30, 2026
 - Chivas Regal 12 Year — ¥800
 - Chivas Regal Mizunara 12 Year — ¥1,000
 - Ballantine 12 Year — ¥1,000
-- Ballantine Christmas Reserve — ¥1,000
 - Old Parr 12 Year — ¥1,000
 - Monkey Shoulder — ¥1,000
 - Spice King — ¥1,100

@@ -32,7 +32,7 @@ def inventory_translations(locale):
     return {key(original): translated_name for original, translated_name in zip(english, translated)}
 
 
-def price_label(prices):
+def price_label(prices, standard_label="standard"):
     pours = []
     for size in ("15ml", "30ml"):
         value = prices.get(size)
@@ -40,7 +40,8 @@ def price_label(prices):
             pours.append(f"{size} ¥{value:,}")
     standard = prices.get("standard")
     if standard:
-        pours.append(f"¥{standard:,}")
+        prefix = standard_label + " " if pours else ""
+        pours.append(f"{prefix}¥{standard:,}")
     return " / ".join(pours)
 
 
@@ -51,6 +52,7 @@ def main():
     for item in items:
         grouped.setdefault(item["category"], []).append(item)
     external_icon = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"></path></svg>'
+    whisky_guide_link = {"en": "Explore the whisky list and prices", "ja": "ウイスキーの一覧と価格を見る", "ko": "위스키 목록과 가격 보기", "th": "ดูรายการและราคาวิสกี้", "zh-hans": "浏览威士忌酒单与价格"}
     schema_menus = {}
 
     for locale, html_language in LOCALES.items():
@@ -80,7 +82,8 @@ def main():
                 position += 1
                 original_name = item["name"].strip()
                 name = display_name(original_name)
-                price = price_label(item.get("prices", {}))
+                standard_labels = {"en": "standard", "ja": "通常", "ko": "기본", "th": "ปกติ", "zh-hans": "标准"}
+                price = price_label(item.get("prices", {}), standard_labels[locale])
                 searchable = " ".join([
                     name,
                     original_name,
@@ -168,7 +171,7 @@ def main():
         alternates_html = "".join(
             f'<link rel="alternate" hreflang="{hreflang}" href="{url}">'
             for hreflang, url in (("en", ORIGIN+"/menu/"), ("ja", ORIGIN+"/ja/menu/"), ("ko", ORIGIN+"/ko/menu/"), ("th", ORIGIN+"/th/menu/"), ("zh-Hans", ORIGIN+"/zh-hans/menu/"))
-        )
+        ) + f'<link rel="alternate" hreflang="x-default" href="{ORIGIN}/menu/">'
         html = f'''<!doctype html>
 <html lang="{language}">
 <head>
@@ -209,6 +212,7 @@ def main():
     <div class="section-tag">{copy['tag']}</div>
     <h1>{copy['h1']}<span class="accent">.</span></h1>
     <p class="whisky-intro">{escape(copy['intro'])}</p>
+    <div class="whisky-visit-links"><a href="{nav_whisky}" data-track-event="whisky_page_open" data-track-destination="whisky" data-track-placement="menu_intro">{escape(whisky_guide_link[locale])} {external_icon}</a></div>
     <p class="whisky-availability">{escape(copy['cover'])}</p>
     <p class="whisky-updated">{escape(copy['updated'])}</p>
     <p class="whisky-availability">{escape(copy['availability'])}</p>

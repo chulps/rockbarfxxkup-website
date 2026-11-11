@@ -14,6 +14,7 @@
   const suggestionStatus = document.getElementById("whisky-suggestion-status");
   const suggestionMessage = document.getElementById("whisky-suggestion-message");
   const groups = Array.from(document.querySelectorAll("[data-whisky-group]"));
+  const japaneseNote = document.querySelector("[data-whisky-japanese-note]");
   if (!search || !category || !clear || !count || !empty) return;
 
   const track = (eventName, parameters = {}) => {
@@ -84,6 +85,10 @@
       });
       group.hidden = groupCount === 0;
     });
+
+    if (japaneseNote) {
+      japaneseNote.hidden = !groups.some((group) => group.dataset.whiskyOrigin === "japanese" && !group.hidden);
+    }
 
     const countSuffix = selectedCategory === "all" ? " " + count.dataset.suffix : "";
     count.textContent = "(" + visibleCount + countSuffix + ")";

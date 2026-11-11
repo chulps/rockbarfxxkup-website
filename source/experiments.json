@@ -1,7 +1,7 @@
 {
   "firstVisit": {
     "id": "first_visit_confidence_2026_10_v1",
-    "enabled": true,
+    "enabled": false,
     "allocation": 0.5,
     "storageKey": "fxxkup_first_visit_confidence_2026_10_v1",
     "copy": {
@@ -51,7 +51,7 @@
         "supporting": "欢迎点歌。优质威士忌、摇滚音乐和友好的氛围，让你自在享受薄野之夜。"
       }
     },
-    "endsAt": "2026-11-23T00:00:00+09:00",
+    "endsAt": "2026-11-03T00:25:40+09:00",
     "rolloutVariant": "A"
   }
 }

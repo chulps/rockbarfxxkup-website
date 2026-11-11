@@ -1,0 +1,23 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const vm=require('node:vm');
+const root=path.resolve(__dirname,'..');
+test('Japanese origin note follows visible Japanese categories across repeated filtering and clearing',()=>{
+  const el=(extra={})=>({hidden:false,value:'',style:{},dataset:{},listeners:{},addEventListener(k,f){this.listeners[k]=f},...extra});
+  const makeGroup=(id,title,name,japanese)=>{const item=el({textContent:name,dataset:{search:name.toLowerCase()}});return el({dataset:{categoryId:id,...(japanese?{whiskyOrigin:'japanese'}:{})},querySelector:q=>q==='h2'?{textContent:title}:null,querySelectorAll:q=>q==='.whisky-name'||q==='.whisky-item'?[item]:[],item});};
+  const nikka=makeGroup('1','Nikka','Yoichi',true),suntory=makeGroup('2','Suntory','Yamazaki',true),islay=makeGroup('10','Islay','Ardbeg',false),groups=[nikka,suntory,islay];
+  const note=el(),controls=el(),search=el({focus(){}}),category=el({value:'all',options:[{textContent:'All'}],selectedIndex:0,clientWidth:300}),clear=el(),count=el({dataset:{suffix:'results'},getBoundingClientRect:()=>({width:30})}),empty=el();
+  const byId={'whisky-search':search,'whisky-category':category,'whisky-clear':clear,'whisky-count':count,'whisky-empty':empty};
+  const document={documentElement:{lang:'en'},fonts:{ready:Promise.resolve()},getElementById:id=>byId[id]||null,querySelector:q=>q==='.whisky-controls'?controls:q==='[data-whisky-japanese-note]'?note:null,querySelectorAll:q=>q==='[data-whisky-group]'?groups:q==='.whisky-item'?groups.map(g=>g.item):[],createElement:()=>({getContext:()=>null})};
+  const window={addEventListener(){},setTimeout:()=>0,clearTimeout(){}};
+  vm.runInNewContext(fs.readFileSync(path.join(root,'source/whisky.js'),'utf8'),{document,window,Number,Array,Map,String,Math});
+  assert.equal(note.hidden,false);
+  category.value='10';category.listeners.change();assert.equal(note.hidden,true);
+  category.value='2';category.listeners.change();assert.equal(note.hidden,false);assert.equal(nikka.hidden,true);assert.equal(suntory.hidden,false);
+  search.value='nothing';search.listeners.input();assert.equal(note.hidden,true);assert.equal(empty.hidden,false);
+  clear.listeners.click();assert.equal(note.hidden,false);assert.equal(empty.hidden,true);
+  search.value='ardbeg';search.listeners.input();assert.equal(note.hidden,true);
+  search.value='yoichi';search.listeners.input();assert.equal(note.hidden,false);
+});
